@@ -4,7 +4,7 @@ function getInitialLocale() {
   if (typeof window !== 'undefined') {
     const path = window.location.pathname;
     const locale = path.split('/')[1];
-    if (['es', 'en'].includes(locale)) {
+    if (['es', 'en', 'pt'].includes(locale)) {
       return locale;
     }
   }
@@ -32,7 +32,7 @@ export default function LanguageSwitcher() {
   const changeLanguage = locale => {
     if (typeof window !== 'undefined') {
       const currentPath = window.location.pathname;
-      const pathWithoutLocale = currentPath.replace(/^\/(es|en)/, '') || '/';
+      const pathWithoutLocale = currentPath.replace(/^\/(es|en|pt)/, '') || '/';
       const newPath = `/${locale}${pathWithoutLocale}`;
       window.location.href = newPath;
     }
@@ -59,6 +59,16 @@ export default function LanguageSwitcher() {
         }`}
       >
         EN
+      </button>
+      <button
+        onClick={() => changeLanguage('pt')}
+        className={`px-3 py-1 rounded ${
+          currentLocale === 'pt'
+            ? 'bg-blue-500 text-white'
+            : 'bg-gray-200 text-gray-700'
+        }`}
+      >
+        PT
       </button>
     </div>
   );
