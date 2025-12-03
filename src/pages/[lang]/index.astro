@@ -1,5 +1,5 @@
 ---
-import '@styles/index.css';
+import BaseLayout from '@layouts/BaseLayout.astro';
 import Header from '@layouts/Header.astro';
 import type { Language } from '../../types/language.type';
 import es from '@i18n/locales/es.json';
@@ -25,18 +25,9 @@ const translations = { es, en, pt };
 const t = translations[lang];
 ---
 
-<html lang={lang as Language}>
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/icons/org/logo-base.png" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{t.title}</title>
-  </head>
-  <body>
-    <Header lang={lang} />
-    <main>
-      <h1>{t.title}</h1>
-    </main>
-  </body>
-</html>
+<BaseLayout lang={lang} title={t.title}>
+  <Header lang={lang} />
+  <main>
+    <h1>{t.title}</h1>
+  </main>
+</BaseLayout>

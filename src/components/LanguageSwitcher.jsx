@@ -69,11 +69,11 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 bg-transparent border-2 border-white rounded-full text-white font-medium hover:bg-white/10 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-green-900"
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-transparent border-2 border-white rounded-full text-white font-medium hover:bg-white/10 transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-green-900 text-sm"
         aria-label="Cambiar idioma"
         aria-expanded={isOpen}
       >
-        <Globe size={18} className="shrink-0" />
+        <Globe size={16} className="shrink-0" />
         <span className="uppercase">{currentLang.code}</span>
         <svg
           className={`w-4 h-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}

@@ -1,4 +1,6 @@
 ---
+import Image from 'astro/components/Image.astro';
+
 interface Props {
   lang?: string;
 }
@@ -10,11 +12,11 @@ const { lang = 'es' } = Astro.props;
   href={`/${lang}`}
   class="flex items-center gap-2 hover:opacity-80 transition-opacity"
 >
-  <img
+  <Image
     src="/icons/org/logo.png"
     alt="KEY Protocol Logo"
-    class="h-8 w-8 object-contain"
-    width="32"
-    height="32"
+    width={48}
+    height={48}
+    class="h-12 w-12 object-contain"
   />
 </a>
