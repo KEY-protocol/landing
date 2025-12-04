@@ -7,18 +7,46 @@ interface Props {
   width?: number;
   height?: number;
   class?: string;
+  href?: string;
+  target?: string;
 }
 
-const { src, alt, width = 80, height = 80, class: className = '' } = Astro.props;
+const {
+  src,
+  alt,
+  width = 80,
+  height = 80,
+  class: className = '',
+  href,
+  target = '_blank',
+} = Astro.props;
 ---
 
-<div class="flex items-center">
-  <Image
-    src={src}
-    alt={alt}
-    width={width}
-    height={height}
-    class={`h-16 w-16 md:h-44 md:w-44 object-contain brightness-0 invert ${className}`}
-  />
-</div>
-
+{
+  href ? (
+    <a
+      href={href}
+      target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+      class="flex items-center hover:opacity-80 transition-opacity"
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        class={`h-16 w-16 md:h-44 md:w-44 object-contain brightness-0 invert ${className}`}
+      />
+    </a>
+  ) : (
+    <div class="flex items-center">
+      <Image
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        class={`h-16 w-16 md:h-44 md:w-44 object-contain brightness-0 invert ${className}`}
+      />
+    </div>
+  )
+}
