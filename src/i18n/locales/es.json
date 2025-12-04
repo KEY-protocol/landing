@@ -40,5 +40,31 @@
         "description": "Tecnología que funciona sin conectividad, diseñada para las comunidades más remotas"
       }
     }
+  },
+  "impacto": {
+    "title": "Impacto",
+    "subtitle": "Métricas de trazabilidad en tiempo real y eficiencia operativa de los recursos.",
+    "metrics": {
+      "investment": {
+        "value": "1.4M+",
+        "label": "Volumen de Inversión Trazable",
+        "description": "Nuestro sistema permite rastrear y certificar cada dólar invertido en proyectos de impacto social. A través de la tecnología blockchain y validación en territorio, garantizamos transparencia total en el uso de recursos, permitiendo a los inversores verificar en tiempo real cómo se utilizan sus fondos y el impacto generado."
+      },
+      "savings": {
+        "value": "30%",
+        "label": "Ahorro en Costos Operativos",
+        "description": "El costo invisible de la ayuda humanitaria es el de gestionar los medios para verificar evidencias. Al digitalizar la validación en origen y acortar los tiempos de monitoreo liberamos un 30% del presupuesto operativo. Esto significa ~$420.000 en gastos operativos que pueden redirigirse directamente al impacto."
+      },
+      "organizations": {
+        "value": "5",
+        "label": "Organizaciones Aliadas",
+        "description": "No construimos solos. Nuestra fase piloto se despliega junto nuestros socios locales e institucionales. Esta red nos permite validar la tecnología en diversos contextos culturales y geográficos, asegurando que el protocolo sea robusto, intuitivo y verdaderamente útil para quienes trabajan día a día en el territorio."
+      },
+      "identities": {
+        "value": "2.500+",
+        "label": "Identidades Digitales (DIDs)",
+        "description": "Las Identidades Digitales Descentralizadas (DIDs) empoderan a los beneficiarios con historiales inmutables de sus capacitaciones, producciones y logros. Esto les otorga soberanía sobre sus datos y facilita el acceso a microcréditos y nuevos mercados sin intermediarios, transformando su relación con el sistema financiero y productivo."
+      }
+    }
   }
 }

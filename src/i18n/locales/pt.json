@@ -40,5 +40,31 @@
         "description": "Tecnologia que funciona sem conectividade, projetada para as comunidades mais remotas"
       }
     }
+  },
+  "impacto": {
+    "title": "Impacto",
+    "subtitle": "Métricas de rastreabilidade em tempo real e eficiência operacional dos recursos.",
+    "metrics": {
+      "investment": {
+        "value": "1.4M+",
+        "label": "Volume de Investimento Rastreável",
+        "description": "Nosso sistema permite rastrear e certificar cada dólar investido em projetos de impacto social. Através da tecnologia blockchain e validação em território, garantimos transparência total no uso de recursos, permitindo que os investidores verifiquem em tempo real como seus fundos são utilizados e o impacto gerado."
+      },
+      "savings": {
+        "value": "30%",
+        "label": "Economia em Custos Operacionais",
+        "description": "O custo invisível da ajuda humanitária é gerenciar os meios para verificar evidências. Ao digitalizar a validação na origem e encurtar os tempos de monitoramento, liberamos 30% do orçamento operacional. Isso significa ~$420.000 em despesas operacionais que podem ser redirecionadas diretamente para o impacto."
+      },
+      "organizations": {
+        "value": "5",
+        "label": "Organizações Aliadas",
+        "description": "Não construímos sozinhos. Nossa fase piloto é implantada junto com nossos parceiros locais e institucionais. Esta rede nos permite validar a tecnologia em diversos contextos culturais e geográficos, garantindo que o protocolo seja robusto, intuitivo e verdadeiramente útil para aqueles que trabalham diariamente no território."
+      },
+      "identities": {
+        "value": "2.500+",
+        "label": "Identidades Digitais (DIDs)",
+        "description": "As Identidades Digitais Descentralizadas (DIDs) capacitam os beneficiários com históricos imutáveis de suas capacitações, produções e conquistas. Isso lhes concede soberania sobre seus dados e facilita o acesso a microcréditos e novos mercados sem intermediários, transformando sua relação com o sistema financeiro e produtivo."
+      }
+    }
   }
 }

@@ -1,0 +1,120 @@
+---
+import MetricCard from './MetricCard.astro';
+import MetricModal from './MetricModal.jsx';
+
+interface Props {
+  impacto: {
+    title: string;
+    subtitle: string;
+    metrics: {
+      investment: {
+        value: string;
+        label: string;
+        description: string;
+      };
+      savings: {
+        value: string;
+        label: string;
+        description: string;
+      };
+      organizations: {
+        value: string;
+        label: string;
+        description: string;
+      };
+      identities: {
+        value: string;
+        label: string;
+        description: string;
+      };
+    };
+  };
+}
+
+const { impacto } = Astro.props;
+---
+
+<section class="py-16 md:py-24 px-6" style="background-color: #E8F5E9;">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-12">
+      <h2
+        class="text-4xl md:text-5xl lg:text-6xl font-montserrat font-bold mb-4"
+        style="color: #2E7D32;"
+      >
+        {impacto.title}
+      </h2>
+      <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-4xl">
+        {impacto.subtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+      <MetricCard
+        id="investment"
+        value={impacto.metrics.investment.value}
+        label={impacto.metrics.investment.label}
+        imageSrc="/imgs/image_1.jpg"
+        imageAlt="Agricultural field"
+      />
+      <MetricCard
+        id="savings"
+        value={impacto.metrics.savings.value}
+        label={impacto.metrics.savings.label}
+        imageSrc="/imgs/image_2.jpg"
+        imageAlt="Forest landscape"
+      />
+      <MetricCard
+        id="organizations"
+        value={impacto.metrics.organizations.value}
+        label={impacto.metrics.organizations.label}
+        imageSrc="/imgs/image_3.jpg"
+        imageAlt="Rural scene"
+      />
+      <MetricCard
+        id="identities"
+        value={impacto.metrics.identities.value}
+        label={impacto.metrics.identities.label}
+        imageSrc="/imgs/image_4.jpg"
+        imageAlt="Person working in field"
+      />
+    </div>
+
+    <!-- Modals -->
+    <MetricModal
+      client:load
+      id="investment"
+      value={impacto.metrics.investment.value}
+      label={impacto.metrics.investment.label}
+      description={impacto.metrics.investment.description}
+      imageSrc="/imgs/image_1.jpg"
+      imageAlt="Agricultural field"
+    />
+    <MetricModal
+      client:load
+      id="savings"
+      value={impacto.metrics.savings.value}
+      label={impacto.metrics.savings.label}
+      description={impacto.metrics.savings.description}
+      imageSrc="/imgs/image_2.jpg"
+      imageAlt="Forest landscape"
+    />
+    <MetricModal
+      client:load
+      id="organizations"
+      value={impacto.metrics.organizations.value}
+      label={impacto.metrics.organizations.label}
+      description={impacto.metrics.organizations.description}
+      imageSrc="/imgs/image_3.jpg"
+      imageAlt="Rural scene"
+    />
+    <MetricModal
+      client:load
+      id="identities"
+      value={impacto.metrics.identities.value}
+      label={impacto.metrics.identities.label}
+      description={impacto.metrics.identities.description}
+      imageSrc="/imgs/image_4.jpg"
+      imageAlt="Person working in field"
+    />
+  </div>
+</section>

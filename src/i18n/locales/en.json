@@ -40,5 +40,31 @@
         "description": "Technology that works without connectivity, designed for the most remote communities"
       }
     }
+  },
+  "impacto": {
+    "title": "Impact",
+    "subtitle": "Real-time traceability metrics and operational efficiency of resources.",
+    "metrics": {
+      "investment": {
+        "value": "1.4M+",
+        "label": "Traceable Investment Volume",
+        "description": "Our system allows tracking and certifying every dollar invested in social impact projects. Through blockchain technology and field validation, we guarantee total transparency in resource use, enabling investors to verify in real-time how their funds are used and the impact generated."
+      },
+      "savings": {
+        "value": "30%",
+        "label": "Operational Cost Savings",
+        "description": "The invisible cost of humanitarian aid is managing the means to verify evidence. By digitizing validation at origin and shortening monitoring times, we free up 30% of the operational budget. This means ~$420,000 in operational expenses that can be redirected directly to impact."
+      },
+      "organizations": {
+        "value": "5",
+        "label": "Allied Organizations",
+        "description": "We don't build alone. Our pilot phase is deployed together with our local and institutional partners. This network allows us to validate the technology in diverse cultural and geographical contexts, ensuring that the protocol is robust, intuitive, and truly useful for those who work daily in the field."
+      },
+      "identities": {
+        "value": "2.500+",
+        "label": "Digital Identities (DIDs)",
+        "description": "Decentralized Digital Identities (DIDs) empower beneficiaries with immutable histories of their training, productions, and achievements. This grants them data sovereignty and facilitates access to microcredits and new markets without intermediaries, transforming their relationship with the financial and productive system."
+      }
+    }
   }
 }

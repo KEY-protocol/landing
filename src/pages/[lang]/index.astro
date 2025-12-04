@@ -2,6 +2,7 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Hero from '@components/Hero/Hero.astro';
 import Vision from '@components/Vision/Vision.astro';
+import Impacto from '@components/Impacto/Impacto.astro';
 import type { Language } from '../../types/language.type';
 import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
@@ -29,4 +30,5 @@ const t = translations[lang];
 <BaseLayout lang={lang} title={t.title}>
   <Hero hero={t.hero} />
   <Vision vision={t.vision} />
+  <Impacto impacto={t.impacto} />
 </BaseLayout>
