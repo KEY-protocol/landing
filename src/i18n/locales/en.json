@@ -15,5 +15,30 @@
       "line3": "regenerate",
       "line4": "the world"
     }
+  },
+  "vision": {
+    "title": "Vision",
+    "description": {
+      "part1": "KEY protocol",
+      "part2": "provides the digital infrastructure to certify actions in connectivity-free environments, transforming field management into immutable evidence. We enable organizations to validate their work with",
+      "part3": "offline-first",
+      "part4": "technology and guarantee funders",
+      "part5": "traceability and monitoring",
+      "part6": "of their resources."
+    },
+    "cards": {
+      "validation": {
+        "title": "Field Validation",
+        "description": "Simple tools to document and validate the impact of training in real time"
+      },
+      "impact": {
+        "title": "Certified Impact",
+        "description": "Total transparency for investors and organizations on resource usage"
+      },
+      "offline": {
+        "title": "Offline first",
+        "description": "Technology that works without connectivity, designed for the most remote communities"
+      }
+    }
   }
 }

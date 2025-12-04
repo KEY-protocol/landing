@@ -1,0 +1,70 @@
+---
+import Card from '@components/common/Card.astro';
+
+interface Props {
+  vision: {
+    title: string;
+    description: {
+      part1: string;
+      part2: string;
+      part3: string;
+      part4: string;
+      part5: string;
+      part6: string;
+    };
+    cards: {
+      validation: {
+        title: string;
+        description: string;
+      };
+      impact: {
+        title: string;
+        description: string;
+      };
+      offline: {
+        title: string;
+        description: string;
+      };
+    };
+  };
+}
+
+const { vision } = Astro.props;
+---
+
+<section class="bg-white py-16 md:py-24 px-6">
+  <div class="max-w-7xl mx-auto">
+    <h2
+      class="text-4xl md:text-5xl lg:text-6xl font-montserrat font-bold text-gray-900 mb-6"
+    >
+      {vision.title}
+    </h2>
+
+    <p
+      class="text-gray-700 text-base md:text-lg leading-relaxed mb-12 max-w-4xl"
+    >
+      <strong class="font-semibold">{vision.description.part1}</strong>
+      {vision.description.part2}{' '}
+      <strong class="font-semibold">{vision.description.part3}</strong>
+      {vision.description.part4}{' '}
+      <strong class="font-semibold">{vision.description.part5}</strong>
+      {vision.description.part6}
+    </p>
+
+    <!-- Tarjetas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <Card
+        title={vision.cards.validation.title}
+        description={vision.cards.validation.description}
+      />
+      <Card
+        title={vision.cards.impact.title}
+        description={vision.cards.impact.description}
+      />
+      <Card
+        title={vision.cards.offline.title}
+        description={vision.cards.offline.description}
+      />
+    </div>
+  </div>
+</section>

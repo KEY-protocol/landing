@@ -15,5 +15,30 @@
       "line3": "regenerar el",
       "line4": "mundo"
     }
+  },
+  "vision": {
+    "title": "Visión",
+    "description": {
+      "part1": "KEY protocol",
+      "part2": "provee la infraestructura digital para certificar acciones en entornos sin conectividad, transformando la gestión de campo en evidencia inmutable. Permitimos a las organizaciones validar su labor con tecnología",
+      "part3": "offline-first",
+      "part4": "y garantizamos a los financiadores la",
+      "part5": "trazabilidad y monitoreo",
+      "part6": "de sus recursos."
+    },
+    "cards": {
+      "validation": {
+        "title": "Validación en Territorio",
+        "description": "Herramientas simples para documentar y validar el impacto de capacitaciones en tiempo real"
+      },
+      "impact": {
+        "title": "Impacto Certificado",
+        "description": "Transparencia total para inversores y organizaciones sobre el uso de recursos"
+      },
+      "offline": {
+        "title": "Offline first",
+        "description": "Tecnología que funciona sin conectividad, diseñada para las comunidades más remotas"
+      }
+    }
   }
 }
