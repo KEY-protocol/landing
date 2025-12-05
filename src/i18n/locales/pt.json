@@ -66,5 +66,102 @@
         "description": "As Identidades Digitais Descentralizadas (DIDs) capacitam os beneficiários com históricos imutáveis de suas capacitações, produções e conquistas. Isso lhes concede soberania sobre seus dados e facilita o acesso a microcréditos e novos mercados sem intermediários, transformando sua relação com o sistema financeiro e produtivo."
       }
     }
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "timeline": {
+      "quarters": [
+        {
+          "label": "Q4 2025",
+          "completed": false
+        },
+        {
+          "label": "Q1 2026",
+          "completed": false
+        },
+        {
+          "label": "Q2 2026",
+          "completed": false
+        },
+        {
+          "label": "Q3 2026",
+          "completed": false
+        }
+      ]
+    },
+    "phases": [
+      {
+        "title": "Desenvolvimento do Protocolo",
+        "description": "Implementação do protocolo base e sistema de validação offline",
+        "milestones": [
+          {
+            "text": "Protocolo de validação implementado",
+            "completed": false
+          },
+          {
+            "text": "Sistema offline-first operacional",
+            "completed": false
+          },
+          {
+            "text": "Testes piloto bem-sucedidos",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "title": "Consolidar o Protocolo",
+        "description": "Implementação do protocolo base e sistema de validação offline",
+        "milestones": [
+          {
+            "text": "Incorporação de 7 novas organizações",
+            "completed": false
+          },
+          {
+            "text": "Beta funcionalidade de liberação automática de fundos (Smart Contracts)",
+            "completed": false
+          },
+          {
+            "text": "Compatibilidade relatório padrão sobre os Objetivos de Desenvolvimento Sustentável",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "title": "Consolidação do Piloto",
+        "description": "Validação operativa no Gran Chaco e UX",
+        "milestones": [
+          {
+            "text": "Implementação ativa nas 5 ONGs aliadas",
+            "completed": false
+          },
+          {
+            "text": "Geração automática de relatórios certificados em blockchain",
+            "completed": false
+          },
+          {
+            "text": "Otimização UX \"Gasless\" lançamento da versão v2.0",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "title": "Estruturação e Negócio (B2I)",
+        "description": "Transição de projeto para empresa e primeiras vendas",
+        "milestones": [
+          {
+            "text": "Formalização para faturar licenças SaaS",
+            "completed": false
+          },
+          {
+            "text": "Validação dos Smart Contracts com altos padrões de segurança",
+            "completed": false
+          },
+          {
+            "text": "Validação do \"Business Case\" resultados financeiros certificados",
+            "completed": false
+          }
+        ]
+      }
+    ]
   }
 }

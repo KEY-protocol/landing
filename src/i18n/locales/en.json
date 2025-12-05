@@ -66,5 +66,102 @@
         "description": "Decentralized Digital Identities (DIDs) empower beneficiaries with immutable histories of their training, productions, and achievements. This grants them data sovereignty and facilitates access to microcredits and new markets without intermediaries, transforming their relationship with the financial and productive system."
       }
     }
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "timeline": {
+      "quarters": [
+        {
+          "label": "Q4 2025",
+          "completed": false
+        },
+        {
+          "label": "Q1 2026",
+          "completed": false
+        },
+        {
+          "label": "Q2 2026",
+          "completed": false
+        },
+        {
+          "label": "Q3 2026",
+          "completed": false
+        }
+      ]
+    },
+    "phases": [
+      {
+        "title": "Protocol Development",
+        "description": "Implementation of the base protocol and offline validation system",
+        "milestones": [
+          {
+            "text": "Validation protocol implemented",
+            "completed": false
+          },
+          {
+            "text": "Offline-first system operational",
+            "completed": false
+          },
+          {
+            "text": "Successful pilot tests",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "title": "Consolidate the Protocol",
+        "description": "Implementation of the base protocol and offline validation system",
+        "milestones": [
+          {
+            "text": "Incorporation of 7 new organizations",
+            "completed": false
+          },
+          {
+            "text": "Beta functionality for automatic fund release (Smart Contracts)",
+            "completed": false
+          },
+          {
+            "text": "Compatibility with standard reporting on Sustainable Development Goals",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "title": "Pilot Consolidation",
+        "description": "Operational validation in Gran Chaco and UX",
+        "milestones": [
+          {
+            "text": "Active implementation in 5 allied NGOs",
+            "completed": false
+          },
+          {
+            "text": "Automatic generation of blockchain-certified reports",
+            "completed": false
+          },
+          {
+            "text": "UX optimization \"Gasless\" launch of version v2.0",
+            "completed": false
+          }
+        ]
+      },
+      {
+        "title": "Structuring and Business (B2I)",
+        "description": "Transition from project to company and first sales",
+        "milestones": [
+          {
+            "text": "Formalization to bill SaaS licenses",
+            "completed": false
+          },
+          {
+            "text": "Validation of Smart Contracts with high security standards",
+            "completed": false
+          },
+          {
+            "text": "Validation of \"Business Case\" certified financial results",
+            "completed": false
+          }
+        ]
+      }
+    ]
   }
 }
