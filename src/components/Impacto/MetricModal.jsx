@@ -70,7 +70,7 @@ export default function MetricModal({
   return (
     <div
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
+      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm"
       data-modal
     >
       <div
@@ -81,14 +81,14 @@ export default function MetricModal({
         <img
           src={imageSrc}
           alt={imageAlt}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="modal-image absolute inset-0 w-full h-full object-cover"
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40"></div>
 
         {/* Close button */}
         <button
-          className="absolute top-4 right-4 z-20 rounded-full bg-black/50 backdrop-blur-sm p-2 text-white transition-colors hover:bg-black/70"
+          className="modal-close-button absolute top-4 right-4 z-20 rounded-full bg-black/50 backdrop-blur-sm p-2 text-white transition-colors hover:bg-black/70"
           onClick={() => setIsOpen(false)}
           aria-label="Cerrar modal"
         >
@@ -108,7 +108,7 @@ export default function MetricModal({
         </button>
 
         {/* Metric Block - Top Left */}
-        <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10">
+        <div className="modal-content-metric absolute top-6 left-6 md:top-8 md:left-8 z-10">
           <div className="rounded-xl  p-4 md:p-6 ">
             <div className="text-4xl md:text-5xl lg:text-6xl font-montserrat font-bold text-white mb-2">
               {value}
@@ -120,7 +120,7 @@ export default function MetricModal({
         </div>
 
         {/* Description Block - Bottom Left */}
-        <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-10 max-w-2xl">
+        <div className="modal-content-description absolute bottom-6 left-6 md:bottom-8 md:left-8 z-10 max-w-2xl">
           <div className="rounded-xl  p-4 md:p-6 ">
             <p className="text-white text-sm md:text-base lg:text-lg leading-relaxed">
               {description}
