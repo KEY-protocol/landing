@@ -4,6 +4,7 @@ import Hero from '@components/Hero/Hero.astro';
 import Vision from '@components/Vision/Vision.astro';
 import Impacto from '@components/Impacto/Impacto.astro';
 import Roadmap from '@components/Roadmap/Roadmap.astro';
+import Contact from '@components/Contact/Contact.astro';
 import type { Language } from '../../types/language.type';
 import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
@@ -33,4 +34,5 @@ const t = translations[lang];
   <Vision vision={t.vision} />
   <Impacto impacto={t.impacto} />
   <Roadmap roadmap={t.roadmap} />
+  <Contact contact={t.contact} />
 </BaseLayout>

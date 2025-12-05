@@ -163,5 +163,34 @@
         ]
       }
     ]
+  },
+  "contact": {
+    "title": "Contacto",
+    "contactInfo": {
+      "title": "Información de Contacto",
+      "email": "info@keyprotocol.ar",
+      "location": "Argentina"
+    },
+    "followUs": {
+      "title": "Síguenos"
+    },
+    "form": {
+      "title": "Envíanos un Mensaje",
+      "fields": {
+        "name": "Nombre",
+        "email": "Email",
+        "socialNetwork": "Red Social",
+        "message": "Mensaje"
+      },
+      "send": "Enviar",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado exitosamente!",
+      "error": "Error al enviar el mensaje. Por favor, intenta nuevamente."
+    },
+    "socialLinks": {
+      "twitter": "https://twitter.com/keyprotocol",
+      "linkedin": "https://linkedin.com/company/keyprotocol",
+      "youtube": "https://youtube.com/@keyprotocol"
+    }
   }
 }
