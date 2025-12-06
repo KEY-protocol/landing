@@ -114,9 +114,33 @@ Si el proyecto está desplegado en Vercel:
 - Sin límite de destinatarios (puedes enviar a cualquier email)
 - Ideal para landing pages pequeñas/medianas
 
+### 8. Solución de Problemas
+
+#### Error 403 (Forbidden) de SendGrid
+
+Si recibes un error `403 Forbidden` al enviar el formulario, verifica:
+
+1. **Email remitente no verificado**:
+   - El email en `SENDGRID_FROM_EMAIL` debe estar verificado en SendGrid
+   - Ve a **Settings** → **Sender Authentication** → **Single Sender Verification**
+   - Verifica que el email esté en estado "Verified"
+
+2. **API Key sin permisos**:
+   - La API Key debe tener permisos de "Mail Send"
+   - Ve a **Settings** → **API Keys**
+   - Edita tu API Key y asegúrate de que tenga permisos de "Mail Send" o "Full Access"
+
+3. **Formato de API Key incorrecto**:
+   - La API Key debe comenzar con `SG.`
+   - Verifica que no tenga espacios o caracteres extra
+
+4. **API Key inválida o revocada**:
+   - Genera una nueva API Key en SendGrid
+   - Actualiza la variable `SENDGRID_API_KEY` en tu `.env` o en Vercel
+
 ## 📁 Estructura del Proyecto
 
-```
+```text
 ├── public/              # Archivos estáticos
 │   ├── icons/          # Iconos y logos
 │   ├── imgs/           # Imágenes

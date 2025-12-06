@@ -25,8 +25,14 @@ function generateEmailHTML(
   socialNetwork: string | null,
   message: string
 ): string {
-  const escapedName = name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const escapedEmail = email.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const escapedName = name
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  const escapedEmail = email
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
   const escapedSocialNetwork = (socialNetwork || 'No especificada')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -261,11 +267,23 @@ Este mensaje fue enviado desde el formulario de contacto de Key Protocol.
           throw new Error(`Invalid from email format: ${fromEmail}`);
         }
 
+        // Validate API key format (SendGrid API keys start with "SG.")
+        if (!SENDGRID_API_KEY.startsWith('SG.')) {
+          console.warn(
+            '⚠️  La API key de SendGrid no tiene el formato esperado (debe comenzar con "SG.")'
+          );
+        }
+
         // Initialize SendGrid
         sgMail.setApiKey(SENDGRID_API_KEY);
 
         // Generate HTML content
-        const htmlContent = generateEmailHTML(name, email, socialNetwork, message);
+        const htmlContent = generateEmailHTML(
+          name,
+          email,
+          socialNetwork,
+          message
+        );
 
         // Send email via SendGrid
         await sgMail.send({
@@ -281,14 +299,54 @@ Este mensaje fue enviado desde el formulario de contacto de Key Protocol.
         emailSent = true;
       } catch (error: any) {
         console.error('Error sending email via SendGrid:', error);
-        lastError = error?.message || 'Error desconocido al enviar el email';
-        
+
+        // Extract detailed error information
+        let errorMessage = 'Error desconocido al enviar el email';
+        let errorDetails: any = null;
+
+        if (error.response?.body?.errors) {
+          // SendGrid provides detailed error messages
+          const sendGridErrors = error.response.body.errors;
+          errorDetails = sendGridErrors;
+
+          // Build a more descriptive error message
+          if (Array.isArray(sendGridErrors) && sendGridErrors.length > 0) {
+            const firstError = sendGridErrors[0];
+            errorMessage = firstError.message || errorMessage;
+
+            // Provide specific guidance for common errors
+            if (error.code === 403) {
+              if (
+                firstError.message?.includes('sender') ||
+                firstError.message?.includes('from')
+              ) {
+                errorMessage = `El email remitente "${fromEmail}" no está verificado en SendGrid. Verifica el email en tu cuenta de SendGrid o usa un email verificado.`;
+              } else if (
+                firstError.message?.includes('permission') ||
+                firstError.message?.includes('authorized')
+              ) {
+                errorMessage =
+                  'La API key de SendGrid no tiene permisos para enviar emails. Verifica los permisos de tu API key.';
+              } else {
+                errorMessage = `SendGrid rechazó la solicitud: ${firstError.message}`;
+              }
+            }
+          }
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+
+        lastError = errorMessage;
+
         // Log more details in development
-        if (import.meta.env.DEV && error.response) {
+        if (import.meta.env.DEV) {
           console.error('SendGrid error details:', {
             statusCode: error.code,
-            body: error.response.body,
-            headers: error.response.headers,
+            body: error.response?.body,
+            errors: errorDetails,
+            fromEmail: fromEmail,
+            toEmail: recipientEmail,
+            hasApiKey: !!SENDGRID_API_KEY,
           });
         }
         // Continue to try webhook or other methods
@@ -331,7 +389,12 @@ Este mensaje fue enviado desde el formulario de contacto de Key Protocol.
 
     // Development mode: log the email content if no service is configured
     if (!emailSent && !SENDGRID_API_KEY && !import.meta.env.EMAIL_WEBHOOK_URL) {
-      const htmlContent = generateEmailHTML(name, email, socialNetwork, message);
+      const htmlContent = generateEmailHTML(
+        name,
+        email,
+        socialNetwork,
+        message
+      );
       console.log('=== EMAIL CONTENT (Development Mode) ===');
       console.log('To:', recipientEmail);
       console.log('From:', fromEmail);
