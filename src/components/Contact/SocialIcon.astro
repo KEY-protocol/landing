@@ -1,0 +1,27 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  iconPath: string;
+}
+
+const { href, label, iconPath } = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="w-12 h-12 rounded-full bg-[#2d5a47] flex items-center justify-center text-white hover:bg-[#3a6b57] transition-colors"
+  aria-label={label}
+>
+  <svg
+    class="w-6 h-6"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d={iconPath}></path>
+  </svg>
+</a>
+

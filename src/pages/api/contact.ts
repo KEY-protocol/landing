@@ -88,18 +88,30 @@ Este mensaje fue enviado desde el formulario de contacto de Key Protocol.
     // Use environment variable for recipient email, fallback to default
     const recipientEmail =
       import.meta.env.RESEND_TO_EMAIL || 'kevinagustinrockz@gmail.com';
-    const fromEmail =
+
+    // Use the verified test domain by default to avoid domain verification issues
+    // Users can override with RESEND_FROM_EMAIL if they have a verified domain
+    let fromEmail =
       import.meta.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+
+    // Validate email format (reuse the same regex)
+    if (!emailRegex.test(recipientEmail)) {
+      return new Response(
+        JSON.stringify({
+          error: `Formato de email destinatario inválido: ${recipientEmail}`,
+        }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    let emailSent = false;
+    let lastError: string | null = null;
 
     // Try Resend first (recommended for production)
     const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
     if (RESEND_API_KEY) {
       try {
-        // Validate email format before sending
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(recipientEmail)) {
-          throw new Error(`Invalid recipient email format: ${recipientEmail}`);
-        }
+        // Validate from email format
         if (!emailRegex.test(fromEmail)) {
           throw new Error(`Invalid from email format: ${fromEmail}`);
         }
@@ -125,73 +137,141 @@ Este mensaje fue enviado desde el formulario de contacto de Key Protocol.
             errorData.message ||
             errorData.error?.message ||
             'Error al enviar el email';
-          console.error('Resend API error:', errorData);
-          throw new Error(errorMessage);
-        }
 
-        const responseData = await resendResponse.json();
-        console.log('Email sent successfully via Resend:', responseData);
+          // If domain is not verified, try with the default test domain
+          if (
+            errorMessage.includes('domain is not verified') ||
+            errorMessage.includes('not verified')
+          ) {
+            console.warn(
+              `Domain ${fromEmail} not verified. Trying with default test domain...`
+            );
+            fromEmail = 'onboarding@resend.dev';
+
+            // Retry with the default test domain
+            const retryResponse = await fetch('https://api.resend.com/emails', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${RESEND_API_KEY}`,
+              },
+              body: JSON.stringify({
+                from: fromEmail,
+                to: recipientEmail,
+                subject: emailSubject,
+                text: emailBody,
+                reply_to: email,
+              }),
+            });
+
+            if (!retryResponse.ok) {
+              const retryErrorData = await retryResponse.json();
+              const retryErrorMessage =
+                retryErrorData.message ||
+                retryErrorData.error?.message ||
+                'Error al enviar el email';
+              throw new Error(retryErrorMessage);
+            }
+
+            const retryResponseData = await retryResponse.json();
+            console.log(
+              'Email sent successfully via Resend (using test domain):',
+              retryResponseData
+            );
+            emailSent = true;
+          } else {
+            console.error('Resend API error:', errorData);
+            throw new Error(errorMessage);
+          }
+        } else {
+          const responseData = await resendResponse.json();
+          console.log('Email sent successfully via Resend:', responseData);
+          emailSent = true;
+        }
       } catch (error: any) {
         console.error('Error sending email via Resend:', error);
-        console.error('Error details:', {
-          message: error?.message,
-          recipientEmail,
-          fromEmail,
-        });
-        // Fall through to webhook or other methods
+        lastError = error?.message || 'Error desconocido al enviar el email';
+        // Continue to try webhook or other methods
       }
     }
 
-    // Fallback: Use webhook if available
-    const WEBHOOK_URL = import.meta.env.EMAIL_WEBHOOK_URL;
-    if (WEBHOOK_URL && !RESEND_API_KEY) {
-      try {
-        const webhookResponse = await fetch(WEBHOOK_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            to: recipientEmail,
-            subject: emailSubject,
-            text: emailBody,
-            from: email,
-            name: name,
-            socialNetwork: socialNetwork || 'No especificada',
-          }),
-        });
+    // Fallback: Use webhook if available and Resend didn't work
+    if (!emailSent) {
+      const WEBHOOK_URL = import.meta.env.EMAIL_WEBHOOK_URL;
+      if (WEBHOOK_URL) {
+        try {
+          const webhookResponse = await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              to: recipientEmail,
+              subject: emailSubject,
+              text: emailBody,
+              from: email,
+              name: name,
+              socialNetwork: socialNetwork || 'No especificada',
+            }),
+          });
 
-        if (!webhookResponse.ok) {
-          throw new Error('Error al enviar el email a través del webhook');
+          if (!webhookResponse.ok) {
+            throw new Error('Error al enviar el email a través del webhook');
+          }
+
+          console.log('Email sent successfully via webhook');
+          emailSent = true;
+        } catch (error) {
+          console.error('Error sending email via webhook:', error);
+          lastError =
+            lastError || 'Error al enviar el email a través del webhook';
         }
-      } catch (error) {
-        console.error('Error sending email via webhook:', error);
-        // Fall through to development mode
       }
     }
 
-    // Development mode: log the email content
-    if (!RESEND_API_KEY && !WEBHOOK_URL) {
+    // Development mode: log the email content if no service is configured
+    if (!emailSent && !RESEND_API_KEY && !import.meta.env.EMAIL_WEBHOOK_URL) {
       console.log('=== EMAIL CONTENT (Development Mode) ===');
       console.log('To:', recipientEmail);
       console.log('Subject:', emailSubject);
       console.log('Body:', emailBody);
       console.log('=====================================');
 
-      // In production, warn if no email service is configured
+      // In production, return an error if email wasn't sent
       if (import.meta.env.PROD) {
-        console.warn('WARNING: No email service configured. Email not sent.');
-        // Still return success to avoid breaking the form, but log a warning
+        return new Response(
+          JSON.stringify({
+            error:
+              'Servicio de email no configurado. Por favor, configura RESEND_API_KEY o EMAIL_WEBHOOK_URL.',
+          }),
+          { status: 500, headers: { 'Content-Type': 'application/json' } }
+        );
       }
+
+      // In development, allow it to continue (email logged to console)
+      emailSent = true;
     }
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: 'Mensaje enviado exitosamente.',
-      }),
-      { status: 200, headers: { 'Content-Type': 'application/json' } }
-    );
+    // Return success only if email was actually sent
+    if (emailSent) {
+      return new Response(
+        JSON.stringify({
+          success: true,
+          message: 'Mensaje enviado exitosamente.',
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
+      );
+    } else {
+      // If we get here, all methods failed
+      return new Response(
+        JSON.stringify({
+          error:
+            lastError ||
+            'Error al enviar el email. Por favor, intenta nuevamente más tarde.',
+        }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
   } catch (error) {
     console.error('Error processing contact form:', error);
     return new Response(
