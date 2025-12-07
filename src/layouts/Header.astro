@@ -12,7 +12,8 @@ const { lang } = Astro.props;
 ---
 
 <header
-  class="w-full bg-green-900/80 backdrop-blur-sm sticky top-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 sm:py-3"
+  id="main-header"
+  class="w-full bg-green-900/80 backdrop-blur-sm fixed top-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 sm:py-3 transition-transform duration-300 -translate-y-full"
 >
   <div class="max-w-7xl mx-auto grid grid-cols-3 items-center gap-2 sm:gap-4">
     <div class="flex justify-start">
@@ -28,3 +29,40 @@ const { lang } = Astro.props;
     </div>
   </div>
 </header>
+<script>
+  const header = document.getElementById('main-header');
+  const hero = document.getElementById('hero');
+
+  if (header && hero) {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Hero is visible -> Hide header
+            header.classList.add('-translate-y-full');
+            header.classList.remove('translate-y-0');
+          } else {
+            // Hero is not visible -> Show header
+            header.classList.remove('-translate-y-full');
+            header.classList.add('translate-y-0');
+          }
+        });
+      },
+      {
+        root: null, // viewport
+        threshold: 0, // trigger as soon as even 1px is visible (or not)
+        // rootMargin: We might want it to trigger when Hero is ALMOST out.
+        // But the requirement says "no se vea... en el nivel donde está el hero".
+        // simple threshold 0 means: if any part of Hero is visible, isIntersecting = true.
+      }
+    );
+
+    observer.observe(hero);
+  } else {
+    // Fallback if hero not found (e.g. inner pages without hero?)
+    // If we are on a page without hero, we probably want the header to be visible always.
+    if (header && !hero) {
+      header.classList.remove('-translate-y-full');
+    }
+  }
+</script>
