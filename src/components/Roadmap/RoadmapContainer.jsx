@@ -6,7 +6,7 @@ export default function RoadmapContainer({ quarters, phases }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
 
-  const handleQuarterClick = (index) => {
+  const handleQuarterClick = index => {
     if (index < phases.length) {
       setCurrentIndex(index);
       if (carouselRef.current) {
@@ -15,21 +15,21 @@ export default function RoadmapContainer({ quarters, phases }) {
     }
   };
 
-  const handleIndexChange = (index) => {
+  const handleIndexChange = index => {
     setCurrentIndex(index);
   };
 
   return (
     <>
       {/* Timeline */}
-      <Timeline 
-        quarters={quarters} 
+      <Timeline
+        quarters={quarters}
         currentIndex={currentIndex}
         onQuarterClick={handleQuarterClick}
       />
 
       {/* Roadmap Carousel */}
-      <RoadmapCarousel 
+      <RoadmapCarousel
         ref={carouselRef}
         phases={phases}
         quarters={quarters}
@@ -39,4 +39,3 @@ export default function RoadmapContainer({ quarters, phases }) {
     </>
   );
 }
-

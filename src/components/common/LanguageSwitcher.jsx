@@ -104,8 +104,12 @@ export default function LanguageSwitcher() {
               }`}
             >
               <div className="flex flex-col">
-                <span className="uppercase font-medium text-xs sm:text-sm">{language.code}</span>
-                <span className="text-xs text-gray-500 hidden sm:block">{language.name}</span>
+                <span className="uppercase font-medium text-xs sm:text-sm">
+                  {language.code}
+                </span>
+                <span className="text-xs text-gray-500 hidden sm:block">
+                  {language.name}
+                </span>
               </div>
               {currentLocale === language.code && (
                 <svg

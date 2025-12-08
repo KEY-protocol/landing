@@ -12,8 +12,8 @@
     "build:preview": "cross-env ASTRO_PREVIEW=true astro build",
     "preview": "pnpm run build:preview && cross-env ASTRO_PREVIEW=true astro preview",
     "astro": "astro",
-    "lint": "eslint . --ext .js,.jsx",
-    "lint:fix": "eslint . --ext .js,.jsx --fix",
+    "lint": "eslint . --ext .js,.jsx,.astro",
+    "lint:fix": "eslint . --ext .js,.jsx,.astro --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,astro,css,json}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,astro,css,json}\""
   },
@@ -37,13 +37,17 @@
   "devDependencies": {
     "@astrojs/node": "^9.5.1",
     "@eslint/js": "^9.39.1",
+    "astro-eslint-parser": "^1.2.2",
     "cross-env": "^10.1.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-astro": "^1.5.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^16.5.0",
     "prettier": "^3.7.3",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript-eslint": "^8.48.1"
   }
 }

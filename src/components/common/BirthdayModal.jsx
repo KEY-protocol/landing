@@ -1,13 +1,5 @@
 import { useState, useEffect } from 'react';
 
-interface BirthdayModalProps {
-  translations: {
-    title: string;
-    message: string;
-    cta: string;
-  };
-}
-
 const founders = [
   {
     name: 'Kevin',
@@ -25,33 +17,28 @@ const founders = [
   // TODO: Add Mateo's birthday
 ];
 
-export default function BirthdayModal({ translations }: BirthdayModalProps) {
-  const [founder, setFounder] = useState<{
-    name: string;
-    linkedin: string;
-  } | null>(null);
+export default function BirthdayModal(translations) {
+  // Calculate initial state directly
+  const today = new Date();
+  const currentMonth = today.getMonth();
+  const currentDay = today.getDate();
+
+  const birthdayFounder = founders.find(
+    f => f.month === currentMonth && f.day === currentDay
+  );
+
+  const [founder] = useState(birthdayFounder);
   const [isVisible, setIsVisible] = useState(false);
   const [isMounting, setIsMounting] = useState(true);
 
   useEffect(() => {
-    const today = new Date();
-    const currentMonth = today.getMonth();
-    const currentDay = today.getDate();
-
-    const birthdayFounder = founders.find(
-      f => f.month === currentMonth && f.day === currentDay
-    );
-
-    // FOR TESTING: Uncomment to force display for Kevin
-    // const birthdayFounder = founders[0];
-
-    if (birthdayFounder) {
-      setFounder(birthdayFounder);
+    if (founder) {
       // Small delay to allow mounting animation
       setTimeout(() => setIsVisible(true), 100);
     }
-    setIsMounting(false);
-  }, []);
+    // Wrap in setTimeout to avoid synchronous state update warning
+    setTimeout(() => setIsMounting(false), 0);
+  }, [founder]);
 
   if (!founder && !isVisible && !isMounting) return null;
   if (!founder) return null;

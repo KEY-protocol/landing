@@ -11,4 +11,3 @@ if (existsSync(vercelDir)) {
     console.warn('⚠ No se pudo limpiar .vercel:', error.message);
   }
 }
-

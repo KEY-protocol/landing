@@ -23,6 +23,7 @@ export function getStaticPaths() {
 
 import TeamSection from '@components/About/TeamSection.astro';
 import AlliesSection from '@components/About/AlliesSection.astro';
+import Contact from '@components/Contact/Contact.astro';
 
 const lang = Astro.params.lang as Language;
 const translations = { es, en, pt };
@@ -37,5 +38,6 @@ const t = translations[lang];
   <div class="min-h-screen bg-[#006400] text-white">
     <TeamSection lang={lang} />
     <AlliesSection lang={lang} />
+    <Contact contact={t.contact} />
   </div>
 </BaseLayout>
