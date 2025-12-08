@@ -1,0 +1,32 @@
+---
+interface Props {
+  value: string;
+  label: string;
+  variant?: 'dark' | 'light' | 'gray';
+  offset?: 'none' | 'down';
+}
+
+const { value, label, variant = 'dark', offset = 'none' } = Astro.props;
+
+const variantClasses = {
+  dark: 'bg-[#1E3F2E] text-white',
+  light: 'bg-white text-[#1A5F38]',
+  gray: 'bg-[#D3D3D3] text-black',
+};
+
+const offsetClasses = {
+  none: '',
+  down: 'mt-12 md:mt-24',
+};
+---
+
+<div
+  class={`relative z-10 flex flex-col items-center ${offsetClasses[offset]}`}
+>
+  <div
+    class={`w-32 h-32 rounded-full flex flex-col items-center justify-center text-center p-2 ${variantClasses[variant]}`}
+  >
+    <span class="text-xl font-bold">{value}</span>
+    <span class="text-sm font-semibold">{label}</span>
+  </div>
+</div>

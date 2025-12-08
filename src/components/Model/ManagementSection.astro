@@ -1,0 +1,66 @@
+---
+import ChartSection from './ChartSection.astro';
+import CyclePhase from './CyclePhase.astro';
+import type { Language } from '../../types/language.type';
+import es from '@i18n/locales/es.json';
+import en from '@i18n/locales/en.json';
+import pt from '@i18n/locales/pt.json';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const translations = { es, en, pt };
+const t = translations[lang];
+const content = t.model_page.management;
+---
+
+<section class="py-16 bg-[#66CC00] text-white">
+  <div class="container mx-auto px-4">
+    <div class="mb-16">
+      <h2 class="text-5xl font-bold mb-6">{content.title}</h2>
+      <p class="text-xl md:text-2xl font-light mb-8 font-semibold">
+        {content.subtitle}
+      </p>
+
+      {/* Intro Text */}
+      <div class="mb-12">
+        <p class="text-sm md:text-base mb-6">
+          {content.description}
+        </p>
+      </div>
+
+      {/* Proyección de Eficiencia */}
+      <div class="mb-8">
+        <h3 class="text-xl font-bold mb-2">{content.efficiency.title}</h3>
+        <p class="text-sm md:text-base">
+          {content.efficiency.description}
+        </p>
+      </div>
+    </div>
+
+    {/* Section Split: Cycle + Chart */}
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 max-w-5xl mx-auto">
+      {/* Top: Cycle Phase 1 */}
+      <CyclePhase
+        title={content.pilot.title}
+        description={content.pilot.description}
+        nodes={[
+          { value: '5', label: 'ONGs', variant: 'dark', offset: 'none' },
+          {
+            value: '$ 1.4 M +',
+            label: 'fondo',
+            variant: 'light',
+            offset: 'down',
+          },
+          { value: '15.4%', label: 'fee', variant: 'dark', offset: 'none' },
+          { value: 'pre-seed', label: '', variant: 'gray', offset: 'down' },
+        ]}
+      />
+
+      {/* Bottom: Chart */}
+      <ChartSection labels={content.chart} />
+    </div>
+  </div>
+</section>

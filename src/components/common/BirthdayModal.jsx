@@ -14,6 +14,12 @@ const founders = [
     linkedin: 'https://linkedin.com/in/martinlago',
   },
   // TODO: Add Andres' birthday
+  {
+    name: 'Andres',
+    month: 12,
+    day: 8,
+    linkedin: 'https://linkedin.com/in/andreschanchi',
+  },
   // TODO: Add Mateo's birthday
 ];
 

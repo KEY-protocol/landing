@@ -1,5 +1,62 @@
 {
   "title": "Key Protocol",
+  "model_page": {
+    "title": "Modelo",
+    "summary": {
+      "title": "Resumen",
+      "subtitle": "Infraestructura de confianza para transformar la actividad en territorio en activos digitales verificables.",
+      "description": "Nuestro protocolo opera mediante un ciclo de validación de tres pasos que garantiza la integridad de los datos desde su captura en zonas desconectadas hasta su certificación en la blockchain.",
+      "cards": {
+        "step_a": {
+          "title": "A. Registro Offline-First",
+          "description": "El técnico utiliza la Field App en territorio para generar pruebas de vida y acción:",
+          "list": [
+            "Identidad: Registro biométrico y documental para crear Identidades Digitales (DID).",
+            "Evidencia: Captura de fotos geolocalizadas, huellas digitales y reportes de audio que se empaquetan y encriptan localmente en el dispositivo."
+          ]
+        },
+        "step_b": {
+          "title": "B. Sincronización Inmutable",
+          "description": "Al recuperar conectividad, la aplicación sincroniza los paquetes de datos:",
+          "list": [
+            "IPFS (Almacenamiento): Los archivos de evidencia se distribuyen en una red descentralizada, haciéndolos incensurables.",
+            "Polkadot (Consenso): Se registra el hash criptográfico de la operación, creando una marca de tiempo inalterable."
+          ]
+        },
+        "step_c": {
+          "title": "C. Validación Privada",
+          "list": [
+            "Computación Confidencial (Phala Network): Procesamos los datos sensibles en un entorno seguro (TEE) para validar la consistencia entre la identidad y la evidencia sin exponer la privacidad del beneficiario.",
+            "Resultado: Emisión de un Certificado Digital que libera los fondos y actualiza el dashboard del financiador."
+          ]
+        }
+      }
+    },
+    "management": {
+      "title": "Gestión",
+      "subtitle": "Un modelo financiero diseñado para maximizar el impacto: a mayor volumen de gestión, menor es el costo del servicio.",
+      "description": "En la fase actual (Pre-Seed), la estructura de costos fijos del protocolo representa un porcentaje mayor debido al desarrollo intensivo. Sin embargo, nuestro modelo B2I (Business to Institutions) es deflacionario para el cliente: al sumar más ONGs a la red, el fondo de gestión crece y el costo porcentual del servicio se reduce drásticamente.",
+      "efficiency": {
+        "title": "Proyección de Eficiencia de Costos:",
+        "description": "En la fase actual (Pre-Seed), la estructura de costos fijos del protocolo representa un porcentaje mayor debido al desarrollo intensivo. Sin embargo, nuestro modelo B2I (Business to Institutions) es deflacionario para el cliente: al sumar más ONGs a la red, el fondo de gestión crece y el costo porcentual del servicio se reduce drásticamente."
+      },
+      "pilot": {
+        "title": "Fase 1: Piloto",
+        "description": "El 15% cubre la estructura técnica, legal y operativa inicial para validar el modelo.",
+        "nodes": {
+          "node1": "5 ONGs",
+          "node2": "$ 1.4 M + fondo",
+          "node3": "15.4% fee",
+          "node4": "pre-seed"
+        }
+      },
+      "chart": {
+        "fondos": "fondos",
+        "ongs": "ONGs",
+        "fee": "fee"
+      }
+    }
+  },
   "nav": {
     "home": "INICIO",
     "about": "NOSOTROS",
