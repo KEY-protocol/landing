@@ -1,6 +1,6 @@
 ---
 import ChartSection from './ChartSection.astro';
-import CyclePhase from './CyclePhase.astro';
+import AnimatedCyclePhase from './AnimatedCyclePhase.jsx';
 import type { Language } from '../../types/language.type';
 import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
@@ -42,22 +42,8 @@ const content = t.model_page.management;
 
     {/* Section Split: Cycle + Chart */}
     <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 max-w-5xl mx-auto">
-      {/* Top: Cycle Phase 1 */}
-      <CyclePhase
-        title={content.pilot.title}
-        description={content.pilot.description}
-        nodes={[
-          { value: '5', label: 'ONGs', variant: 'dark', offset: 'none' },
-          {
-            value: '$ 1.4 M +',
-            label: 'fondo',
-            variant: 'light',
-            offset: 'down',
-          },
-          { value: '15.4%', label: 'fee', variant: 'dark', offset: 'none' },
-          { value: 'pre-seed', label: '', variant: 'gray', offset: 'down' },
-        ]}
-      />
+      {/* Animated Cycle Phases */}
+      <AnimatedCyclePhase phases={content.phases} client:visible />
 
       {/* Bottom: Chart */}
       <ChartSection labels={content.chart} />

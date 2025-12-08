@@ -50,6 +50,28 @@
           "node4": "pre-seed"
         }
       },
+      "phases": [
+        {
+          "title": "Fase 1: Piloto",
+          "description": "El 15% cubre la estructura técnica, legal y operativa inicial para validar el modelo.",
+          "nodes": ["5 ONGs", "$1.4 M + fondo", "15.4% fee", "pre-seed"]
+        },
+        {
+          "title": "Fase 2: Escala",
+          "description": "Al duplicar la red, el costo del servicio baja casi a la mitad, transfiriendo ese ahorro directamente al presupuesto de impacto de los financiadores.",
+          "nodes": [
+            "12 ONGs",
+            "$3.4 M + fondo",
+            "~8.3% fee",
+            "expansión regional"
+          ]
+        },
+        {
+          "title": "Fase 3: Consolidación",
+          "description": "Con el ecosistema consolidado, la eficiencia operativa permite reducir el costo a menos del 5%, maximizando los recursos que llegan efectivamente a las comunidades.",
+          "nodes": ["25 ONGs", "$7 M + fondo", "<5% fee", "ecosistema maduro"]
+        }
+      ],
       "chart": {
         "fondos": "fondos",
         "ongs": "ONGs",
