@@ -34,7 +34,10 @@ interface Props {
 const { impacto } = Astro.props;
 ---
 
-<section class="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8" style="background-color: #E8F5E9;">
+<section
+  class="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8"
+  style="background-color: #E8F5E9;"
+>
   <div class="max-w-7xl mx-auto">
     <div class="mb-8 sm:mb-10 md:mb-12">
       <h2
@@ -43,7 +46,9 @@ const { impacto } = Astro.props;
       >
         {impacto.title}
       </h2>
-      <p class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-4xl">
+      <p
+        class="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed max-w-4xl"
+      >
         {impacto.subtitle}
       </p>
     </div>
@@ -53,28 +58,28 @@ const { impacto } = Astro.props;
         id="investment"
         value={impacto.metrics.investment.value}
         label={impacto.metrics.investment.label}
-        imageSrc="/imgs/image_1.jpg"
+        imageSrc="/imgs/index/image_1.jpg"
         imageAlt="Agricultural field"
       />
       <MetricCard
         id="savings"
         value={impacto.metrics.savings.value}
         label={impacto.metrics.savings.label}
-        imageSrc="/imgs/image_2.jpg"
+        imageSrc="/imgs/index/image_2.jpg"
         imageAlt="Forest landscape"
       />
       <MetricCard
         id="organizations"
         value={impacto.metrics.organizations.value}
         label={impacto.metrics.organizations.label}
-        imageSrc="/imgs/image_3.jpg"
+        imageSrc="/imgs/index/image_3.jpg"
         imageAlt="Rural scene"
       />
       <MetricCard
         id="identities"
         value={impacto.metrics.identities.value}
         label={impacto.metrics.identities.label}
-        imageSrc="/imgs/image_4.jpg"
+        imageSrc="/imgs/index/image_4.jpg"
         imageAlt="Person working in field"
       />
     </div>
@@ -86,7 +91,7 @@ const { impacto } = Astro.props;
       value={impacto.metrics.investment.value}
       label={impacto.metrics.investment.label}
       description={impacto.metrics.investment.description}
-      imageSrc="/imgs/image_1.jpg"
+      imageSrc="/imgs/index/image_1.jpg"
       imageAlt="Agricultural field"
     />
     <MetricModal
@@ -95,7 +100,7 @@ const { impacto } = Astro.props;
       value={impacto.metrics.savings.value}
       label={impacto.metrics.savings.label}
       description={impacto.metrics.savings.description}
-      imageSrc="/imgs/image_2.jpg"
+      imageSrc="/imgs/index/image_2.jpg"
       imageAlt="Forest landscape"
     />
     <MetricModal
@@ -104,7 +109,7 @@ const { impacto } = Astro.props;
       value={impacto.metrics.organizations.value}
       label={impacto.metrics.organizations.label}
       description={impacto.metrics.organizations.description}
-      imageSrc="/imgs/image_3.jpg"
+      imageSrc="/imgs/index/image_3.jpg"
       imageAlt="Rural scene"
     />
     <MetricModal
@@ -113,7 +118,7 @@ const { impacto } = Astro.props;
       value={impacto.metrics.identities.value}
       label={impacto.metrics.identities.label}
       description={impacto.metrics.identities.description}
-      imageSrc="/imgs/image_4.jpg"
+      imageSrc="/imgs/index/image_4.jpg"
       imageAlt="Person working in field"
     />
   </div>

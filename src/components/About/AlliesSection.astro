@@ -1,0 +1,56 @@
+---
+import type { Language } from '../../types/language.type';
+import es from '@i18n/locales/es.json';
+import en from '@i18n/locales/en.json';
+import pt from '@i18n/locales/pt.json';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const translations = { es, en, pt };
+const t = translations[lang];
+
+const allies = [
+  {
+    name: 'Fundación Gran Chaco',
+    logo: 'https://ui-avatars.com/api/?name=F+G&background=fff&color=000&size=128',
+  },
+  {
+    name: 'UTN',
+    logo: 'https://ui-avatars.com/api/?name=U+T+N&background=fff&color=000&size=128',
+  },
+  {
+    name: 'NerdConf',
+    logo: 'https://ui-avatars.com/api/?name=N+C&background=fff&color=000&size=128',
+  },
+  {
+    name: 'LatinHack',
+    logo: 'https://ui-avatars.com/api/?name=L+H&background=fff&color=000&size=128',
+  },
+];
+---
+
+<div class="container mx-auto px-4 py-16">
+  <div class="mb-12">
+    <h2 class="text-5xl font-bold mb-4">{t.allies_section.title}</h2>
+    <p class="text-xl max-w-4xl text-gray-200">
+      {t.allies_section.description}
+    </p>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-12 items-center">
+    {
+      allies.map(ally => (
+        <div class="flex justify-center">
+          <img
+            src={ally.logo}
+            alt={ally.name}
+            class="max-h-16 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>

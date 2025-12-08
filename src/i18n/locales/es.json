@@ -4,8 +4,38 @@
     "home": "INICIO",
     "about": "NOSOTROS",
     "model": "MODELO",
-    "applications": "APLICACIONES",
-    "contact": "CONTACTO"
+    "applications": "APLICACIONES"
+  },
+  "about_page": {
+    "title": "Equipo",
+    "description": "Combinamos experiencia directa en el sector social con ingeniería de software especializada en Web3 para construir infraestructura de impacto escalable.",
+    "team": {
+      "martin": {
+        "role": "Founder & CEO",
+        "bio": "Responsable de la dirección estratégica y el desarrollo de negocio. Define la arquitectura del modelo B2B/B2I y gestiona las alianzas institucionales, aportando el know-how operativo necesario para la implementación en territorios de baja conectividad."
+      },
+      "andres": {
+        "role": "Co-Founder &<br/>Blockchain Architect",
+        "bio": "Encargado de la infraestructura descentralizada. Diseña y desarrolla los contratos inteligentes (Smart Contracts) y los protocolos de seguridad, garantizando la integridad e inmutabilidad de los registros de auditoría."
+      },
+      "mateo": {
+        "role": "Co-Founder & Lead<br/>Software Engineer",
+        "bio": "Lidera la ingeniería del sistema y el desarrollo backend. Especialista en la lógica de sincronización offline-first, integración de identidad biométrica y almacenamiento descentralizado (IPFS), asegurando la operatividad técnica de la plataforma."
+      },
+      "kevin": {
+        "role": "Co-Founder &<br/>FullStack Engineer",
+        "bio": "Dirige el diseño y el desarrollo frontend. Responsable de la interfaz de usuario (Web y Mobile) y la experiencia de cliente, traduciendo requisitos técnicos complejos en herramientas de gestión intuitivas para operadores de campo e inversores."
+      }
+    }
+  },
+  "allies_section": {
+    "title": "Aliados",
+    "description": "Impulsados por líderes en tecnología, educación e impacto social."
+  },
+  "birthday_modal": {
+    "title": "¡Feliz Cumpleaños {name}!",
+    "message": "Hoy celebramos la vida de uno de nuestros fundadores. ¡Gracias por tu visión y liderazgo!",
+    "cta": "Enviar saludos"
   },
   "hero": {
     "tag": "KEY PROTOCOL",

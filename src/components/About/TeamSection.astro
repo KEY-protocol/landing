@@ -1,0 +1,70 @@
+---
+import TeamMember from './TeamMember.astro';
+import type { Language } from '../../types/language.type';
+import es from '@i18n/locales/es.json';
+import en from '@i18n/locales/en.json';
+import pt from '@i18n/locales/pt.json';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const translations = { es, en, pt };
+const t = translations[lang];
+
+const teamData = [
+  {
+    id: 'martin',
+    name: 'Martín Lago',
+    image: '/imgs/we/martin.jpg',
+    linkedin: 'https://linkedin.com/in/martinlago',
+    linkedinProfile: 'martinlago',
+  },
+  {
+    id: 'andres',
+    name: 'Andres Chanchi',
+    image: '/imgs/we/andres.jpg',
+    linkedin: 'https://linkedin.com/in/andreschanchi',
+    linkedinProfile: 'andreschanchi',
+  },
+  {
+    id: 'mateo',
+    name: 'Mateo Rivera',
+    image: '/imgs/we/mateo.jpg',
+    linkedin: 'https://linkedin.com/in/facundo-mateo-rivera',
+    linkedinProfile: 'facundo-mateo-rivera',
+  },
+  {
+    id: 'kevin',
+    name: 'Kevin Ruiz',
+    image: '/imgs/we/kevin.jpg',
+    linkedin: 'https://linkedin.com/in/kevinagustin',
+    linkedinProfile: 'kevinagustin',
+  },
+] as const;
+---
+
+<div class="container mx-auto px-4 py-16">
+  <div class="mb-16">
+    <h1 class="text-6xl font-bold mb-6">{t.about_page.title}</h1>
+    <p class="text-xl max-w-4xl">
+      {t.about_page.description}
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {
+      teamData.map(member => (
+        <TeamMember
+          name={member.name}
+          image={member.image}
+          linkedin={member.linkedin}
+          linkedinProfile={member.linkedinProfile}
+          role={t.about_page.team[member.id].role}
+          bio={t.about_page.team[member.id].bio}
+        />
+      ))
+    }
+  </div>
+</div>

@@ -4,8 +4,38 @@
     "home": "INÍCIO",
     "about": "SOBRE",
     "model": "MODELO",
-    "applications": "APLICAÇÕES",
-    "contact": "CONTATO"
+    "applications": "APLICAÇÕES"
+  },
+  "about_page": {
+    "title": "Equipe",
+    "description": "Combinamos experiência direta no setor social com engenharia de software especializada em Web3 para construir infraestrutura de impacto escalável.",
+    "team": {
+      "martin": {
+        "role": "Founder & CEO",
+        "bio": "Responsável pela direção estratégica e desenvolvimento de negócios. Define a arquitetura do modelo B2B/B2I e gerencia alianças institucionais, fornecendo o know-how operacional necessário para implementação em territórios de baixa conectividade."
+      },
+      "andres": {
+        "role": "Co-Founder &<br/>Blockchain Architect",
+        "bio": "Encarregado da infraestrutura descentralizada. Projeta e desenvolve contratos inteligentes (Smart Contracts) e protocolos de segurança, garantindo a integridade e imutabilidade dos registros de auditoria."
+      },
+      "mateo": {
+        "role": "Co-Founder & Lead<br/>Software Engineer",
+        "bio": "Lidera a engenharia de sistemas e o desenvolvimento backend. Especialista em lógica de sincronização offline-first, integração de identidade biométrica e armazenamento descentralizado (IPFS), garantindo a operacionalidade técnica da plataforma."
+      },
+      "kevin": {
+        "role": "Co-Founder &<br/>FullStack Engineer",
+        "bio": "Dirige o design e desenvolvimento frontend. Responsável pela interface do usuário (Web e Mobile) e experiência do cliente, traduzindo requisitos técnicos complexos em ferramentas de gestão intuitivas para operadores de campo e investidores."
+      }
+    }
+  },
+  "allies_section": {
+    "title": "Aliados",
+    "description": "Impulsionado por líderes em tecnologia, educação e impacto social."
+  },
+  "birthday_modal": {
+    "title": "Feliz Aniversário {name}!",
+    "message": "Hoje celebramos a vida de um dos nossos fundadores. Obrigado por sua visão e liderança!",
+    "cta": "Enviar felicitações"
   },
   "hero": {
     "tag": "KEY PROTOCOL",

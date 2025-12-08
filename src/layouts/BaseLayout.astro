@@ -3,6 +3,7 @@ import '@styles/index.css';
 import type { Language } from '../types/language.type';
 import Header from './Header.astro';
 import Footer from './Footer.astro';
+import BirthdayModal from '@components/common/BirthdayModal.tsx';
 
 interface Props {
   lang: Language;
@@ -13,7 +14,13 @@ interface Props {
   };
 }
 
+import es from '@i18n/locales/es.json';
+import en from '@i18n/locales/en.json';
+import pt from '@i18n/locales/pt.json';
+
 const { lang, title, footer } = Astro.props;
+const translations = { es, en, pt };
+const t = translations[lang];
 ---
 
 <html lang={lang}>
@@ -21,7 +28,10 @@ const { lang, title, footer } = Astro.props;
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/icons/org/logo-transp.PNG" />
     <link rel="apple-touch-icon" href="/icons/org/logo-transp.PNG" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,5 +45,6 @@ const { lang, title, footer } = Astro.props;
     <Header lang={lang} />
     <slot />
     {footer && <Footer footer={footer} />}
+    <BirthdayModal translations={t.birthday_modal} client:idle />
   </body>
 </html>

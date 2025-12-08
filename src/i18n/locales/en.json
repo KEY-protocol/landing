@@ -4,8 +4,38 @@
     "home": "HOME",
     "about": "ABOUT",
     "model": "MODEL",
-    "applications": "APPLICATIONS",
-    "contact": "CONTACT"
+    "applications": "APPLICATIONS"
+  },
+  "about_page": {
+    "title": "Team",
+    "description": "We combine direct experience in the social sector with specialized Web3 software engineering to build scalable impact infrastructure.",
+    "team": {
+      "martin": {
+        "role": "Founder & CEO",
+        "bio": "Responsible for strategic direction and business development. Defines the B2B/B2I model architecture and manages institutional alliances, providing the operational know-how necessary for implementation in low-connectivity territories."
+      },
+      "andres": {
+        "role": "Co-Founder &<br/>Blockchain Architect",
+        "bio": "In charge of decentralized infrastructure. Designs and develops smart contracts and security protocols, guaranteeing the integrity and immutability of audit records."
+      },
+      "mateo": {
+        "role": "Co-Founder & Lead<br/>Software Engineer",
+        "bio": "Leads system engineering and backend development. Specialist in offline-first synchronization logic, biometric identity integration, and decentralized storage (IPFS), ensuring the platform's technical operability."
+      },
+      "kevin": {
+        "role": "Co-Founder &<br/>FullStack Engineer",
+        "bio": "Directs design and frontend development. Responsible for user interface (Web and Mobile) and customer experience, translating complex technical requirements into intuitive management tools for field operators and investors."
+      }
+    }
+  },
+  "allies_section": {
+    "title": "Allies",
+    "description": "Powered by leaders in technology, education, and social impact."
+  },
+  "birthday_modal": {
+    "title": "Happy Birthday {name}!",
+    "message": "Today we celebrate the life of one of our founders. Thank you for your vision and leadership!",
+    "cta": "Send wishes"
   },
   "hero": {
     "tag": "KEY PROTOCOL",
