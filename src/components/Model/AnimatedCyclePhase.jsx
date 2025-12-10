@@ -29,11 +29,12 @@ const AnimatedCyclePhase = ({ phases, interval = 5000 }) => {
 
   const getNodeClasses = variant => {
     if (variant === 'light') {
-      return 'bg-white text-black';
+      return 'bg-white text-black shadow-lg';
     } else if (variant === 'gray') {
-      return 'bg-[#D3D3D3] text-black';
+      return 'bg-[#E8E8E8] text-black shadow-md';
     } else {
-      return 'bg-[#1A5F38] text-white';
+      // Changed from dark green to a lighter teal/turquoise for better contrast
+      return 'bg-[#4B9C8E] text-white shadow-lg';
     }
   };
 
@@ -50,72 +51,81 @@ const AnimatedCyclePhase = ({ phases, interval = 5000 }) => {
       </div>
 
       {/* Nodes Container */}
-      <div className="relative py-12 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4">
-        {currentPhase.nodes.map((node, index) => {
-          const variant = getNodeVariant(index);
-          const nodeClasses = getNodeClasses(variant);
+      <div className="relative py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 relative">
+          {/* Horizontal Dashed Path with Animated Arrows - Desktop Only */}
+          <svg
+            className="absolute top-1/2 left-0 w-full h-32 -translate-y-1/2 hidden md:block pointer-events-none"
+            style={{ zIndex: 1 }}
+            preserveAspectRatio="none"
+            viewBox="0 0 1000 100"
+          >
+            {/* Dashed Path - curved path connecting all nodes */}
+            <path
+              d="M 60 50 Q 200 20, 333 50 T 666 50 T 940 50"
+              fill="none"
+              stroke="black"
+              strokeWidth="3"
+              strokeDasharray="15 10"
+              opacity="0.5"
+            >
+              <animate
+                attributeName="stroke-dashoffset"
+                from="0"
+                to="-50"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </path>
 
-          return (
-            <div key={index} className="relative flex flex-col items-center">
-              {/* Animated Dashed Circle Border */}
-              <svg
-                className="absolute w-48 h-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                viewBox="0 0 200 200"
-              >
-                <circle
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  fill="none"
-                  stroke="black"
-                  strokeWidth="2"
-                  strokeDasharray="10 10"
-                  className="opacity-50 animate-spin-slow"
-                  style={{ transformOrigin: 'center' }}
-                />
-              </svg>
+            {/* Animated Arrows traveling along the path */}
+            {[0, 1, 2, 3, 4, 5, 6].map(i => (
+              <g key={i}>
+                <polygon points="0,-6 15,0 0,6" fill="#4B9C8E">
+                  <animateMotion
+                    dur="5s"
+                    repeatCount="indefinite"
+                    begin={`${i * 0.7}s`}
+                    path="M 60 50 Q 200 20, 333 50 T 666 50 T 940 50"
+                  />
+                  {/* Fade in at start, stay visible, fade out at end */}
+                  <animate
+                    attributeName="opacity"
+                    values="0;1;1;0"
+                    keyTimes="0;0.05;0.92;1"
+                    dur="5s"
+                    repeatCount="indefinite"
+                    begin={`${i * 0.7}s`}
+                  />
+                </polygon>
+              </g>
+            ))}
+          </svg>
 
-              {/* Animated Arrows */}
-              <div className="absolute w-48 h-48 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 animate-spin-slow">
-                {/* Top Arrow */}
-                <div className="absolute top-2 left-1/2 -translate-x-1/2">
-                  <div className="w-0 h-0 border-l-8 border-r-8 border-b-12 border-l-transparent border-r-transparent border-b-[#4B9C8E]" />
-                </div>
-                {/* Right Arrow */}
-                <div className="absolute right-2 top-1/2 -translate-y-1/2">
-                  <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-t-transparent border-b-transparent border-l-[#4B9C8E]" />
-                </div>
-                {/* Bottom Arrow */}
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2">
-                  <div className="w-0 h-0 border-l-8 border-r-8 border-t-12 border-l-transparent border-r-transparent border-t-[#4B9C8E]" />
-                </div>
-              </div>
+          {/* Nodes */}
+          {currentPhase.nodes.map((node, index) => {
+            const variant = getNodeVariant(index);
+            const nodeClasses = getNodeClasses(variant);
 
-              {/* Node Content */}
+            return (
               <div
-                className={`relative z-10 w-32 h-32 rounded-full flex items-center justify-center text-center p-4 transition-all duration-500 ${nodeClasses}`}
+                key={index}
+                className="relative flex flex-col items-center"
+                style={{ zIndex: 10 }}
               >
-                <span className="text-sm font-bold leading-tight">{node}</span>
+                {/* Node Content */}
+                <div
+                  className={`relative z-10 w-32 h-32 rounded-full flex items-center justify-center text-center p-4 transition-all duration-500 ${nodeClasses}`}
+                >
+                  <span className="text-sm font-bold leading-tight">
+                    {node}
+                  </span>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-
-      <style jsx>{`
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
-        }
-      `}</style>
     </div>
   );
 };

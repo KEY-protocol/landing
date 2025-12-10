@@ -13,14 +13,7 @@ html {
 
 body {
   font-family: var(--font-family-poppins);
-  background: linear-gradient(
-    to bottom,
-    #e6efe2,
-    #a8c69f,
-    #7d9e64,
-    #3e6b2f,
-    #1f3b15
-  );
+  background: #2d4a2e;
   min-height: 100vh;
   overflow-x: hidden;
 }

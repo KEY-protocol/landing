@@ -27,6 +27,7 @@ const t = translations[lang];
 
 import SummarySection from '@components/Model/SummarySection.astro';
 import ManagementSection from '@components/Model/ManagementSection.astro';
+import Contact from '@components/Contact/Contact.astro';
 ---
 
 <BaseLayout lang={lang} title="Model - Key Protocol" footer={t.footer}>
@@ -34,5 +35,6 @@ import ManagementSection from '@components/Model/ManagementSection.astro';
     <div id="hero" class="h-1"></div>
     <SummarySection lang={lang} />
     <ManagementSection lang={lang} />
+    <Contact contact={t.contact} />
   </div>
 </BaseLayout>

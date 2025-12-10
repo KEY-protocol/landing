@@ -6,33 +6,32 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
   ResponsiveContainer,
 } from 'recharts';
 
 const data = [
   {
     name: '2025',
-    fondos: 2000,
-    ongs: 500,
-    fee: 300,
+    ongs: 500000,
+    fondos: 1440000,
+    fee: 1540000,
   },
   {
     name: '2026',
-    fondos: 4000,
-    ongs: 800,
-    fee: 250,
+    ongs: 1200000,
+    fondos: 3440000,
+    fee: 830000,
   },
   {
     name: '2027',
-    fondos: 8000,
-    ongs: 1500,
-    fee: 200,
+    ongs: 2500000,
+    fondos: 7000000,
+    fee: 500000,
   },
 ];
 
 const CostEfficiencyChart = ({ labels }) => {
-  // Check if we're in the browser (client-side) during initialization
-  // This avoids the cascading render issue from using useEffect + setState
   const [isMounted] = useState(() => typeof window !== 'undefined');
 
   if (!isMounted) {
@@ -44,10 +43,10 @@ const CostEfficiencyChart = ({ labels }) => {
       <LineChart
         data={data}
         margin={{
-          top: 5,
+          top: 50,
           right: 30,
           left: 20,
-          bottom: 5,
+          bottom: 20,
         }}
       >
         <CartesianGrid
@@ -60,7 +59,6 @@ const CostEfficiencyChart = ({ labels }) => {
           axisLine={false}
           tickLine={false}
           tick={{ fill: 'white', fontSize: 16 }}
-          dy={10}
         />
         <YAxis hide={true} />
         <Tooltip
@@ -72,7 +70,25 @@ const CostEfficiencyChart = ({ labels }) => {
           }}
           itemStyle={{ color: 'white' }}
         />
-        {/* Fondos - Green */}
+        <Legend
+          verticalAlign="top"
+          align="left"
+          layout="horizontal"
+          iconType="line"
+          wrapperStyle={{
+            paddingBottom: '20px',
+            fontSize: '14px',
+            color: 'white',
+            textTransform: 'capitalize',
+          }}
+          iconSize={20}
+          formatter={value => {
+            if (value === 'fondos') return labels.fondos;
+            if (value === 'ongs') return labels.ongs;
+            if (value === 'fee') return labels.fee;
+            return value;
+          }}
+        />
         <Line
           type="monotone"
           dataKey="fondos"
@@ -81,7 +97,6 @@ const CostEfficiencyChart = ({ labels }) => {
           dot={false}
           activeDot={{ r: 8 }}
         />
-        {/* ONGs - Orange */}
         <Line
           type="monotone"
           dataKey="ongs"
@@ -89,7 +104,6 @@ const CostEfficiencyChart = ({ labels }) => {
           strokeWidth={3}
           dot={false}
         />
-        {/* Fee - Red/Pink */}
         <Line
           type="monotone"
           dataKey="fee"
@@ -97,17 +111,6 @@ const CostEfficiencyChart = ({ labels }) => {
           strokeWidth={3}
           dot={false}
         />
-
-        {/* Custom Labels at the end of lines */}
-        <text x="95%" y="25%" fill="#90EE90" fontSize="16" textAnchor="start">
-          {labels.fondos}
-        </text>
-        <text x="95%" y="65%" fill="#FFA500" fontSize="16" textAnchor="start">
-          {labels.ongs}
-        </text>
-        <text x="95%" y="80%" fill="#FF69B4" fontSize="16" textAnchor="start">
-          {labels.fee}
-        </text>
       </LineChart>
     </ResponsiveContainer>
   );
