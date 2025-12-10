@@ -13,9 +13,9 @@ interface Props {
 const { title, socialLinks } = Astro.props;
 ---
 
-<div>
+<div class="flex flex-col items-center">
   <h3
-    class="text-xl sm:text-2xl md:text-3xl font-montserrat font-semibold text-white mb-4 sm:mb-6"
+    class="text-xl sm:text-2xl md:text-3xl font-montserrat font-semibold text-white mb-4 sm:mb-6 text-center"
   >
     {title}
   </h3>
@@ -37,4 +37,3 @@ const { title, socialLinks } = Astro.props;
     />
   </div>
 </div>
-

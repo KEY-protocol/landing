@@ -1,6 +1,5 @@
 ---
 import ContactForm from './ContactForm.jsx';
-import ContactInfo from './ContactInfo.astro';
 import FollowUs from './FollowUs.astro';
 
 interface Props {
@@ -41,28 +40,23 @@ const { contact } = Astro.props;
 <section class="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
   <div class="max-w-7xl mx-auto">
     <h2
-      class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-bold text-white mb-8 sm:mb-10 md:mb-12"
+      class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-bold text-white mb-12 sm:mb-16 md:mb-20"
     >
       {contact.title}
     </h2>
 
-    <div
-      class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16"
-    >
-      <div class="flex flex-col gap-8">
-        <ContactInfo
-          title={contact.contactInfo.title}
-          email={contact.contactInfo.email}
-          location={contact.contactInfo.location}
-        />
+    <div class="flex flex-col items-center gap-12 sm:gap-16 md:gap-20">
+      <!-- Formulario centrado -->
+      <div class="w-full max-w-md">
+        <ContactForm client:load form={contact.form} />
+      </div>
+
+      <!-- Síguenos centrado -->
+      <div class="flex flex-col items-center">
         <FollowUs
           title={contact.followUs.title}
           socialLinks={contact.socialLinks}
         />
-      </div>
-
-      <div>
-        <ContactForm client:load form={contact.form} />
       </div>
     </div>
   </div>

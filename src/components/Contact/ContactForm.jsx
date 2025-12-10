@@ -52,7 +52,7 @@ export default function ContactForm({ form }) {
 
   return (
     <>
-      <h3 className="text-xl sm:text-2xl md:text-3xl font-montserrat font-semibold text-white mb-4 sm:mb-6">
+      <h3 className="text-xl sm:text-2xl md:text-3xl font-montserrat font-semibold text-white mb-4 sm:mb-6 text-center">
         {form.title}
       </h3>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4">
@@ -91,17 +91,14 @@ export default function ContactForm({ form }) {
           <span>{isSubmitting ? form.sending : form.send}</span>
           <svg
             className="w-4 h-4 sm:w-5 sm:h-5"
-            fill="none"
-            stroke="currentColor"
+            fill="currentColor"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-            ></path>
+              d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+              transform="rotate(45 12 12)"
+            />
           </svg>
         </button>
       </form>
