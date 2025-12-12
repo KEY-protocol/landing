@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
-import ServicesSection from '@components/Services/ServicesSection.astro';
+import { ServicesSection } from '@components/Services/ServicesSection';
 import type { Language } from '@custom-types/index';
 import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
@@ -40,6 +40,7 @@ const services = t.services_page.services as Service[];
   <div id="hero" class="h-1"></div>
 
   <ServicesSection
+    client:load
     title={t.services_page.hero.title}
     description={t.services_page.hero.description}
     services={services}
