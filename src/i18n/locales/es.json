@@ -126,13 +126,13 @@
       },
       {
         "id": "documentation",
-        "title": "Documentación de Campo",
-        "subtitle": "Evidencia inmutable en tiempo real.",
-        "description": "Captura y certifica actividades en territorio con pruebas geolocalizadas y sincronización automática.",
-        "icon": "doc.png",
-        "functionality": "Captura multimedia geolocalizada (fotos, audio, reportes) que se empaqueta, encripta y sincroniza automáticamente con IPFS y blockchain.",
-        "advantage": "Elimina la necesidad de procesos manuales de verificación, reduciendo tiempos y costos operativos mientras garantiza la autenticidad de las evidencias.",
-        "idealFor": "Proyectos de campo, Auditorías, Programas de monitoreo y evaluación.",
+        "title": "Validador de Evidencias Encriptadas",
+        "subtitle": "Certificación de acciones con privacidad garantizada.",
+        "description": "Un motor de verificación que procesa pruebas de campo sin exponer datos sensibles.",
+        "icon": "package-lock.png",
+        "functionality": "Análisis automático de fotos, audios y coordenadas mediante Inteligencia Artificial en un entorno seguro (TEE).",
+        "advantage": "Audita el cumplimiento de tareas (ej. asistencia a un curso) protegiendo la identidad de los participantes.",
+        "idealFor": "Auditoría de RSE, Bonos de Carbono, Certificación de Origen.",
         "status": "available"
       },
       {

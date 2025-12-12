@@ -126,13 +126,13 @@
       },
       {
         "id": "documentation",
-        "title": "Documentação de Campo",
-        "subtitle": "Evidência imutável em tempo real.",
-        "description": "Capture e certifique atividades em território com provas geolocalizadas e sincronização automática.",
-        "icon": "doc.png",
-        "functionality": "Captura multimídia geolocalizada (fotos, áudio, relatórios) que é empacotada, criptografada e sincronizada automaticamente com IPFS e blockchain.",
-        "advantage": "Elimina a necessidade de processos manuais de verificação, reduzindo tempos e custos operacionais enquanto garante a autenticidade das evidências.",
-        "idealFor": "Projetos de campo, Auditorias, Programas de monitoramento e avaliação.",
+        "title": "Validador de Evidências Criptografadas",
+        "subtitle": "Certificação de ações com privacidade garantida.",
+        "description": "Um motor de verificação que processa provas de campo sem expor dados sensíveis.",
+        "icon": "package-lock.png",
+        "functionality": "Análise automática de fotos, áudios e coordenadas mediante Inteligência Artificial em um ambiente seguro (TEE).",
+        "advantage": "Audita o cumprimento de tarefas (ex. assistência a um curso) protegendo a identidade dos participantes.",
+        "idealFor": "Auditoria de RSE, Bônus de Carbono, Certificação de Origem.",
         "status": "available"
       },
       {

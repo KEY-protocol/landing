@@ -126,13 +126,13 @@
       },
       {
         "id": "documentation",
-        "title": "Field Documentation",
-        "subtitle": "Immutable evidence in real-time.",
-        "description": "Capture and certify field activities with geolocated evidence and automatic synchronization.",
-        "icon": "doc.png",
-        "functionality": "Geolocated multimedia capture (photos, audio, reports) that is packaged, encrypted, and automatically synchronized with IPFS and blockchain.",
-        "advantage": "Eliminates the need for manual verification processes, reducing time and operational costs while ensuring evidence authenticity.",
-        "idealFor": "Field projects, Audits, Monitoring and evaluation programs.",
+        "title": "Encrypted Evidence Validator",
+        "subtitle": "Action certification with guaranteed privacy.",
+        "description": "A verification engine that processes field evidence without exposing sensitive data.",
+        "icon": "package-lock.png",
+        "functionality": "Automatic analysis of photos, audios, and coordinates using Artificial Intelligence in a secure environment (TEE).",
+        "advantage": "Audits task compliance (e.g., course attendance) while protecting participants' identity.",
+        "idealFor": "CSR Auditing, Carbon Credits, Origin Certification.",
         "status": "available"
       },
       {
