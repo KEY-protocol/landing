@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
@@ -7,7 +6,6 @@ import node from '@astrojs/node';
 import { fileURLToPath } from 'url';
 import { resolve } from 'path';
 
-// Usar adaptador de Node.js para preview local, Vercel para producción
 const isPreview = process.env.ASTRO_PREVIEW === 'true';
 
 export default defineConfig({
@@ -30,11 +28,10 @@ export default defineConfig({
       cssMinify: true,
     },
     esbuild: {
-      // Ofuscación de nombres: convierte nombres de variables/funciones a letras cortas
-      minifyIdentifiers: true, // Reduce nombres de variables a identificadores cortos (a, b, c, etc.)
-      minifySyntax: true, // Minifica la sintaxis
-      minifyWhitespace: true, // Elimina espacios en blanco
-      legalComments: 'none', // Elimina todos los comentarios
+      minifyIdentifiers: true,
+      minifySyntax: true,
+      minifyWhitespace: true,
+      legalComments: 'none',
     },
     resolve: {
       alias: {
