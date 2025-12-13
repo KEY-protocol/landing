@@ -20,7 +20,11 @@ import en from '@i18n/locales/en.json';
 import pt from '@i18n/locales/pt.json';
 
 const { lang, title, footer, isHomePage = false } = Astro.props;
-const translations: Record<Language, typeof es> = { es, en, pt };
+const translations: Record<Language, typeof es | typeof en | typeof pt> = {
+  es,
+  en,
+  pt,
+};
 const t = translations[lang];
 ---
 

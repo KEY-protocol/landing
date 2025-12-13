@@ -13,7 +13,15 @@ html {
 
 body {
   font-family: var(--font-family-poppins);
-  background: #2d4a2e;
+  background: radial-gradient(
+    ellipse at top,
+    #8fbc8f 0%,
+    #6b9b6b 25%,
+    #4a7c59 50%,
+    #2d5a3d 75%,
+    #1a3a28 100%
+  );
+  background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
 }

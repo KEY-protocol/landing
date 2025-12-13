@@ -9,7 +9,7 @@ interface Props {
 const {
   title,
   description,
-  backgroundColor = '#4A9B7F',
+  backgroundColor = '#1B4D3E',
   class: className = '',
 } = Astro.props;
 ---
@@ -18,8 +18,12 @@ const {
   class={`rounded-xl p-4 sm:p-5 md:p-6 lg:p-8 ${className}`}
   style={`background-color: ${backgroundColor}`}
 >
-  <h3 class="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-montserrat font-bold text-white mb-3 sm:mb-4">
+  <h3
+    class="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-montserrat font-bold mb-3 sm:mb-4"
+  >
     {title}
   </h3>
-  <p class="text-white text-xs sm:text-sm md:text-base leading-relaxed">{description}</p>
+  <p class="text-xs sm:text-sm md:text-base leading-relaxed">
+    {description}
+  </p>
 </div>
