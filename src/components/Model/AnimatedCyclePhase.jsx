@@ -54,8 +54,8 @@ const AnimatedCyclePhase = ({ phases, interval = 5000 }) => {
     const positionClasses = isCenter
       ? 'translate-x-0 scale-100 opacity-100 blur-0 z-20'
       : isPrev
-        ? '-translate-x-[120%] scale-75 opacity-40 blur-sm z-10'
-        : 'translate-x-[120%] scale-75 opacity-40 blur-sm z-10';
+        ? '-translate-x-[80%] scale-80 opacity-50 blur-[2px] z-10'
+        : 'translate-x-[80%] scale-80 opacity-50 blur-[2px] z-10';
 
     return (
       <div
@@ -148,7 +148,7 @@ const AnimatedCyclePhase = ({ phases, interval = 5000 }) => {
 
   return (
     <div
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-visible"
       style={{ minHeight: '500px' }}
     >
       {/* Fase anterior (izquierda, borrosa) */}

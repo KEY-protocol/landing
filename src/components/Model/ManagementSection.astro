@@ -16,8 +16,8 @@ const t = translations[lang];
 const content = t.model_page.management;
 ---
 
-<section class="py-16 text-white">
-  <div class="container mx-auto px-4">
+<section class="py-16 text-white overflow-visible">
+  <div class="container mx-auto px-4 overflow-visible">
     <div class="mb-16">
       <h2 class="text-5xl font-bold mb-6">{content.title}</h2>
       <p class="text-xl md:text-2xl font-light mb-8 font-semibold">
@@ -41,12 +41,16 @@ const content = t.model_page.management;
     </div>
 
     {/* Section Split: Cycle + Chart */}
-    <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 w-full">
       {/* Animated Cycle Phases */}
-      <AnimatedCyclePhase phases={content.phases} client:visible />
+      <div class="w-full px-4 md:px-8 lg:px-16">
+        <AnimatedCyclePhase phases={content.phases} client:visible />
+      </div>
 
       {/* Bottom: Chart */}
-      <ChartSection labels={content.chart} />
+      <div class="max-w-5xl mx-auto">
+        <ChartSection labels={content.chart} />
+      </div>
     </div>
   </div>
 </section>
