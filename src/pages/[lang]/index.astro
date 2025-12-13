@@ -22,7 +22,7 @@ const translations = { es, en, pt };
 const t = translations[lang];
 ---
 
-<BaseLayout lang={lang} title={t.title} footer={t.footer}>
+<BaseLayout lang={lang} title={t.title} footer={t.footer} isHomePage={true}>
   <Hero hero={t.hero} />
   <Vision vision={t.vision} />
   <Impacto impacto={t.impacto} />

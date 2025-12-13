@@ -8,6 +8,7 @@ import BirthdayModal from '@components/common/BirthdayModal.jsx';
 interface Props {
   lang: Language;
   title: string;
+  isHomePage?: boolean;
   footer?: {
     copyright: string;
     tagline: string;
@@ -18,7 +19,7 @@ import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
 import pt from '@i18n/locales/pt.json';
 
-const { lang, title, footer } = Astro.props;
+const { lang, title, footer, isHomePage = false } = Astro.props;
 const translations: Record<Language, typeof es> = { es, en, pt };
 const t = translations[lang];
 ---
@@ -42,7 +43,7 @@ const t = translations[lang];
     />
   </head>
   <body>
-    <Header lang={lang} />
+    <Header lang={lang} isHomePage={isHomePage} />
     <slot />
     {footer && <Footer footer={footer} />}
     <BirthdayModal translations={t.birthday_modal} client:idle />
