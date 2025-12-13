@@ -121,41 +121,37 @@
         "icon": "biometric.png",
         "functionality": "Offline biometric and documentary registration that generates a verifiable confidential credential on the blockchain.",
         "advantage": "The ability to link acquired skills to individuals enables the implementation of impact projects based on verified and confidential data.",
-        "idealFor": "NGOs, Governments, Financial Inclusion Programs.",
-        "status": "available"
+        "idealFor": "NGOs, Governments, Financial Inclusion Programs."
       },
       {
         "id": "documentation",
         "title": "Encrypted Evidence Validator",
         "subtitle": "Action certification with guaranteed privacy.",
         "description": "A verification engine that processes field evidence without exposing sensitive data.",
-        "icon": "package-lock.png",
+        "icon": "keyBox.png",
         "functionality": "Automatic analysis of photos, audios, and coordinates using Artificial Intelligence in a secure environment (TEE).",
         "advantage": "Audits task compliance (e.g., course attendance) while protecting participants' identity.",
-        "idealFor": "CSR Auditing, Carbon Credits, Origin Certification.",
-        "status": "available"
+        "idealFor": "CSR Auditing, Carbon Credits, Origin Certification."
       },
       {
-        "id": "keybox",
-        "title": "KeyBox",
-        "subtitle": "Secure credential management.",
-        "description": "Key and credential management system with end-to-end encryption to protect sensitive data.",
-        "icon": "keyBox.png",
-        "functionality": "Local and encrypted storage of private keys with secure recovery through seed phrases and biometric authentication.",
-        "advantage": "Ensures users maintain full control over their credentials without relying on centralized servers, even in offline environments.",
-        "idealFor": "Organizations handling sensitive data, Digital identity programs.",
-        "status": "coming_soon"
-      },
-      {
-        "id": "analytics",
-        "title": "Analytics & Reporting",
-        "subtitle": "Blockchain-certified metrics.",
-        "description": "Real-time metrics dashboard and automatic generation of certified reports for total transparency.",
+        "id": "dashboard",
+        "title": "Investment Monitor (Dashboard B2I)",
+        "subtitle": "Real-time financial traceability.",
+        "description": "The definitive control panel to visualize fund flow and its impact.",
         "icon": "stats.png",
-        "functionality": "Real-time KPI visualization with automatic generation of blockchain-certified reports and data export.",
-        "advantage": "Allows funders and stakeholders to verify the impact of their investments with immutable data and transparent auditing.",
-        "idealFor": "Impact investors, Development funds, Organizations requiring certified reporting.",
-        "status": "coming_soon"
+        "functionality": "Visualization of key metrics, fund release by completed milestones, and certified impact reports.",
+        "advantage": "Eliminates deferred visibility of investments, offering total transparency on where and how funds are invested.",
+        "idealFor": "Development Banks, Impact Investment Funds, Corporate Philanthropy."
+      },
+      {
+        "id": "automation",
+        "title": "Report Automation",
+        "subtitle": "Goodbye to manual management.",
+        "description": "Transform messy field data into standardized reports instantly.",
+        "icon": "doc.png",
+        "functionality": "AI agents that structure information collected by the Field App into ready-to-present formats (PDF, Excel, API).",
+        "advantage": "Reduces administrative time for technical teams by 90%, allowing them to focus on social work.",
+        "idealFor": "Project Coordinators, Monitoring and Evaluation Teams."
       }
     ]
   },

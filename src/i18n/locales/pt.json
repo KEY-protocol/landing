@@ -121,41 +121,37 @@
         "icon": "biometric.png",
         "functionality": "Registro biométrico e documental offline que gera uma credencial verificável confidencial na blockchain.",
         "advantage": "A possibilidade de vincular capacidades adquiridas às pessoas permite focalizar a implementação de projetos de impacto baseados em dados verificados e confidenciais.",
-        "idealFor": "ONGs, Governos, Programas de Inclusão Financeira.",
-        "status": "available"
+        "idealFor": "ONGs, Governos, Programas de Inclusão Financeira."
       },
       {
         "id": "documentation",
         "title": "Validador de Evidências Criptografadas",
         "subtitle": "Certificação de ações com privacidade garantida.",
         "description": "Um motor de verificação que processa provas de campo sem expor dados sensíveis.",
-        "icon": "package-lock.png",
+        "icon": "keyBox.png",
         "functionality": "Análise automática de fotos, áudios e coordenadas mediante Inteligência Artificial em um ambiente seguro (TEE).",
         "advantage": "Audita o cumprimento de tarefas (ex. assistência a um curso) protegendo a identidade dos participantes.",
-        "idealFor": "Auditoria de RSE, Bônus de Carbono, Certificação de Origem.",
-        "status": "available"
+        "idealFor": "Auditoria de RSE, Bônus de Carbono, Certificação de Origem."
       },
       {
-        "id": "keybox",
-        "title": "KeyBox",
-        "subtitle": "Gestão segura de credenciais.",
-        "description": "Sistema de gestão de chaves e credenciais com criptografia de ponta a ponta para proteger dados sensíveis.",
-        "icon": "keyBox.png",
-        "functionality": "Armazenamento local e criptografado de chaves privadas com recuperação segura através de frases-semente e autenticação biométrica.",
-        "advantage": "Garante que os usuários mantenham controle total sobre suas credenciais sem depender de servidores centralizados, mesmo em ambientes offline.",
-        "idealFor": "Organizações que lidam com dados sensíveis, Programas de identidade digital.",
-        "status": "coming_soon"
-      },
-      {
-        "id": "analytics",
-        "title": "Analytics & Reporting",
-        "subtitle": "Métricas certificadas em blockchain.",
-        "description": "Dashboard de métricas em tempo real e geração automática de relatórios certificados para transparência total.",
+        "id": "dashboard",
+        "title": "Monitor de Investimentos (Dashboard B2I)",
+        "subtitle": "Rastreabilidade financeira em tempo real.",
+        "description": "O painel de controle definitivo para visualizar o fluxo de fundos e seu impacto.",
         "icon": "stats.png",
-        "functionality": "Visualização de KPIs em tempo real com geração automática de relatórios certificados em blockchain e exportação de dados.",
-        "advantage": "Permite que financiadores e stakeholders verifiquem o impacto de seus investimentos com dados imutáveis e auditoria transparente.",
-        "idealFor": "Investidores de impacto, Fundos de desenvolvimento, Organizações que requerem relatórios certificados.",
-        "status": "coming_soon"
+        "functionality": "Visualização de métricas-chave, liberação de fundos por marcos cumpridos e relatórios de impacto certificados.",
+        "advantage": "Elimina a visibilidade diferida dos investimentos, oferecendo transparência total sobre onde e como se investe.",
+        "idealFor": "Bancos de Desenvolvimento, Fundos de Investimento de Impacto, Filantropia Corporativa."
+      },
+      {
+        "id": "automation",
+        "title": "Automação de Relatórios",
+        "subtitle": "Adeus à gestão manual.",
+        "description": "Transforma dados de campo desordenados em relatórios padronizados instantaneamente.",
+        "icon": "doc.png",
+        "functionality": "Agentes de IA que estruturam a informação coletada pelo Field App em formatos prontos para apresentar (PDF, Excel, API).",
+        "advantage": "Reduz em 90% o tempo administrativo das equipes técnicas, permitindo que se concentrem no trabalho social.",
+        "idealFor": "Coordenadores de Projeto, Equipes de Monitoramento e Avaliação."
       }
     ]
   },

@@ -86,7 +86,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     functionality={service.functionality}
                     advantage={service.advantage}
                     idealFor={service.idealFor}
-                    status={service.status}
                     isActive={index === currentIndex}
                   />
                 </div>

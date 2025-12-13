@@ -8,7 +8,6 @@ interface ServiceCardProps {
   functionality: string;
   advantage: string;
   idealFor: string;
-  status: 'available' | 'coming_soon';
   isActive?: boolean;
 }
 
@@ -20,17 +19,10 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   functionality,
   advantage,
   idealFor,
-  status,
   isActive = false,
 }) => {
   return (
     <div className="relative">
-      {status === 'coming_soon' && (
-        <div className="absolute top-0 right-0 bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-4 py-2 rounded-full border border-white/30">
-          Próximamente
-        </div>
-      )}
-
       <div className="mb-8 flex justify-center">
         <div className="w-28 h-28 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center p-6 shadow-lg border border-white/30">
           <img
