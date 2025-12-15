@@ -18,14 +18,22 @@ interface ServicesSectionProps {
   title: string;
   description: string;
   services: Service[];
+  swipeHint: string;
+  ariaGoToService: string;
+  labels: {
+    functionality: string;
+    advantage: string;
+    idealFor: string;
+  };
 }
-
-const serviceColors = ['#7D9E64', '#3E6B2F', '#2E5E2B', '#284D21'];
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   title,
   description,
   services,
+  swipeHint,
+  ariaGoToService,
+  labels,
 }) => {
   const {
     currentIndex,
@@ -40,22 +48,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     handleMouseDown,
   } = useCarousel({
     totalSlides: services.length,
-    serviceColors,
   });
 
   return (
     <section
       ref={sectionRef}
-      className="services-section transition-colors duration-700 py-20"
+      className="services-section py-20 bg-primary"
       data-current-index={currentIndex}
-      style={{ backgroundColor: serviceColors[0] }}
     >
       <div className="container mx-auto px-4">
         <div className="text-left mb-16 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            {title}
-          </h2>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{title}</h2>
+          <p className="text-lg md:text-xl opacity-90 leading-relaxed">
             {description}
           </p>
         </div>
@@ -76,7 +80,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               {services.map((service, index) => (
                 <div
                   key={service.id}
-                  className="carousel-slide min-w-full flex-shrink-0 px-4 snap-center"
+                  className="carousel-slide min-w-full shrink-0 px-4 snap-center"
                 >
                   <ServiceCard
                     title={service.title}
@@ -87,6 +91,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     advantage={service.advantage}
                     idealFor={service.idealFor}
                     isActive={index === currentIndex}
+                    labels={labels}
                   />
                 </div>
               ))}
@@ -95,12 +100,12 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
           <div className="mt-8 flex flex-col items-center gap-4">
             <p
-              className={`swipe-hint text-white/70 text-sm animate-pulse transition-opacity duration-500 ${
+              className={`swipe-hint text-gray-700 text-sm animate-pulse transition-opacity duration-500 ${
                 hasInteracted ? 'opacity-0' : 'opacity-100'
               }`}
               style={{ display: hasInteracted ? 'none' : 'block' }}
             >
-              ← Desliza para ver más servicios →
+              {swipeHint}
             </p>
 
             <div className="flex justify-center gap-3">
@@ -109,11 +114,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   key={index}
                   className={`carousel-dot w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'bg-white w-8'
-                      : 'bg-white/40 hover:bg-white/60'
+                      ? 'bg-[#2D5A47] w-8'
+                      : 'bg-[#2D5A47]/40 hover:bg-[#2D5A47]/60'
                   }`}
                   data-index={index}
-                  aria-label={`Ir al servicio ${index + 1}`}
+                  aria-label={`${ariaGoToService} ${index + 1}`}
                   onClick={() => {
                     goToSlide(index);
                     hideSwipeHint();

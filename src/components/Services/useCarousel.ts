@@ -2,13 +2,11 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 
 interface UseCarouselOptions {
   totalSlides: number;
-  serviceColors: string[];
   onSlideChange?: (index: number) => void;
 }
 
 export function useCarousel({
   totalSlides,
-  serviceColors,
   onSlideChange,
 }: UseCarouselOptions) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -73,17 +71,6 @@ export function useCarousel({
       }
     });
   }, [currentIndex, onSlideChange]);
-
-  // Update background color when slide changes
-  useEffect(() => {
-    if (sectionRef.current && serviceColors[currentIndex]) {
-      sectionRef.current.style.backgroundColor = serviceColors[currentIndex];
-      sectionRef.current.setAttribute(
-        'data-current-index',
-        currentIndex.toString()
-      );
-    }
-  }, [currentIndex, serviceColors]);
 
   // Scroll event listener
   useEffect(() => {

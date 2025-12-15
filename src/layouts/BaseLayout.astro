@@ -1,9 +1,10 @@
 ---
 import '@styles/index.css';
 import type { Language } from '@custom-types/index';
-import Header from '@layouts/Header.astro';
-import Footer from '@layouts/Footer.astro';
-import BirthdayModal from '@components/common/BirthdayModal.jsx';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import BirthdayModal from './components/BirthdayModal.jsx';
+import Contact from './components/Contact/Contact.astro';
 
 interface Props {
   lang: Language;
@@ -31,8 +32,24 @@ const t = translations[lang];
 <html lang={lang}>
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/icons/org/logo.svg" />
-    <link rel="apple-touch-icon" href="/icons/org/logo.svg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/org/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/icons/org/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/icons/org/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/icons/org/favicon_io/site.webmanifest" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
@@ -45,10 +62,28 @@ const t = translations[lang];
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      // Prevenir FOUC (Flash of Unstyled Content) al cargar la página
+      (function () {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)'
+        ).matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body>
+  <body
+    class="overflow-x-hidden min-h-screen font-family-poppins transition-colors duration-300"
+    style="background-color: var(--color-primary);"
+  >
     <Header lang={lang} isHomePage={isHomePage} />
     <slot />
+    <Contact contact={t.contact} />
     {footer && <Footer footer={footer} />}
     <BirthdayModal translations={t.birthday_modal} client:idle />
   </body>

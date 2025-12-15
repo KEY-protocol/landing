@@ -1,8 +1,12 @@
 import { useState, useRef } from 'react';
-import Timeline from '@components/Roadmap/Timeline.jsx';
-import RoadmapCarousel from '@components/Roadmap/RoadmapCarousel.jsx';
+import Timeline from './Timeline.jsx';
+import RoadmapCarousel from './RoadmapCarousel.jsx';
 
-export default function RoadmapContainer({ quarters, phases }) {
+export default function RoadmapContainer({
+  quarters,
+  phases,
+  keyFeaturesLabel,
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
 
@@ -35,6 +39,7 @@ export default function RoadmapContainer({ quarters, phases }) {
         quarters={quarters}
         currentIndex={currentIndex}
         onIndexChange={handleIndexChange}
+        keyFeaturesLabel={keyFeaturesLabel}
       />
     </>
   );

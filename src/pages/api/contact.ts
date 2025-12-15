@@ -58,7 +58,7 @@ function generateEmailHTML(
         <table role="presentation" style="max-width: 600px; width: 100%; border-collapse: collapse; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
           <!-- Header -->
           <tr>
-            <td style="background: linear-gradient(135deg, #2d5a47 0%, #4a9b7f 100%); padding: 30px 20px; text-align: center;">
+            <td style="background: linear-gradient(135deg, hsl(164, 80%, 20%) 0%, hsl(164, 80%, 35%) 100%); padding: 30px 20px; text-align: center;">
               <h1 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600;">
                 Nuevo Mensaje de Contacto
               </h1>
@@ -98,7 +98,7 @@ function generateEmailHTML(
                           Email:
                         </td>
                         <td style="padding: 0; color: #333333; font-size: 14px;">
-                          <a href="mailto:${escapedEmail}" style="color: #4a9b7f; text-decoration: none;">${escapedEmail}</a>
+                          <a href="mailto:${escapedEmail}" style="color: hsl(164, 80%, 40%); text-decoration: none;">${escapedEmail}</a>
                         </td>
                       </tr>
                     </table>
@@ -126,7 +126,7 @@ function generateEmailHTML(
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 15px; background-color: #f8f9fa; border-left: 4px solid #4a9b7f; border-radius: 4px; color: #333333; font-size: 14px; line-height: 1.6;">
+                  <td style="padding: 15px; background-color: #f8f9fa; border-left: 4px solid hsl(164, 80%, 40%); border-radius: 4px; color: #333333; font-size: 14px; line-height: 1.6;">
                     ${escapedMessage}
                   </td>
                 </tr>
@@ -137,7 +137,7 @@ function generateEmailHTML(
                 <tr>
                   <td align="center">
                     <a href="mailto:${escapedEmail}?subject=Re: Nuevo mensaje de contacto de ${escapedName}" 
-                       style="display: inline-block; padding: 12px 30px; background-color: #4a9b7f; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600; transition: background-color 0.3s;">
+                       style="display: inline-block; padding: 12px 30px; background-color: hsl(164, 80%, 40%); color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600; transition: background-color 0.3s;">
                       Responder por Email
                     </a>
                   </td>
@@ -151,7 +151,7 @@ function generateEmailHTML(
             <td style="padding: 20px; background-color: #f8f9fa; text-align: center; border-top: 1px solid #e0e0e0;">
               <p style="margin: 0; color: #666666; font-size: 12px; line-height: 1.5;">
                 Este mensaje fue enviado automáticamente desde el formulario de contacto de<br>
-                <strong style="color: #4a9b7f;">Key Protocol</strong>
+                <strong style="color: hsl(164, 80%, 40%);">Key Protocol</strong>
               </p>
               <p style="margin: 10px 0 0 0; color: #999999; font-size: 11px;">
                 No respondas directamente a este correo. Utiliza el botón "Responder por Email" arriba.

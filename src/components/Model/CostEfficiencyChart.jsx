@@ -92,7 +92,7 @@ const CostEfficiencyChart = ({ labels }) => {
         <Line
           type="monotone"
           dataKey="fondos"
-          stroke="#90EE90"
+          stroke="hsl(104, 50%, 70%)"
           strokeWidth={3}
           dot={false}
           activeDot={{ r: 8 }}
@@ -100,14 +100,14 @@ const CostEfficiencyChart = ({ labels }) => {
         <Line
           type="monotone"
           dataKey="ongs"
-          stroke="#FFA500"
+          stroke="hsl(44, 80%, 50%)"
           strokeWidth={3}
           dot={false}
         />
         <Line
           type="monotone"
           dataKey="fee"
-          stroke="#FF69B4"
+          stroke="hsl(164, 80%, 60%)"
           strokeWidth={3}
           dot={false}
         />
