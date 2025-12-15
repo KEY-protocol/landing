@@ -45,8 +45,25 @@ const t = translations[lang];
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      // Prevenir FOUC (Flash of Unstyled Content) al cargar la página
+      (function () {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia(
+          '(prefers-color-scheme: dark)'
+        ).matches;
+        const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body>
+  <body
+    class="overflow-x-hidden min-h-screen font-family-poppins transition-colors duration-300"
+    style="background-color: var(--color-primary);"
+  >
     <Header lang={lang} isHomePage={isHomePage} />
     <slot />
     {footer && <Footer footer={footer} />}

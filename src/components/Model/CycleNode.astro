@@ -9,9 +9,15 @@ interface Props {
 const { value, label, variant = 'dark', offset = 'none' } = Astro.props;
 
 const variantClasses = {
-  dark: 'bg-[#1E3F2E] text-white',
-  light: 'bg-white text-[#1A5F38]',
+  dark: 'text-white',
+  light: 'bg-white',
   gray: 'bg-[#D3D3D3] text-black',
+};
+
+const variantStyles = {
+  dark: 'background-color: var(--color-tertiary);',
+  light: 'color: var(--color-tertiary);',
+  gray: '',
 };
 
 const offsetClasses = {
@@ -25,6 +31,7 @@ const offsetClasses = {
 >
   <div
     class={`w-32 h-32 rounded-full flex flex-col items-center justify-center text-center p-2 ${variantClasses[variant]}`}
+    style={variantStyles[variant]}
   >
     <span class="text-xl font-bold">{value}</span>
     <span class="text-sm font-semibold">{label}</span>

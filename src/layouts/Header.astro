@@ -2,6 +2,7 @@
 import Logo from '@components/common/Logo.astro';
 import Navigation from '@components/common/Navigation.astro';
 import LanguageSwitcher from '@components/common/LanguageSwitcher';
+import ThemeToggle from '@components/common/ThemeToggle';
 import type { Language } from '@custom-types/index';
 
 interface Props {
@@ -14,7 +15,7 @@ const { lang, isHomePage = false } = Astro.props;
 
 <header
   id="main-header"
-  class={`w-full backdrop-blur-sm ${isHomePage ? 'fixed' : 'sticky'} top-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 sm:py-3 transition-transform duration-300 ${isHomePage ? '-translate-y-full' : 'translate-y-0'}`}
+  class={`w-full text-white backdrop-blur-sm ${isHomePage ? 'fixed' : 'sticky'} top-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 sm:py-3 transition-transform duration-300 ${isHomePage ? '-translate-y-full' : 'translate-y-0'}`}
   data-is-home={isHomePage}
 >
   <div class="max-w-7xl mx-auto grid grid-cols-3 items-center gap-2 sm:gap-4">
@@ -26,7 +27,8 @@ const { lang, isHomePage = false } = Astro.props;
       <Navigation lang={lang} />
     </div>
 
-    <div class="flex justify-end">
+    <div class="flex justify-end items-center gap-2">
+      <ThemeToggle client:only="react" />
       <LanguageSwitcher client:only="react" />
     </div>
   </div>

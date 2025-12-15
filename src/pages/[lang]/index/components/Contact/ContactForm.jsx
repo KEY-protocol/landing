@@ -52,7 +52,7 @@ export default function ContactForm({ form }) {
 
   return (
     <>
-      <h3 className="text-xl sm:text-2xl md:text-3xl font-montserrat font-semibold text-white mb-4 sm:mb-6 text-center">
+      <h3 className="text-xl sm:text-2xl md:text-3xl font-montserrat font-semibold  mb-4 sm:mb-6 text-center">
         {form.title}
       </h3>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4">

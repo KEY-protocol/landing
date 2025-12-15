@@ -70,7 +70,7 @@ export default function MetricModal({
   return (
     <div
       ref={modalRef}
-      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 sm:p-6"
+      className="modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 sm:p-6 text-white"
       data-modal
     >
       <div
@@ -88,7 +88,7 @@ export default function MetricModal({
 
         {/* Close button */}
         <button
-          className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 rounded-full bg-black/50 backdrop-blur-sm p-1.5 sm:p-2 text-white transition-colors hover:bg-black/70"
+          className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 rounded-full bg-black/50 backdrop-blur-sm p-1.5 sm:p-2 transition-colors hover:bg-black/70"
           onClick={() => setIsOpen(false)}
           aria-label="Cerrar modal"
         >
@@ -111,17 +111,17 @@ export default function MetricModal({
         <div className="relative z-10 flex flex-col justify-between h-full p-6 sm:p-8 md:p-10 lg:p-12">
           {/* Metric Block */}
           <div className="mt-8 mb-3 sm:mt-0">
-            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-bold text-white mb-1 sm:mb-2">
+            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-bold mb-1 sm:mb-2">
               {value}
             </p>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg font-montserrat font-semibold text-white">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg font-montserrat font-semibold">
               {label}
             </p>
           </div>
 
           {/* Description Block */}
           <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl mt-auto">
-            <p className="text-white text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
               {description}
             </p>
           </div>

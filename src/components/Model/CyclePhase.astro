@@ -17,7 +17,10 @@ interface Props {
 const { title, description, nodes } = Astro.props;
 ---
 
-<div class="bg-[#1A5F38] rounded-2xl p-8 relative overflow-hidden">
+<div
+  class="rounded-2xl p-8 relative overflow-hidden"
+  style="background-color: var(--color-tertiary);"
+>
   <h3 class="text-2xl font-bold mb-8">{title}</h3>
   <p class="text-sm mb-12 max-w-2xl">{description}</p>
 
@@ -40,19 +43,19 @@ const { title, description, nodes } = Astro.props;
           class="opacity-50"></path>
         <polygon
           points="150,120 135,128 135,112"
-          fill="#4B9C8E"
+          fill="var(--color-accent)"
           transform="rotate(-25 142 120)"></polygon>
         <polygon
           points="350,180 335,188 335,172"
-          fill="#4B9C8E"
+          fill="var(--color-accent)"
           transform="rotate(25 342 180)"></polygon>
         <polygon
           points="550,120 535,128 535,112"
-          fill="#4B9C8E"
+          fill="var(--color-accent)"
           transform="rotate(-25 542 120)"></polygon>
         <polygon
           points="750,180 735,188 735,172"
-          fill="#4B9C8E"
+          fill="var(--color-accent)"
           transform="rotate(25 742 180)"></polygon>
       </svg>
     </div>

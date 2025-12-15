@@ -34,44 +34,38 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
       </div>
 
       <div className="text-center mb-6">
-        <h3 className="text-2xl md:text-3xl font-bold mb-2 text-white">
-          {title}
-        </h3>
-        <p className="text-sm md:text-base font-light italic text-white/80">
+        <h3 className="text-2xl md:text-3xl font-bold mb-2">{title}</h3>
+        <p className="text-sm md:text-base font-light italic opacity-80">
           {subtitle}
         </p>
       </div>
 
-      <p className="text-center mb-8 leading-relaxed text-white/90">
+      <p className="text-center mb-8 leading-relaxed opacity-90">
         {description}
       </p>
 
       <div className="space-y-6 max-w-2xl mx-auto">
         <div>
-          <h4 className="font-bold text-lg mb-2 flex items-center gap-2 text-white">
+          <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
             <span className="text-xl">•</span> Funcionalidad
           </h4>
-          <p className="text-sm leading-relaxed text-white/85 pl-6">
+          <p className="text-sm leading-relaxed opacity-85 pl-6">
             {functionality}
           </p>
         </div>
 
         <div>
-          <h4 className="font-bold text-lg mb-2 flex items-center gap-2 text-white">
+          <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
             <span className="text-xl">•</span> Ventaja
           </h4>
-          <p className="text-sm leading-relaxed text-white/85 pl-6">
-            {advantage}
-          </p>
+          <p className="text-sm leading-relaxed opacity-85 pl-6">{advantage}</p>
         </div>
 
         <div>
-          <h4 className="font-bold text-lg mb-2 flex items-center gap-2 text-white">
+          <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
             <span className="text-xl">•</span> Ideal para
           </h4>
-          <p className="text-sm leading-relaxed text-white/85 pl-6">
-            {idealFor}
-          </p>
+          <p className="text-sm leading-relaxed opacity-85 pl-6">{idealFor}</p>
         </div>
       </div>
     </div>

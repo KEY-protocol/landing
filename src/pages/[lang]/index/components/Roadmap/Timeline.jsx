@@ -2,7 +2,7 @@ export default function Timeline({ quarters, currentIndex, onQuarterClick }) {
   return (
     <div className="relative w-full mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-1 sm:px-2 md:px-4">
       {/* Timeline line */}
-      <div className="absolute top-5 sm:top-6 md:top-8 left-4 sm:left-6 md:left-8 lg:left-12 right-4 sm:right-6 md:right-8 lg:right-12 h-0.5 sm:h-1 border-t-2 border-dashed border-white/40 sm:border-white/30"></div>
+      <div className="absolute top-5 sm:top-6 md:top-8 left-4 sm:left-6 md:left-8 lg:left-12 right-4 sm:right-6 md:right-8 lg:right-12 h-0.5 sm:h-1 border-t-2 border-dashed border-[#1B4D3E]/40 sm:border-[#1B4D3E]/30"></div>
 
       {/* Timeline points */}
       <div className="relative flex justify-between items-start px-0">
@@ -16,16 +16,24 @@ export default function Timeline({ quarters, currentIndex, onQuarterClick }) {
               onClick={() => onQuarterClick && onQuarterClick(index)}
               className={`roadmap-timeline-button relative z-10 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center transition-all cursor-pointer hover:scale-110 active:scale-95 ${
                 quarter.completed
-                  ? 'bg-[#4A9B7F] border-2 sm:border-[3px] border-[#4A9B7F] shadow-lg'
+                  ? 'border-2 sm:border-[3px] shadow-lg'
                   : currentIndex === index
-                    ? 'bg-white/30 border-2 sm:border-[3px] border-white shadow-md'
-                    : 'bg-transparent border-2 sm:border-[3px] border-white/60'
+                    ? 'bg-[#1B4D3E]/30 border-2 sm:border-[3px] border-[#1B4D3E] shadow-md'
+                    : 'bg-transparent border-2 sm:border-[3px] border-[#1B4D3E]/60'
               }`}
+              style={
+                quarter.completed
+                  ? {
+                      backgroundColor: '#1B4D3E',
+                      borderColor: '#1B4D3E',
+                    }
+                  : {}
+              }
               aria-label={`Ir a ${quarter.label}`}
             >
               {quarter.completed && (
                 <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-white"
+                  className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8 text-[#1B4D3E]"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -40,7 +48,7 @@ export default function Timeline({ quarters, currentIndex, onQuarterClick }) {
               )}
             </button>
             {/* Quarter label */}
-            <div className="mt-2 sm:mt-3 md:mt-4 text-white text-[10px] sm:text-xs md:text-sm lg:text-base font-montserrat font-medium text-center px-0.5 sm:px-1 leading-tight">
+            <div className="mt-2 sm:mt-3 md:mt-4 text-[10px] sm:text-xs md:text-sm lg:text-base font-montserrat font-medium text-center px-0.5 sm:px-1 leading-tight">
               {quarter.label}
             </div>
           </div>

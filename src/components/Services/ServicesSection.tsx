@@ -20,7 +20,12 @@ interface ServicesSectionProps {
   services: Service[];
 }
 
-const serviceColors = ['#7D9E64', '#3E6B2F', '#2E5E2B', '#284D21'];
+const serviceColors = [
+  'hsl(104, 50%, 60%)', // Tono principal de la paleta
+  'hsl(164, 80%, 30%)', // Tono terciario
+  'hsl(104, 50%, 40%)', // Tono más oscuro del principal
+  'hsl(164, 80%, 25%)', // Tono terciario más oscuro
+];
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   title,
@@ -52,10 +57,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     >
       <div className="container mx-auto px-4">
         <div className="text-left mb-16 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            {title}
-          </h2>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">{title}</h2>
+          <p className="text-lg md:text-xl opacity-90 leading-relaxed">
             {description}
           </p>
         </div>
@@ -76,7 +79,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               {services.map((service, index) => (
                 <div
                   key={service.id}
-                  className="carousel-slide min-w-full flex-shrink-0 px-4 snap-center"
+                  className="carousel-slide min-w-full shrink-0 px-4 snap-center"
                 >
                   <ServiceCard
                     title={service.title}
@@ -95,7 +98,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
           <div className="mt-8 flex flex-col items-center gap-4">
             <p
-              className={`swipe-hint text-white/70 text-sm animate-pulse transition-opacity duration-500 ${
+              className={`swipe-hint opacity-70 text-sm animate-pulse transition-opacity duration-500 ${
                 hasInteracted ? 'opacity-0' : 'opacity-100'
               }`}
               style={{ display: hasInteracted ? 'none' : 'block' }}

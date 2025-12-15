@@ -32,9 +32,7 @@ interface Props {
 const { vision } = Astro.props;
 ---
 
-<section
-  class="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 text-white"
->
+<section class="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
   <div class="max-w-7xl mx-auto">
     <h2
       class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-bold mb-4 sm:mb-6 md:mb-8"
@@ -55,7 +53,7 @@ const { vision } = Astro.props;
 
     <!-- Tarjetas -->
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-white"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
     >
       <Card
         title={vision.cards.validation.title}
