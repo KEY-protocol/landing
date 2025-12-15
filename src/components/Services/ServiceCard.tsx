@@ -9,6 +9,11 @@ interface ServiceCardProps {
   advantage: string;
   idealFor: string;
   isActive?: boolean;
+  labels: {
+    functionality: string;
+    advantage: string;
+    idealFor: string;
+  };
 }
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -20,11 +25,12 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   advantage,
   idealFor,
   isActive = false,
+  labels,
 }) => {
   return (
     <div className="relative">
       <div className="mb-8 flex justify-center">
-        <div className="w-28 h-28 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center p-6 shadow-lg border border-white/30">
+        <div className="w-28 h-28 bg-gray-900/80 backdrop-blur-sm rounded-3xl flex items-center justify-center p-6 shadow-lg border border-gray-800/50">
           <img
             src={`/icons/services/${icon}`}
             alt={title}
@@ -47,7 +53,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
       <div className="space-y-6 max-w-2xl mx-auto">
         <div>
           <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-            <span className="text-xl">•</span> Funcionalidad
+            <span className="text-xl">•</span> {labels.functionality}
           </h4>
           <p className="text-sm leading-relaxed opacity-85 pl-6">
             {functionality}
@@ -56,14 +62,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 
         <div>
           <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-            <span className="text-xl">•</span> Ventaja
+            <span className="text-xl">•</span> {labels.advantage}
           </h4>
           <p className="text-sm leading-relaxed opacity-85 pl-6">{advantage}</p>
         </div>
 
         <div>
           <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-            <span className="text-xl">•</span> Ideal para
+            <span className="text-xl">•</span> {labels.idealFor}
           </h4>
           <p className="text-sm leading-relaxed opacity-85 pl-6">{idealFor}</p>
         </div>

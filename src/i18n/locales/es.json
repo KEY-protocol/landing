@@ -310,6 +310,13 @@
       "description": "Nuestra tecnología es modular. Ofrecemos soluciones específicas para resolver problemas críticos de gestión, identidad y validación.",
       "title": "Servicios"
     },
+    "swipeHint": "← Desliza para ver más servicios →",
+    "ariaGoToService": "Ir al servicio",
+    "labels": {
+      "functionality": "Funcionalidad",
+      "advantage": "Ventaja",
+      "idealFor": "Ideal para"
+    },
     "services": [
       {
         "advantage": "La posibilidad de vincular capacidades adquiridas a las personas permite focalizar la implementación de proyectos de impacto basados en datos verificados y confidenciales.",

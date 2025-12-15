@@ -136,6 +136,13 @@
       "title": "Services",
       "description": "Our technology is modular. We offer specific solutions to solve critical management, identity, and validation problems."
     },
+    "swipeHint": "← Swipe to see more services →",
+    "ariaGoToService": "Go to service",
+    "labels": {
+      "functionality": "Functionality",
+      "advantage": "Advantage",
+      "idealFor": "Ideal for"
+    },
     "services": [
       {
         "id": "identity",
