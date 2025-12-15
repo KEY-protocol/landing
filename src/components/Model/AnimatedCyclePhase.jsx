@@ -51,7 +51,6 @@ const AnimatedCyclePhase = ({ phases, interval = 5000 }) => {
   const renderPhaseCard = (phase, phaseIndex, position) => {
     const isCenter = position === 'current';
     const isPrev = position === 'prev';
-    const isNext = position === 'next';
 
     const positionClasses = isCenter
       ? 'translate-x-0 scale-100 opacity-100 blur-0 z-20'
@@ -74,7 +73,7 @@ const AnimatedCyclePhase = ({ phases, interval = 5000 }) => {
 
     return (
       <div
-        className={`absolute inset-0 transition-all duration-[800ms] ease-in-out ${positionClasses}`}
+        className={`absolute inset-0 transition-all duration-800 ease-in-out ${positionClasses}`}
         style={{
           pointerEvents: isCenter ? 'auto' : 'none',
           transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
