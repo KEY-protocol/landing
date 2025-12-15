@@ -1,5 +1,6 @@
 ---
 import AnimatedCyclePhase from '@components/Model/AnimatedCyclePhase.jsx';
+import ProyeccionDashboard from '@components/Model/ProyeccionDashboard';
 import type { Language } from '@custom-types/index';
 import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
@@ -45,6 +46,11 @@ const content = t.model_page.management;
       <div class="w-full px-4 md:px-8 lg:px-16">
         <AnimatedCyclePhase phases={content.phases} client:visible />
       </div>
+    </div>
+
+    {/* Proyección DAO Dashboard */}
+    <div class="mt-16">
+      <ProyeccionDashboard client:visible />
     </div>
   </div>
 </section>
