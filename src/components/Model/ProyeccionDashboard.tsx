@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   BarChart,
   Bar,
@@ -10,8 +9,8 @@ import {
   Legend,
 } from 'recharts';
 import { Lightbulb } from 'lucide-react';
+import { formatCurrency } from '@/utils/formatters';
 
-// --- TIPOS ---
 interface Scenario {
   year: number;
   ngos: number;
@@ -35,34 +34,26 @@ interface ChartDataItem {
   daoShareLabel: string;
 }
 
-// --- COMPONENTE PRINCIPAL ---
 export default function ProyeccionDashboard() {
-  // --- CONSTANTES DEL NEGOCIO (Inputs Fijos) ---
   const baseFunds = 1440000;
 
-  // --- LÓGICA DE CÁLCULO ---
   const calculateScenario = (
     year: number,
     ngos: number,
     daoPercentageOverride: number
   ): Scenario => {
-    // 1. Escalamiento Lineal de Volumen
     const multiplier = ngos / 5;
     const funds = baseFunds * multiplier;
 
-    // 2. Costo KEY Protocol
     let keyTotalCost = 221800;
     if (year === 2027) keyTotalCost = 221800 * 1.25;
     if (year === 2028) keyTotalCost = 221800 * 1.25 * 1.25;
 
-    // 3. Fondo DAO
     const daoAmount = keyTotalCost * (daoPercentageOverride / 100);
 
-    // --- CÁLCULO DE EFICIENCIA GLOBAL ---
     const totalSystemCost = keyTotalCost + daoAmount;
     const globalEfficiencyPct = (totalSystemCost / funds) * 100;
 
-    // --- PORCENTAJE DEL PRESUPUESTO OPERATIVO ---
     const daoShareOfBudget =
       daoAmount > 0
         ? ((daoAmount / totalSystemCost) * 100).toFixed(1) + '%'
@@ -81,14 +72,12 @@ export default function ProyeccionDashboard() {
     };
   };
 
-  // Generar los 3 escenarios
   const scenario2026 = calculateScenario(2026, 5, 0);
   const scenario2027 = calculateScenario(2027, 12, 5.08);
   const scenario2028 = calculateScenario(2028, 25, 9.33);
 
   const data = [scenario2026, scenario2027, scenario2028];
 
-  // Datos para Gráfica
   const chartData: ChartDataItem[] = data.map(s => ({
     name: s.year.toString(),
     ngos: s.ngos,
@@ -100,18 +89,8 @@ export default function ProyeccionDashboard() {
     daoShareLabel: s.daoShareOfBudget,
   }));
 
-  // Formateadores
-  const formatCurrency = (val: number) =>
-    new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    }).format(val);
-
   return (
     <div className="space-y-8">
-      {/* Título */}
       <div className="flex flex-col md:flex-row justify-between items-center bg-black/26 backdrop-blur-sm border border-white/10 p-6 rounded-xl shadow-sm">
         <div>
           <h3 className="text-2xl font-bold text-white">
@@ -131,9 +110,7 @@ export default function ProyeccionDashboard() {
         </div>
       </div>
 
-      {/* Comparativa de Tarjetas */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* 2026 */}
         <div className="bg-black/26 backdrop-blur-sm border border-white/10 rounded-xl shadow-sm p-6">
           <h4 className="text-xl font-bold text-white mb-2">
             2026{' '}
@@ -172,7 +149,6 @@ export default function ProyeccionDashboard() {
           </div>
         </div>
 
-        {/* 2027 */}
         <div className="bg-black/26 backdrop-blur-sm border border-white/10 rounded-xl shadow-sm p-6">
           <h4 className="text-xl font-bold text-white mb-2">
             2027{' '}
@@ -221,7 +197,6 @@ export default function ProyeccionDashboard() {
           </div>
         </div>
 
-        {/* 2028 */}
         <div className="bg-black/26 backdrop-blur-sm border border-white/10 rounded-xl shadow-sm p-6">
           <h4 className="text-xl font-bold text-white mb-2">
             2028{' '}
@@ -271,7 +246,6 @@ export default function ProyeccionDashboard() {
         </div>
       </div>
 
-      {/* Gráfica de Asignación */}
       <div className="bg-black/26 backdrop-blur-sm border border-white/10 p-6 rounded-xl shadow-sm">
         <h4 className="text-lg font-bold text-white mb-2">
           Distribución del Presupuesto Operativo
@@ -331,7 +305,6 @@ export default function ProyeccionDashboard() {
                 barSize={40}
               />
 
-              {/* Barras Apiladas */}
               <Bar
                 dataKey="CostoKEY"
                 name="Costo Operativo KEY"
@@ -369,7 +342,6 @@ export default function ProyeccionDashboard() {
         </div>
       </div>
 
-      {/* Tabla Resumen */}
       <div className="bg-black/26 backdrop-blur-sm border border-white/10 rounded-xl shadow-sm p-6 overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
