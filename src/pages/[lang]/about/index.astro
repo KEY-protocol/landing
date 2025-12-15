@@ -5,10 +5,8 @@ import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
 import pt from '@i18n/locales/pt.json';
 import { STATIC_PATHS } from '@data/languageConfig';
-import Hero from './components/Hero/Hero.astro';
-import Vision from './components/Vision/Vision.astro';
-import Impacto from './components/Impacto/Impacto.astro';
-import Roadmap from './components/Roadmap/Roadmap.astro';
+import TeamSection from './components/TeamSection.astro';
+import AlliesSection from './components/AlliesSection.astro';
 
 export const prerender = true;
 
@@ -21,9 +19,14 @@ const translations = { es, en, pt };
 const t = translations[lang];
 ---
 
-<BaseLayout lang={lang} title={t.title} footer={t.footer} isHomePage={true}>
-  <Hero hero={t.hero} />
-  <Vision vision={t.vision} />
-  <Impacto impacto={t.impacto} />
-  <Roadmap roadmap={t.roadmap} />
+<BaseLayout
+  lang={lang}
+  title={`${t.about_page.title} - Key Protocol`}
+  footer={t.footer}
+>
+  <div class="min-h-screen text-white">
+    <div id="hero" class="h-1"></div>
+    <TeamSection lang={lang} />
+    <AlliesSection lang={lang} />
+  </div>
 </BaseLayout>

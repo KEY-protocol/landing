@@ -1,0 +1,87 @@
+---
+import MetricCard from './MetricCard.astro';
+import MetricModal from '@components/Impacto/MetricModal.jsx';
+import { METRICS_CONFIG } from '@data/metricsConfig';
+
+interface Props {
+  impacto: {
+    title: string;
+    subtitle: string;
+    metrics: {
+      investment: {
+        value: string;
+        label: string;
+        description: string;
+      };
+      savings: {
+        value: string;
+        label: string;
+        description: string;
+      };
+      organizations: {
+        value: string;
+        label: string;
+        description: string;
+      };
+      identities: {
+        value: string;
+        label: string;
+        description: string;
+      };
+    };
+  };
+}
+
+const { impacto } = Astro.props;
+
+const metricsData = METRICS_CONFIG.map(config => ({
+  ...config,
+  value: impacto.metrics[config.id as keyof typeof impacto.metrics].value,
+  label: impacto.metrics[config.id as keyof typeof impacto.metrics].label,
+  description:
+    impacto.metrics[config.id as keyof typeof impacto.metrics].description,
+}));
+---
+
+<section class="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-8 sm:mb-10 md:mb-12">
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-bold mb-3 sm:mb-4 md:mb-6"
+      >
+        {impacto.title}
+      </h2>
+      <p class="text-sm sm:text-base md:text-lg leading-relaxed max-w-4xl">
+        {impacto.subtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+      {
+        metricsData.map(metric => (
+          <MetricCard
+            id={metric.id}
+            value={metric.value}
+            label={metric.label}
+            imageSrc={metric.imageSrc}
+            imageAlt={metric.imageAlt}
+          />
+        ))
+      }
+    </div>
+
+    {
+      metricsData.map(metric => (
+        <MetricModal
+          client:only="react"
+          id={metric.id}
+          value={metric.value}
+          label={metric.label}
+          description={metric.description}
+          imageSrc={metric.imageSrc}
+          imageAlt={metric.imageAlt}
+        />
+      ))
+    }
+  </div>
+</section>

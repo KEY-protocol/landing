@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { ServicesSection } from '@components/Services/ServicesSection';
+import type { Language } from '@custom-types/index';
+import es from '@i18n/locales/es.json';
+import en from '@i18n/locales/en.json';
+import pt from '@i18n/locales/pt.json';
+import { STATIC_PATHS } from '@data/languageConfig';
+
+export const prerender = true;
+
+interface Service {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: string;
+  functionality: string;
+  advantage: string;
+  idealFor: string;
+  status: 'available' | 'coming_soon';
+}
+
+export function getStaticPaths() {
+  return STATIC_PATHS;
+}
+
+const lang = Astro.params.lang as Language;
+const translations = { es, en, pt };
+const t = translations[lang];
+const services = t.services_page.services as Service[];
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${t.services_page.hero.title} - Key Protocol`}
+  footer={t.footer}
+>
+  <div id="hero" class="h-1"></div>
+
+  <ServicesSection
+    client:load
+    title={t.services_page.hero.title}
+    description={t.services_page.hero.description}
+    services={services}
+  />
+</BaseLayout>

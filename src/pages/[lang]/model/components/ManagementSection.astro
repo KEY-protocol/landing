@@ -1,0 +1,56 @@
+---
+import ChartSection from './ChartSection.astro';
+import AnimatedCyclePhase from '@components/Model/AnimatedCyclePhase.jsx';
+import type { Language } from '@custom-types/index';
+import es from '@i18n/locales/es.json';
+import en from '@i18n/locales/en.json';
+import pt from '@i18n/locales/pt.json';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const translations = { es, en, pt };
+const t = translations[lang];
+const content = t.model_page.management;
+---
+
+<section class="py-16 overflow-visible">
+  <div class="container mx-auto px-4 overflow-visible">
+    <div class="mb-16">
+      <h2 class="text-5xl font-bold mb-6">{content.title}</h2>
+      <p class="text-xl md:text-2xl mb-8 font-semibold">
+        {content.subtitle}
+      </p>
+
+      {/* Intro Text */}
+      <div class="mb-12">
+        <p class="text-sm md:text-base mb-6">
+          {content.description}
+        </p>
+      </div>
+
+      {/* Proyección de Eficiencia */}
+      <div class="mb-8">
+        <h3 class="text-xl font-bold mb-2">{content.efficiency.title}</h3>
+        <p class="text-sm md:text-base">
+          {content.efficiency.description}
+        </p>
+      </div>
+    </div>
+
+    {/* Section Split: Cycle + Chart */}
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 w-full">
+      {/* Animated Cycle Phases */}
+      <div class="w-full px-4 md:px-8 lg:px-16">
+        <AnimatedCyclePhase phases={content.phases} client:visible />
+      </div>
+
+      {/* Bottom: Chart */}
+      <div class="max-w-5xl mx-auto">
+        <ChartSection labels={content.chart} />
+      </div>
+    </div>
+  </div>
+</section>

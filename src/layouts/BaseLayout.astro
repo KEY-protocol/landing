@@ -1,9 +1,10 @@
 ---
 import '@styles/index.css';
 import type { Language } from '@custom-types/index';
-import Header from '@layouts/Header.astro';
-import Footer from '@layouts/Footer.astro';
-import BirthdayModal from '@components/common/BirthdayModal.jsx';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import BirthdayModal from './components/BirthdayModal.jsx';
+import Contact from './components/Contact/Contact.astro';
 
 interface Props {
   lang: Language;
@@ -66,6 +67,7 @@ const t = translations[lang];
   >
     <Header lang={lang} isHomePage={isHomePage} />
     <slot />
+    <Contact contact={t.contact} />
     {footer && <Footer footer={footer} />}
     <BirthdayModal translations={t.birthday_modal} client:idle />
   </body>
