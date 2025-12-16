@@ -18,8 +18,6 @@ interface ServicesSectionProps {
   title: string;
   description: string;
   services: Service[];
-  swipeHint: string;
-  ariaGoToService: string;
   labels: {
     functionality: string;
     advantage: string;
@@ -31,18 +29,13 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   title,
   description,
   services,
-  swipeHint,
-  ariaGoToService,
   labels,
 }) => {
   const {
     currentIndex,
-    hasInteracted,
     containerRef,
     trackRef,
     sectionRef,
-    goToSlide,
-    hideSwipeHint,
     handleTouchStart,
     handleTouchEnd,
     handleMouseDown,
@@ -101,36 +94,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               ))}
             </div>
           </div>
-
-          <div className="mt-8 flex flex-col items-center gap-4">
-            <p
-              className={`swipe-hint text-gray-700 text-sm animate-pulse transition-opacity duration-500 ${
-                hasInteracted ? 'opacity-0' : 'opacity-100'
-              }`}
-              style={{ display: hasInteracted ? 'none' : 'block' }}
-            >
-              {swipeHint}
-            </p>
-
-            <div className="flex justify-center gap-3">
-              {services.map((_, index) => (
-                <button
-                  key={index}
-                  className={`carousel-dot w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'bg-[#2D5A47] w-8'
-                      : 'bg-[#2D5A47]/40 hover:bg-[#2D5A47]/60'
-                  }`}
-                  data-index={index}
-                  aria-label={`${ariaGoToService} ${index + 1}`}
-                  onClick={() => {
-                    goToSlide(index);
-                    hideSwipeHint();
-                  }}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
@@ -144,10 +107,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
         .carousel-slide {
           flex-shrink: 0;
-        }
-
-        .carousel-dot {
-          transition: all 0.3s ease;
         }
 
         .carousel-container {
