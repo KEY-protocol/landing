@@ -126,7 +126,7 @@ export default function MetricModal({
   return (
     <div
       ref={modalRef}
-      className={`modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 sm:p-6 text-white transition-opacity duration-300 ease-out ${
+      className={`modal-backdrop fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 sm:p-6 transition-opacity duration-300 ease-out ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
       data-modal

@@ -6,7 +6,7 @@
 export default function SparkleIcon({ className = '' }) {
   return (
     <svg
-      className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white ${className}`}
+      className={`w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ${className}`}
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
