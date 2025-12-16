@@ -6,22 +6,11 @@
 
   --font-sans: var(--font-family-poppins);
 
-  --color-primary: hsl(113, 50%, 90%);
-  --color-secondary: hsl(113, 50%, 10%);
-  --color-tertiary: hsl(173, 80%, 20%);
-  --color-accent: hsl(53, 80%, 20%);
-
-  --color-primary-dark: hsl(113, 49%, 10%);
-  --color-secondary-dark: hsl(113, 50%, 90%);
-  --color-tertiary-dark: hsl(173, 80%, 80%);
-  --color-accent-dark: hsl(53, 80%, 80%);
-}
-
-.dark {
-  --color-primary: var(--color-primary-dark);
-  --color-secondary: var(--color-secondary-dark);
-  --color-tertiary: var(--color-tertiary-dark);
-  --color-accent: var(--color-accent-dark);
+  /* Colores por defecto (anteriormente modo oscuro) */
+  --color-primary: hsl(113, 49%, 10%);
+  --color-secondary: hsl(113, 50%, 90%);
+  --color-tertiary: hsl(173, 80%, 80%);
+  --color-accent: hsl(53, 80%, 80%);
 }
 
 html {
@@ -31,7 +20,7 @@ html {
     color 0.3s ease;
 }
 
-/* Color transitions for dark mode - using :where() for lower specificity */
+/* Color transitions - using :where() for lower specificity */
 :where(*):not(.roadmap-carousel-slide) {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

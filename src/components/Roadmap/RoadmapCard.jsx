@@ -14,10 +14,10 @@ export default function RoadmapCard({
   const phaseId = phase.id || `phase-${phase.title}`;
 
   return (
-    <div className="roadmap-card bg-white dark:bg-[#1B4D3E] rounded-xl sm:rounded-2xl md:rounded-3xl shadow-xl p-4 sm:p-5 md:p-8 lg:p-10 w-full max-w-[320px] sm:max-w-[400px] md:max-w-2xl lg:max-w-4xl mx-auto flex flex-col">
+    <div className="roadmap-card bg-[#1B4D3E] rounded-xl sm:rounded-2xl md:rounded-3xl shadow-xl p-4 sm:p-5 md:p-8 lg:p-10 w-full max-w-[320px] sm:max-w-[400px] md:max-w-2xl lg:max-w-4xl mx-auto flex flex-col">
       <div className="flex justify-between items-start mb-4 sm:mb-5 md:mb-6">
         {quarter && (
-          <span className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg text-xs sm:text-sm md:text-base font-semibold text-white bg-[#10260d]">
+          <span className="px-3 py-1.5 sm:px-4 sm:py-2 md:px-5 md:py-2.5 rounded-lg text-xs sm:text-sm md:text-base font-semibold bg-[#10260d]">
             {quarter.label}
           </span>
         )}

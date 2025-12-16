@@ -2,7 +2,6 @@
 import Logo from './components/Logo.astro';
 import Navigation from './components/Navigation.astro';
 import LanguageSwitcher from './components/LanguageSwitcher';
-import ThemeToggle from './components/ThemeToggle';
 import type { Language } from '@custom-types/index';
 
 interface Props {
@@ -18,7 +17,7 @@ const translateClass = isHomePage ? '-translate-y-full' : 'translate-y-0';
 
 <header
   id="main-header"
-  class={`w-full text-white ${positionClass} top-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 sm:py-3 transition-transform duration-300 ${translateClass} bg-primary-dark dark:bg-primary`}
+  class={`w-full ${positionClass} top-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 sm:py-3 transition-transform duration-300 ${translateClass} bg-primary`}
   data-is-home={isHomePage}
 >
   <div class="max-w-7xl mx-auto grid grid-cols-3 items-center gap-2 sm:gap-4">
@@ -31,7 +30,6 @@ const translateClass = isHomePage ? '-translate-y-full' : 'translate-y-0';
     </div>
 
     <div class="flex justify-end items-center gap-2">
-      <ThemeToggle client:only="react" />
       <LanguageSwitcher client:only="react" />
     </div>
   </div>

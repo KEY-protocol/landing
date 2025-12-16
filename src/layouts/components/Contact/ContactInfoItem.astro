@@ -9,7 +9,7 @@ const { icon, text } = Astro.props;
 
 <div class="flex items-center gap-2 sm:gap-3">
   <svg
-    class="w-5 h-5 sm:w-6 sm:h-6 text-white shrink-0"
+    class="w-5 h-5 sm:w-6 sm:h-6 shrink-0"
     fill="none"
     stroke="currentColor"
     viewBox="0 0 24 24"
@@ -41,7 +41,5 @@ const { icon, text } = Astro.props;
       )
     }
   </svg>
-  <span class="text-gray-300 text-sm sm:text-base md:text-lg wrap-break-words"
-    >{text}</span
-  >
+  <span class="text-sm sm:text-base md:text-lg wrap-break-words">{text}</span>
 </div>

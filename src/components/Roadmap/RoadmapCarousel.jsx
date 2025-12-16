@@ -180,7 +180,7 @@ const RoadmapCarousel = forwardRef(
     }));
 
     return (
-      <div className="relative w-full -mx-2 sm:-mx-3 md:mx-0 text-white">
+      <div className="relative w-full -mx-2 sm:-mx-3 md:mx-0">
         {/* Carousel Container */}
         <div
           ref={carouselRef}

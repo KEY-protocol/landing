@@ -24,7 +24,7 @@ const navItems = [
     navItems.map(item => (
       <a
         href={item.path}
-        class="text-white font-bold uppercase text-sm tracking-wide hover:opacity-80 transition-opacity cursor-pointer"
+        class="font-bold uppercase text-sm tracking-wide hover:opacity-80 transition-opacity cursor-pointer"
       >
         {t.nav[item.key as keyof typeof t.nav]}
       </a>

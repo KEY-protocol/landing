@@ -12,7 +12,7 @@ const { name, role, bio, image, linkedin, linkedinProfile } = Astro.props;
 ---
 
 <div
-  class="bg-[#1F3B15] rounded-xl p-6 flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow border border-green-700 text-white"
+  class="bg-[#1F3B15] rounded-xl p-6 flex flex-col h-full shadow-lg hover:shadow-xl transition-shadow border border-green-700"
 >
   <div class="flex items-center gap-4 mb-6">
     <div class="w-20 h-20 rounded-full bg-gray-300 overflow-hidden shrink-0">
@@ -31,7 +31,7 @@ const { name, role, bio, image, linkedin, linkedinProfile } = Astro.props;
       class="inline-block bg-[#003300] px-3 py-1 rounded-full text-sm font-semibold mb-4"
       set:html={role}
     />
-    <p class="text-sm text-gray-200 leading-relaxed">
+    <p class="text-sm leading-relaxed">
       {bio}
     </p>
   </div>
@@ -41,7 +41,7 @@ const { name, role, bio, image, linkedin, linkedinProfile } = Astro.props;
       href={linkedin}
       target="_blank"
       rel="noopener noreferrer"
-      class="flex items-center gap-2 text-sm hover:text-gray-200 transition-colors"
+      class="flex items-center gap-2 text-sm hover:opacity-80 transition-colors"
     >
       <span class="bg-[#0077b5] p-1 rounded">
         <svg
