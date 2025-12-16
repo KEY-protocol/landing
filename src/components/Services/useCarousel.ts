@@ -3,23 +3,25 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 interface UseCarouselOptions {
   totalSlides: number;
   onSlideChange?: (index: number) => void;
+  autoAdvanceInterval?: number;
 }
 
 export function useCarousel({
   totalSlides,
   onSlideChange,
+  autoAdvanceInterval = 10000,
 }: UseCarouselOptions) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [isAutoAdvancePaused, setIsAutoAdvancePaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const autoAdvanceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Touch/Swipe handling
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
-  // Mouse drag handling
   const isDragging = useRef(false);
   const mouseStartX = useRef(0);
   const mouseEndX = useRef(0);
@@ -49,7 +51,43 @@ export function useCarousel({
     }
   }, [hasInteracted]);
 
-  // Detect visible slide based on scroll position
+  const pauseAutoAdvance = useCallback(() => {
+    setIsAutoAdvancePaused(true);
+    if (autoAdvanceTimerRef.current) {
+      clearTimeout(autoAdvanceTimerRef.current);
+      autoAdvanceTimerRef.current = null;
+    }
+  }, []);
+
+  const resumeAutoAdvance = useCallback(() => {
+    setIsAutoAdvancePaused(false);
+  }, []);
+
+  useEffect(() => {
+    if (isAutoAdvancePaused || totalSlides <= 1) return;
+
+    if (autoAdvanceTimerRef.current) {
+      clearTimeout(autoAdvanceTimerRef.current);
+    }
+
+    autoAdvanceTimerRef.current = setTimeout(() => {
+      nextSlide();
+    }, autoAdvanceInterval);
+
+    return () => {
+      if (autoAdvanceTimerRef.current) {
+        clearTimeout(autoAdvanceTimerRef.current);
+        autoAdvanceTimerRef.current = null;
+      }
+    };
+  }, [
+    currentIndex,
+    isAutoAdvancePaused,
+    totalSlides,
+    autoAdvanceInterval,
+    nextSlide,
+  ]);
+
   const detectVisibleSlide = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -72,7 +110,6 @@ export function useCarousel({
     });
   }, [currentIndex, onSlideChange]);
 
-  // Scroll event listener
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -81,7 +118,6 @@ export function useCarousel({
     return () => container.removeEventListener('scroll', detectVisibleSlide);
   }, [detectVisibleSlide]);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
@@ -97,10 +133,13 @@ export function useCarousel({
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [nextSlide, prevSlide, hideSwipeHint]);
 
-  // Touch events
-  const handleTouchStart = useCallback((e: React.TouchEvent) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  }, []);
+  const handleTouchStart = useCallback(
+    (e: React.TouchEvent) => {
+      touchStartX.current = e.changedTouches[0].screenX;
+      pauseAutoAdvance();
+    },
+    [pauseAutoAdvance]
+  );
 
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
@@ -115,19 +154,24 @@ export function useCarousel({
         prevSlide();
         hideSwipeHint();
       }
+
+      setTimeout(resumeAutoAdvance, 1000);
     },
-    [nextSlide, prevSlide, hideSwipeHint]
+    [nextSlide, prevSlide, hideSwipeHint, resumeAutoAdvance]
   );
 
-  // Mouse drag events
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    isDragging.current = true;
-    mouseStartX.current = e.clientX;
-    if (trackRef.current) {
-      trackRef.current.style.cursor = 'grabbing';
-    }
-    e.preventDefault();
-  }, []);
+  const handleMouseDown = useCallback(
+    (e: React.MouseEvent) => {
+      isDragging.current = true;
+      mouseStartX.current = e.clientX;
+      pauseAutoAdvance();
+      if (trackRef.current) {
+        trackRef.current.style.cursor = 'grabbing';
+      }
+      e.preventDefault();
+    },
+    [pauseAutoAdvance]
+  );
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging.current) return;
@@ -155,9 +199,10 @@ export function useCarousel({
 
     mouseStartX.current = 0;
     mouseEndX.current = 0;
-  }, [nextSlide, prevSlide, hideSwipeHint]);
 
-  // Mouse drag global listeners
+    setTimeout(resumeAutoAdvance, 1000);
+  }, [nextSlide, prevSlide, hideSwipeHint, resumeAutoAdvance]);
+
   useEffect(() => {
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseup', handleMouseUp);
@@ -181,5 +226,7 @@ export function useCarousel({
     handleTouchStart,
     handleTouchEnd,
     handleMouseDown,
+    pauseAutoAdvance,
+    resumeAutoAdvance,
   };
 }

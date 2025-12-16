@@ -46,6 +46,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     handleTouchStart,
     handleTouchEnd,
     handleMouseDown,
+    pauseAutoAdvance,
+    resumeAutoAdvance,
   } = useCarousel({
     totalSlides: services.length,
   });
@@ -68,6 +70,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           <div
             ref={containerRef}
             className="carousel-container overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory hide-scrollbar"
+            onMouseEnter={pauseAutoAdvance}
+            onMouseLeave={resumeAutoAdvance}
           >
             <div
               ref={trackRef}
