@@ -3,28 +3,25 @@ import { useState, useEffect } from 'react';
 const founders = [
   {
     name: 'Kevin',
-    month: 5, // June
+    month: 5,
     day: 9,
     linkedin: 'https://linkedin.com/in/kevinagustin',
   },
   {
     name: 'Martín',
-    month: 11, // December
+    month: 11,
     day: 3,
     linkedin: 'https://linkedin.com/in/martinlago',
   },
-  // TODO: Add Andres' birthday
   {
     name: 'Andres',
     month: 12,
     day: 8,
     linkedin: 'https://linkedin.com/in/andreschanchi',
   },
-  // TODO: Add Mateo's birthday
 ];
 
 export default function BirthdayModal(translations) {
-  // Calculate initial state directly
   const today = new Date();
   const currentMonth = today.getMonth();
   const currentDay = today.getDate();
@@ -39,10 +36,8 @@ export default function BirthdayModal(translations) {
 
   useEffect(() => {
     if (founder) {
-      // Small delay to allow mounting animation
       setTimeout(() => setIsVisible(true), 100);
     }
-    // Wrap in setTimeout to avoid synchronous state update warning
     setTimeout(() => setIsMounting(false), 0);
   }, [founder]);
 
@@ -54,14 +49,8 @@ export default function BirthdayModal(translations) {
   };
 
   if (!isVisible && !isMounting && founder) {
-    // Allow unmounting after animation
     return null;
   }
-
-  // Actually we need to keep it rendered to animate out.
-  // We can use a simple approach: render if founder is set, control opacity with isVisible.
-  // If we want to fully unmount after close, we need a timeout.
-  // For simplicity here, let's just hide with CSS opacity/pointer-events.
 
   return (
     <div
@@ -111,7 +100,7 @@ export default function BirthdayModal(translations) {
             href={founder.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block w-full bg-[#006400] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#004d00] transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-transform"
+            className="inline-block w-full bg-[#006400] text-white font-bold py-3 px-6 rounded-xl hover:bg-[#004d00] transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             {translations.cta}
           </a>

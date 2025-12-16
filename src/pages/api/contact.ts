@@ -3,7 +3,7 @@ import sgMail from '@sendgrid/mail';
 import {
   generateEmailHTML,
   generateConfirmationEmailHTML,
-} from '@/utils/emailTemplate';
+} from '@utils/emailTemplate';
 
 /**
  * API endpoint para manejar el envío de formularios de contacto
