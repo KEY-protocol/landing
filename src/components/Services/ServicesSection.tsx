@@ -41,6 +41,9 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     handleMouseDown,
     pauseAutoAdvance,
     resumeAutoAdvance,
+    nextSlide,
+    prevSlide,
+    goToSlide,
   } = useCarousel({
     totalSlides: services.length,
   });
@@ -94,6 +97,77 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
               ))}
             </div>
           </div>
+
+          {/* Navigation Controls */}
+          {services.length > 1 && (
+            <>
+              {/* Navigation Buttons */}
+              <div className="navigation-buttons flex justify-center gap-4 mt-8">
+                <button
+                  onClick={() => {
+                    prevSlide();
+                    pauseAutoAdvance();
+                    setTimeout(resumeAutoAdvance, 3000);
+                  }}
+                  className="nav-button nav-button-prev"
+                  aria-label="Previous slide"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button
+                  onClick={() => {
+                    nextSlide();
+                    pauseAutoAdvance();
+                    setTimeout(resumeAutoAdvance, 3000);
+                  }}
+                  className="nav-button nav-button-next"
+                  aria-label="Next slide"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              {/* Dot Indicators */}
+              <div className="dot-indicators flex justify-center gap-3 mt-6">
+                {services.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      goToSlide(index);
+                      pauseAutoAdvance();
+                      setTimeout(resumeAutoAdvance, 3000);
+                    }}
+                    className={`dot-indicator ${
+                      index === currentIndex ? 'active' : ''
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -125,6 +199,96 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
         .hide-scrollbar::-webkit-scrollbar {
           display: none;
+        }
+
+        /* Navigation Buttons */
+        .nav-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          color: white;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+        }
+
+        .nav-button:hover {
+          background: rgba(255, 255, 255, 0.2);
+          border-color: rgba(255, 255, 255, 0.4);
+          transform: scale(1.1);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:active {
+          transform: scale(0.95);
+        }
+
+        .nav-button svg {
+          transition: transform 0.3s ease;
+        }
+
+        .nav-button:hover svg {
+          transform: translateX(0);
+        }
+
+        .nav-button-prev:hover svg {
+          transform: translateX(-2px);
+        }
+
+        .nav-button-next:hover svg {
+          transform: translateX(2px);
+        }
+
+        /* Dot Indicators */
+        .dot-indicator {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.3);
+          border: 2px solid rgba(255, 255, 255, 0.4);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          padding: 0;
+        }
+
+        .dot-indicator:hover {
+          background: rgba(255, 255, 255, 0.5);
+          transform: scale(1.2);
+        }
+
+        .dot-indicator.active {
+          background: white;
+          border-color: white;
+          width: 32px;
+          border-radius: 6px;
+          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .nav-button {
+            width: 40px;
+            height: 40px;
+          }
+
+          .nav-button svg {
+            width: 20px;
+            height: 20px;
+          }
+
+          .dot-indicator {
+            width: 10px;
+            height: 10px;
+          }
+
+          .dot-indicator.active {
+            width: 24px;
+          }
         }
       `}</style>
     </section>
