@@ -1,4 +1,18 @@
 ---
-// Redirect to default language
-return Astro.redirect('/es', 307);
+export const prerender = true;
 ---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=/es" />
+    <title>Redirecting...</title>
+    <script>
+      window.location.href = '/es';
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to <a href="/es">/es</a>...</p>
+  </body>
+</html>
