@@ -71,11 +71,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           >
             <div
               ref={trackRef}
-              className="carousel-track flex"
+              className="carousel-track flex select-none cursor-grab"
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
               onMouseDown={handleMouseDown}
-              style={{ cursor: 'grab', userSelect: 'none' }}
             >
               {services.map((service, index) => (
                 <div
@@ -109,7 +108,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     pauseAutoAdvance();
                     setTimeout(resumeAutoAdvance, 3000);
                   }}
-                  className="nav-button nav-button-prev"
+                  className="nav-button nav-button-prev flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 border-2 border-white/20 text-white cursor-pointer transition-all duration-300 ease-in-out backdrop-blur-[10px] hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] active:scale-95"
                   aria-label="Previous slide"
                 >
                   <svg
@@ -131,7 +130,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     pauseAutoAdvance();
                     setTimeout(resumeAutoAdvance, 3000);
                   }}
-                  className="nav-button nav-button-next"
+                  className="nav-button nav-button-next flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 border-2 border-white/20 text-white cursor-pointer transition-all duration-300 ease-in-out backdrop-blur-[10px] hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] active:scale-95"
                   aria-label="Next slide"
                 >
                   <svg
@@ -149,7 +148,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 </button>
               </div>
 
-              {/* Dot Indicators */}
               <div className="dot-indicators flex justify-center gap-3 mt-6">
                 {services.map((_, index) => (
                   <button
@@ -159,8 +157,10 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                       pauseAutoAdvance();
                       setTimeout(resumeAutoAdvance, 3000);
                     }}
-                    className={`dot-indicator ${
-                      index === currentIndex ? 'active' : ''
+                    className={`p-0 cursor-pointer transition-all duration-300 ease-in-out border-2 rounded-full hover:scale-125 ${
+                      index === currentIndex
+                        ? 'w-8 md:w-8 h-3 md:h-3 bg-white border-white rounded-md shadow-[0_2px_8px_rgba(255,255,255,0.3)]'
+                        : 'w-3 md:w-3 h-3 md:h-3 bg-white/30 border-white/40 hover:bg-white/50'
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
@@ -172,17 +172,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
       </div>
 
       <style>{`
-        .carousel-track {
-          user-select: none;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-        }
-
-        .carousel-slide {
-          flex-shrink: 0;
-        }
-
         .carousel-container {
           scrollbar-width: none;
           -ms-overflow-style: none;
@@ -201,33 +190,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
           display: none;
         }
 
-        /* Navigation Buttons */
-        .nav-button {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.1);
-          border: 2px solid rgba(255, 255, 255, 0.2);
-          color: white;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          backdrop-filter: blur(10px);
-        }
-
-        .nav-button:hover {
-          background: rgba(255, 255, 255, 0.2);
-          border-color: rgba(255, 255, 255, 0.4);
-          transform: scale(1.1);
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-button:active {
-          transform: scale(0.95);
-        }
-
         .nav-button svg {
           transition: transform 0.3s ease;
         }
@@ -242,53 +204,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
 
         .nav-button-next:hover svg {
           transform: translateX(2px);
-        }
-
-        /* Dot Indicators */
-        .dot-indicator {
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.3);
-          border: 2px solid rgba(255, 255, 255, 0.4);
-          cursor: pointer;
-          transition: all 0.3s ease;
-          padding: 0;
-        }
-
-        .dot-indicator:hover {
-          background: rgba(255, 255, 255, 0.5);
-          transform: scale(1.2);
-        }
-
-        .dot-indicator.active {
-          background: white;
-          border-color: white;
-          width: 32px;
-          border-radius: 6px;
-          box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-          .nav-button {
-            width: 40px;
-            height: 40px;
-          }
-
-          .nav-button svg {
-            width: 20px;
-            height: 20px;
-          }
-
-          .dot-indicator {
-            width: 10px;
-            height: 10px;
-          }
-
-          .dot-indicator.active {
-            width: 24px;
-          }
         }
       `}</style>
     </section>
