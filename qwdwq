@@ -1,5 +1,0 @@
-# Sendgrid (recomendado)
-SENDGRID_API_KEY=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
-SENDGRID_FROM_EMAIL=landing@keyprotocol.ar
-SENDGRID_TO_EMAIL=general@keyprotocol.ar
-SENDGRID_BCC_EMAIL=wichidelmonte@gmail.com
