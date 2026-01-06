@@ -8,7 +8,7 @@
       "description": "Our protocol operates through a three-step validation cycle that guarantees data integrity from capture in disconnected zones to certification on the blockchain.",
       "cards": {
         "step_a": {
-          "title": "A. Offline-First Registration",
+          "title": "Offline-First Registration",
           "description": "The technician uses the Field App in the field to generate proof of life and action:",
           "list": [
             "Identity: Biometric and documentary registration to create Digital Identities (DID).",
@@ -16,7 +16,7 @@
           ]
         },
         "step_b": {
-          "title": "B. Immutable Synchronization",
+          "title": "Immutable Synchronization",
           "description": "Upon regaining connectivity, the application synchronizes data packages:",
           "list": [
             "IPFS (Storage): Evidence files are distributed across a decentralized network, making them uncensorable.",
@@ -24,7 +24,7 @@
           ]
         },
         "step_c": {
-          "title": "C. Private Validation",
+          "title": "Private Validation",
           "list": [
             "Confidential Computing (Phala Network): We process sensitive data in a secure environment (TEE) to validate consistency between identity and evidence without exposing the beneficiary's privacy.",
             "Result: Issuance of a Digital Certificate that releases funds and updates the funder's dashboard."

@@ -158,7 +158,7 @@
             "Identidade: Registro biométrico e documental para criar Identidades Digitais (DID).",
             "Evidência: Captura de fotos geolocalizadas, impressões digitais e relatórios de áudio que são empacotados e criptografados localmente no dispositivo."
           ],
-          "title": "A. Registro Offline-First"
+          "title": "Registro Offline-First"
         },
         "step_b": {
           "description": "Ao recuperar conectividade, a aplicação sincroniza os pacotes de dados:",
@@ -166,14 +166,14 @@
             "IPFS (Armazenamento): Os arquivos de evidência são distribuídos em uma rede descentralizada, tornando-os incensuráveis.",
             "Polkadot (Consenso): O hash criptográfico da operação é registrado, criando uma marca de tempo inalterável."
           ],
-          "title": "B. Sincronização Imutável"
+          "title": "Sincronização Imutável"
         },
         "step_c": {
           "list": [
             "Computação Confidencial (Phala Network): Processamos os dados sensíveis em um ambiente seguro (TEE) para validar a consistência entre a identidade e a evidência sem expor a privacidade do beneficiário.",
             "Resultado: Emissão de um Certificado Digital que libera os fundos e atualiza o dashboard do financiador."
           ],
-          "title": "C. Validação Privada"
+          "title": "Validação Privada"
         }
       },
       "description": "Nosso protocolo opera através de um ciclo de validação de três etapas que garante a integridade dos dados desde sua captura em zonas desconectadas até sua certificação na blockchain.",
