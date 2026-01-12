@@ -1,11 +1,13 @@
 import { useRipple, RippleContainer } from '@components/ui/Ripple';
 import { StaggeredItem } from '@components/ui/StaggeredItem';
+import OptimizedImage from '@components/ui/OptimizedImage';
 
 interface MetricCardProps {
   id: string;
   value: string;
   label: string;
   imageSrc: string;
+  imageSrcWebp: string;
   imageAlt: string;
   index: number;
 }
@@ -15,6 +17,7 @@ export default function MetricCard({
   value,
   label,
   imageSrc,
+  imageSrcWebp,
   imageAlt,
   index,
 }: MetricCardProps) {
@@ -34,10 +37,12 @@ export default function MetricCard({
         className="relative rounded-2xl overflow-hidden aspect-4/3 group cursor-pointer transition-transform duration-300 ease-out hover:scale-105 active:scale-95 text-white"
         onClick={handleClick}
       >
-        <img
+        <OptimizedImage
           src={imageSrc}
+          srcWebp={imageSrcWebp}
           alt={imageAlt}
           className="absolute inset-0 w-full h-full object-cover block"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40"></div>
         <div className="relative h-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8">

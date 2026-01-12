@@ -1,4 +1,17 @@
 import React from 'react';
+import type { IconProps } from '../icons/types';
+import BiometricIcon from '../icons/services/BiometricIcon';
+import KeyBoxIcon from '../icons/services/KeyBoxIcon';
+import StatsIcon from '../icons/services/StatsIcon';
+import DocIcon from '../icons/services/DocIcon';
+
+// Map icon identifiers to their respective components
+const iconComponents: Record<string, React.FC<IconProps>> = {
+  biometric: BiometricIcon,
+  keyBox: KeyBoxIcon,
+  stats: StatsIcon,
+  doc: DocIcon,
+};
 
 interface ServiceCardProps {
   title: string;
@@ -27,15 +40,17 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   isActive = false,
   labels,
 }) => {
+  const IconComponent = iconComponents[icon];
+
   return (
     <div className="relative">
       <div className="mb-8 flex justify-center">
         <div className="w-28 h-28 bg-[#2D5A47] backdrop-blur-sm rounded-3xl flex items-center justify-center p-6 shadow-lg border border-[#2D5A47]">
-          <img
-            src={`/icons/services/${icon}`}
-            alt={title}
-            className="w-full h-full object-contain filter brightness-0 invert"
-          />
+          {IconComponent ? (
+            <IconComponent className="w-full h-full" />
+          ) : (
+            <div className="w-full h-full bg-gray-300 rounded" />
+          )}
         </div>
       </div>
 

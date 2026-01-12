@@ -130,7 +130,7 @@
         "title": "Decentralized Digital Identity (DID)",
         "subtitle": "The digital passport for development.",
         "description": "Create and manage sovereign identities for beneficiaries in areas without connectivity.",
-        "icon": "biometric.png",
+        "icon": "biometric",
         "functionality": "Offline biometric and documentary registration that generates a verifiable confidential credential on the blockchain.",
         "advantage": "The ability to link acquired skills to individuals enables the implementation of impact projects based on verified and confidential data.",
         "idealFor": "NGOs, Governments, Financial Inclusion Programs."
@@ -140,7 +140,7 @@
         "title": "Encrypted Evidence Validator",
         "subtitle": "Action certification with guaranteed privacy.",
         "description": "A verification engine that processes field evidence without exposing sensitive data.",
-        "icon": "keyBox.png",
+        "icon": "keyBox",
         "functionality": "Automatic analysis of photos, audios, and coordinates using Artificial Intelligence in a secure environment (TEE).",
         "advantage": "Audits task compliance (e.g., course attendance) while protecting participants' identity.",
         "idealFor": "CSR Auditing, Carbon Credits, Origin Certification."
@@ -150,7 +150,7 @@
         "title": "Investment Monitor (Dashboard B2I)",
         "subtitle": "Real-time financial traceability.",
         "description": "The definitive control panel to visualize fund flow and its impact.",
-        "icon": "stats.png",
+        "icon": "stats",
         "functionality": "Visualization of key metrics, fund release by completed milestones, and certified impact reports.",
         "advantage": "Eliminates deferred visibility of investments, offering total transparency on where and how funds are invested.",
         "idealFor": "Development Banks, Impact Investment Funds, Corporate Philanthropy."
@@ -160,7 +160,7 @@
         "title": "Report Automation",
         "subtitle": "Goodbye to manual management.",
         "description": "Transform messy field data into standardized reports instantly.",
-        "icon": "doc.png",
+        "icon": "doc",
         "functionality": "AI agents that structure information collected by the Field App into ready-to-present formats (PDF, Excel, API).",
         "advantage": "Reduces administrative time for technical teams by 90%, allowing them to focus on social work.",
         "idealFor": "Project Coordinators, Monitoring and Evaluation Teams."

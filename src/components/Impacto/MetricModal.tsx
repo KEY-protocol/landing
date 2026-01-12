@@ -1,4 +1,5 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import OptimizedImage from '@components/ui/OptimizedImage';
 
 interface MetricModalProps {
   id: string;
@@ -6,6 +7,7 @@ interface MetricModalProps {
   label: string;
   description: string;
   imageSrc: string;
+  imageSrcWebp: string;
   imageAlt: string;
 }
 
@@ -17,6 +19,7 @@ export default function MetricModal({
   label,
   description,
   imageSrc,
+  imageSrcWebp,
   imageAlt,
 }: MetricModalProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -138,10 +141,12 @@ export default function MetricModal({
         onClick={e => e.stopPropagation()}
       >
         {/* Background Image */}
-        <img
+        <OptimizedImage
           src={imageSrc}
+          srcWebp={imageSrcWebp}
           alt={imageAlt}
           className="absolute inset-0 w-full h-full object-cover z-0"
+          loading="eager"
         />
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40 z-0"></div>
