@@ -1,9 +1,9 @@
 import React from 'react';
 import type { IconProps } from '../icons/types';
-import BiometricIcon from '../icons/services/BiometricIcon';
-import KeyBoxIcon from '../icons/services/KeyBoxIcon';
-import StatsIcon from '../icons/services/StatsIcon';
-import DocIcon from '../icons/services/DocIcon';
+import { BiometricIcon } from '../icons/services/BiometricIcon';
+import { KeyBoxIcon } from '../icons/services/KeyBoxIcon';
+import { StatsIcon } from '../icons/services/StatsIcon';
+import { DocIcon } from '../icons/services/DocIcon';
 
 // Map icon identifiers to their respective components
 const iconComponents: Record<string, React.FC<IconProps>> = {
