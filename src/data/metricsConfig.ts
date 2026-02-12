@@ -1,33 +1,33 @@
-export interface MetricData {
+export interface ImpactCardData {
   id: string;
   imageSrc: string;
   imageSrcWebp: string;
   imageAlt: string;
 }
 
-export const METRICS_CONFIG: MetricData[] = [
+export const IMPACT_CARDS_CONFIG: ImpactCardData[] = [
   {
-    id: 'investment',
+    id: 'refi',
     imageSrc: '/imgs/index/image_1.jpg',
     imageSrcWebp: '/imgs/index/image_1.webp',
-    imageAlt: 'Agricultural field',
+    imageAlt: 'Rural infrastructure with solar panels',
   },
   {
-    id: 'savings',
+    id: 'digitalAsset',
     imageSrc: '/imgs/index/image_2.jpg',
     imageSrcWebp: '/imgs/index/image_2.webp',
-    imageAlt: 'Forest landscape',
+    imageAlt: 'Field workers verifying impact',
   },
   {
-    id: 'organizations',
+    id: 'identity',
     imageSrc: '/imgs/index/image_3.jpg',
     imageSrcWebp: '/imgs/index/image_3.webp',
-    imageAlt: 'Rural scene',
+    imageAlt: 'Community onboarding process',
   },
   {
-    id: 'identities',
+    id: 'poi',
     imageSrc: '/imgs/index/image_4.jpg',
     imageSrcWebp: '/imgs/index/image_4.webp',
-    imageAlt: 'Person working in field',
+    imageAlt: 'Agricultural field work and impact generation',
   },
 ];

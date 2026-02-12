@@ -73,30 +73,26 @@
     "tag": "KEY PROTOCOL"
   },
   "impacto": {
-    "metrics": {
-      "identities": {
-        "description": "Las Identidades Digitales Descentralizadas (DIDs) empoderan a los beneficiarios con historiales inmutables de sus capacitaciones, producciones y logros. Esto les otorga soberanía sobre sus datos y facilita el acceso a microcréditos y nuevos mercados sin intermediarios, transformando su relación con el sistema financiero y productivo.",
-        "label": "Identidades Digitales (DIDs)",
-        "value": "2.500+"
+    "title": "Impacto",
+    "subtitle": "Infraestructura verificable para la economía regenerativa.",
+    "cards": {
+      "refi": {
+        "title": "Infraestructura para la Economía de Impacto (ReFi)",
+        "description": "Somos una red DePIN que conecta el capital global con datos offline verificables. Aportamos certeza criptográfica desde territorios sin conectividad, permitiendo escalar con confianza y transparencia."
       },
-      "investment": {
-        "description": "Nuestro sistema permite rastrear y certificar cada dólar invertido en proyectos de impacto social. A través de la tecnología blockchain y validación en territorio, garantizamos transparencia total en el uso de recursos, permitiendo a los inversores verificar en tiempo real cómo se utilizan sus fondos y el impacto generado.",
-        "label": "Volumen de Inversión Trazable",
-        "value": "1.4M+"
+      "digitalAsset": {
+        "title": "Convirtiendo el Impacto en un Activo Digital Verificable",
+        "description": "Establecer un protocolo para la verificación descentralizada offline, transformando actividades del mundo real en datos inmutables 'on-chain', creando una nueva clase de activo confiable para la economía global."
       },
-      "organizations": {
-        "description": "No construimos solos. Nuestra fase piloto se despliega junto nuestros socios locales e institucionales. Esta red nos permite validar la tecnología en diversos contextos culturales y geográficos, asegurando que el protocolo sea robusto, intuitivo y verdaderamente útil para quienes trabajan día a día en el territorio.",
-        "label": "Organizaciones Aliadas",
-        "value": "5"
+      "identity": {
+        "title": "Onboarding con Identidad Soberana",
+        "description": "Implementamos estándares para otorgar identidades digitales portables y privadas a usuarios en entornos offline. Transformamos participantes anónimos en actores económicos verificables sin depender de bases de datos centrales."
       },
-      "savings": {
-        "description": "El costo invisible de la ayuda humanitaria es el de gestionar los medios para verificar evidencias. Al digitalizar la validación en origen y acortar los tiempos de monitoreo liberamos un 30% del presupuesto operativo. Esto significa ~$420.000 en gastos operativos que pueden redirigirse directamente al impacto.",
-        "label": "Ahorro en Costos Operativos",
-        "value": "30%"
+      "poi": {
+        "title": "Generación de Pruebas de Impacto (PoI)",
+        "description": "Nuestro protocolo utiliza datos biométricos y geoespaciales capturados en campo para 'hashear' eventos del mundo real. Estos se anclan en la blockchain como pruebas criptográficas inmutables, listas para ser auditadas por contratos inteligentes."
       }
-    },
-    "subtitle": "Métricas de trazabilidad en tiempo real y eficiencia operativa de los recursos.",
-    "title": "Impacto"
+    }
   },
   "model_page": {
     "management": {
@@ -187,104 +183,6 @@
     "home": "INICIO",
     "model": "MODELO",
     "services": "SERVICIOS"
-  },
-  "roadmap": {
-    "keyFeaturesLabel": "Características clave:",
-    "phases": [
-      {
-        "description": "Implementación del protocolo base y sistema de validación offline",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Protocolo de validación implementado"
-          },
-          {
-            "completed": false,
-            "text": "Sistema offline-first operativo"
-          },
-          {
-            "completed": false,
-            "text": "Pruebas piloto exitosas"
-          }
-        ],
-        "title": "Desarrollo del Protocolo"
-      },
-      {
-        "description": "Implementación del protocolo base y sistema de validación offline",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Incorporación de 7 nuevas organizaciones"
-          },
-          {
-            "completed": false,
-            "text": "Beta funcionalidad de liberación automática de fondos (Smart Contracts)"
-          },
-          {
-            "completed": false,
-            "text": "Compatibilidad reporte estándar sobre los Objetivos de Desarrollo Sostenible"
-          }
-        ],
-        "title": "Consolidar el Protocolo"
-      },
-      {
-        "description": "Validación operativa en el Gran Chaco y UX",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Implementación activa en las 5 ONGs aliadas"
-          },
-          {
-            "completed": false,
-            "text": "Generación automática de informes certificados en blockchain"
-          },
-          {
-            "completed": false,
-            "text": "Optimización UX \"Gasless\" lanzamiento de la versión v2.0"
-          }
-        ],
-        "title": "Consolidación del Piloto"
-      },
-      {
-        "description": "Transición de proyecto a empresa y primeras ventas",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Formalización para facturar licencias SaaS"
-          },
-          {
-            "completed": false,
-            "text": "Validación de los Smart Contracts con altos estándares de seguridad"
-          },
-          {
-            "completed": false,
-            "text": "Validación del \"Business Case\" resultados financieros certificados"
-          }
-        ],
-        "title": "Estructuración y Negocio (B2I)"
-      }
-    ],
-    "timeline": {
-      "quarters": [
-        {
-          "completed": false,
-          "label": "Q4 2025"
-        },
-        {
-          "completed": false,
-          "label": "Q1 2026"
-        },
-        {
-          "completed": false,
-          "label": "Q2 2026"
-        },
-        {
-          "completed": false,
-          "label": "Q3 2026"
-        }
-      ]
-    },
-    "title": "Roadmap"
   },
   "services_page": {
     "hero": {

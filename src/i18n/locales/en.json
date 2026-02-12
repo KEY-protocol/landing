@@ -212,127 +212,25 @@
   },
   "impacto": {
     "title": "Impact",
-    "subtitle": "Real-time traceability metrics and operational efficiency of resources.",
-    "metrics": {
-      "investment": {
-        "value": "1.4M+",
-        "label": "Traceable Investment Volume",
-        "description": "Our system allows tracking and certifying every dollar invested in social impact projects. Through blockchain technology and field validation, we guarantee total transparency in resource use, enabling investors to verify in real-time how their funds are used and the impact generated."
+    "subtitle": "Verifiable infrastructure for the regenerative economy.",
+    "cards": {
+      "refi": {
+        "title": "Infrastructure for the Impact Economy (ReFi)",
+        "description": "We are a DePIN network that connects global capital with verifiable offline data. We provide cryptographic certainty from territories without connectivity, enabling scaling with confidence and transparency."
       },
-      "savings": {
-        "value": "30%",
-        "label": "Operational Cost Savings",
-        "description": "The invisible cost of humanitarian aid is managing the means to verify evidence. By digitizing validation at origin and shortening monitoring times, we free up 30% of the operational budget. This means ~$420,000 in operational expenses that can be redirected directly to impact."
+      "digitalAsset": {
+        "title": "Turning Impact into a Verifiable Digital Asset",
+        "description": "Establishing a protocol for decentralized offline verification, transforming real-world activities into immutable 'on-chain' data, creating a new class of reliable asset for the global economy."
       },
-      "organizations": {
-        "value": "5",
-        "label": "Allied Organizations",
-        "description": "We don't build alone. Our pilot phase is deployed together with our local and institutional partners. This network allows us to validate the technology in diverse cultural and geographical contexts, ensuring that the protocol is robust, intuitive, and truly useful for those who work daily in the field."
+      "identity": {
+        "title": "Onboarding with Sovereign Identity",
+        "description": "We implement standards to grant portable and private digital identities to users in offline environments. We transform anonymous participants into verifiable economic actors without relying on central databases."
       },
-      "identities": {
-        "value": "2.500+",
-        "label": "Digital Identities (DIDs)",
-        "description": "Decentralized Digital Identities (DIDs) empower beneficiaries with immutable histories of their training, productions, and achievements. This grants them data sovereignty and facilitates access to microcredits and new markets without intermediaries, transforming their relationship with the financial and productive system."
+      "poi": {
+        "title": "Proof of Impact Generation (PoI)",
+        "description": "Our protocol uses biometric and geospatial data captured in the field to 'hash' real-world events. These are anchored on the blockchain as immutable cryptographic proofs, ready to be audited by smart contracts."
       }
     }
-  },
-  "roadmap": {
-    "title": "Roadmap",
-    "keyFeaturesLabel": "Key features:",
-    "timeline": {
-      "quarters": [
-        {
-          "label": "Q4 2025",
-          "completed": false
-        },
-        {
-          "label": "Q1 2026",
-          "completed": false
-        },
-        {
-          "label": "Q2 2026",
-          "completed": false
-        },
-        {
-          "label": "Q3 2026",
-          "completed": false
-        }
-      ]
-    },
-    "phases": [
-      {
-        "title": "Protocol Development",
-        "description": "Implementation of the base protocol and offline validation system",
-        "milestones": [
-          {
-            "text": "Validation protocol implemented",
-            "completed": false
-          },
-          {
-            "text": "Offline-first system operational",
-            "completed": false
-          },
-          {
-            "text": "Successful pilot tests",
-            "completed": false
-          }
-        ]
-      },
-      {
-        "title": "Consolidate the Protocol",
-        "description": "Implementation of the base protocol and offline validation system",
-        "milestones": [
-          {
-            "text": "Incorporation of 7 new organizations",
-            "completed": false
-          },
-          {
-            "text": "Beta functionality for automatic fund release (Smart Contracts)",
-            "completed": false
-          },
-          {
-            "text": "Compatibility with standard reporting on Sustainable Development Goals",
-            "completed": false
-          }
-        ]
-      },
-      {
-        "title": "Pilot Consolidation",
-        "description": "Operational validation in Gran Chaco and UX",
-        "milestones": [
-          {
-            "text": "Active implementation in 5 allied NGOs",
-            "completed": false
-          },
-          {
-            "text": "Automatic generation of blockchain-certified reports",
-            "completed": false
-          },
-          {
-            "text": "UX optimization \"Gasless\" launch of version v2.0",
-            "completed": false
-          }
-        ]
-      },
-      {
-        "title": "Structuring and Business (B2I)",
-        "description": "Transition from project to company and first sales",
-        "milestones": [
-          {
-            "text": "Formalization to bill SaaS licenses",
-            "completed": false
-          },
-          {
-            "text": "Validation of Smart Contracts with high security standards",
-            "completed": false
-          },
-          {
-            "text": "Validation of \"Business Case\" certified financial results",
-            "completed": false
-          }
-        ]
-      }
-    ]
   },
   "contact": {
     "title": "Contact",
