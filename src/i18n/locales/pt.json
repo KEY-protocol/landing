@@ -344,17 +344,17 @@
   "title": "Key Protocol",
   "vision": {
     "cards": {
+      "auditability": {
+        "title": "Auditabilidade Nativa & Imutável",
+        "description": "Cada ponto de dado é rastreável on-chain desde a origem até o dashboard, permitindo auditorias programáticas em tempo real sem intervenção humana."
+      },
       "impact": {
-        "description": "Transparência total para investidores e organizações sobre o uso de recursos",
-        "title": "Impacto Certificado"
+        "title": "Impacto Certificado",
+        "description": "Verificamos provas criptográficas do impacto ocorrido, utilizamos Ambientes de Execução Confiável para computar dados sensíveis sem expor informações pessoais."
       },
-      "offline": {
-        "description": "Tecnologia que funciona sem conectividade, projetada para as comunidades mais remotas",
-        "title": "Offline first"
-      },
-      "validation": {
-        "description": "Ferramentas simples para documentar e validar o impacto de treinamentos em tempo real",
-        "title": "Validação em Território"
+      "investment": {
+        "title": "Investimento Programável",
+        "description": "Smart contracts que liberam fundos baseados em marcos verificados (milestones). Reduzimos os custos administrativos e de relatórios maximizando o capital."
       }
     },
     "description": {

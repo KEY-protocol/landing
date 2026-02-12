@@ -196,17 +196,17 @@
       "part6": "of their resources."
     },
     "cards": {
-      "validation": {
-        "title": "Field Validation",
-        "description": "Simple tools to document and validate the impact of training in real time"
+      "auditability": {
+        "title": "Native & Immutable Auditability",
+        "description": "Every data point is traceable on-chain from origin to dashboard, enabling programmatic audits in real time without human intervention."
       },
       "impact": {
         "title": "Certified Impact",
-        "description": "Total transparency for investors and organizations on resource usage"
+        "description": "We verify cryptographic proofs of occurred impact, using Trusted Execution Environments to compute sensitive data without exposing personal information."
       },
-      "offline": {
-        "title": "Offline first",
-        "description": "Technology that works without connectivity, designed for the most remote communities"
+      "investment": {
+        "title": "Programmable Investment",
+        "description": "Smart contracts that release funds based on verified milestones. We reduce administrative and reporting costs while maximizing capital."
       }
     }
   },
