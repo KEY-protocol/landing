@@ -10,77 +10,23 @@ interface Props {
 }
 
 const { lang, isHomePage = false } = Astro.props;
-
-const positionClass = isHomePage ? 'fixed' : 'sticky';
-const translateClass = isHomePage ? '-translate-y-full' : 'translate-y-0';
 ---
 
 <header
   id="main-header"
-  class={`w-full ${positionClass} top-0 z-50 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-2 sm:py-3 transition-all duration-500 ease-out ${translateClass} bg-primary/20 backdrop-blur-md`}
-  style="opacity: 0;"
-  data-is-home={isHomePage}
+  class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 bg-primary/30 backdrop-blur-xl border border-white/10 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-300 ease-out"
 >
-  <div class="max-w-7xl mx-auto grid grid-cols-3 items-center gap-2 sm:gap-4">
-    <div class="flex justify-start">
+  <div class="flex items-center justify-between gap-2 sm:gap-4">
+    <div class="shrink-0">
       <Logo lang={lang} />
     </div>
 
-    <div class="hidden md:flex justify-center">
+    <div class="hidden md:flex justify-center grow">
       <Navigation lang={lang} />
     </div>
 
-    <div class="flex justify-end items-center gap-2">
+    <div class="shrink-0 flex items-center gap-2">
       <LanguageSwitcher client:only="react" />
     </div>
   </div>
 </header>
-<script>
-  const header = document.getElementById('main-header');
-  const isHomePage = header?.getAttribute('data-is-home') === 'true';
-
-  if (isHomePage) {
-    const hero = document.getElementById('hero');
-
-    if (header && hero) {
-      setTimeout(() => {
-        if (header.classList.contains('-translate-y-full')) {
-          header.style.opacity = '0';
-        }
-      }, 100);
-
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              header.classList.add('-translate-y-full');
-              header.classList.remove('translate-y-0', 'scale-100');
-              header.style.opacity = '0';
-            } else {
-              header.classList.remove('-translate-y-full');
-              header.classList.add('translate-y-0');
-
-              requestAnimationFrame(() => {
-                header.style.opacity = '1';
-                header.classList.add('scale-100');
-              });
-            }
-          });
-        },
-        {
-          root: null,
-          threshold: 0,
-          rootMargin: '-50px 0px 0px 0px',
-        }
-      );
-
-      observer.observe(hero);
-    }
-  } else {
-    if (header) {
-      header.classList.remove('-translate-y-full');
-      header.classList.add('translate-y-0');
-      header.style.opacity = '1';
-    }
-  }
-</script>

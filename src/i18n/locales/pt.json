@@ -366,5 +366,15 @@
       "part6": "de seus recursos."
     },
     "title": "Visão"
+  },
+  "redirect_page": {
+    "title": "Inicializando Sistema",
+    "status": "Sincronizando seu idioma...",
+    "phrases": [
+      "Detectando idioma do navegador...",
+      "Verificando configurações regionais...",
+      "Preparando sua experiência...",
+      "Redirecionando para Key Protocol..."
+    ]
   }
 }

@@ -366,5 +366,15 @@
   "footer": {
     "copyright": "© 2025 KEY Protocol Argentina. All rights reserved.",
     "tagline": "Writing code to regenerate the world"
+  },
+  "redirect_page": {
+    "title": "System Initialize",
+    "status": "Synchronizing your locale...",
+    "phrases": [
+      "Detecting browser language...",
+      "Checking regional settings...",
+      "Preparing your experience...",
+      "Redirecting to Key Protocol..."
+    ]
   }
 }

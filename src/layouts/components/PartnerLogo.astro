@@ -42,13 +42,11 @@ const IconComponent = ICON_MAP[iconKey];
       class="flex items-center hover:opacity-80 transition-opacity"
       aria-label={alt}
     >
-      <IconComponent className={`h-8 w-auto sm:h-10 md:h-12 ${className}`} />
+      <IconComponent className={`h-6 w-auto sm:h-8 md:h-10 ${className}`} />
     </a>
   ) : (
     <div class="flex items-center" aria-label={alt}>
-      <IconComponent
-        className={`h-8 w-auto sm:h-10 md:h-12 text-white ${className}`}
-      />
+      <IconComponent className={`h-6 w-auto sm:h-8 md:h-10 ${className}`} />
     </div>
   )
 }
