@@ -1,5 +1,4 @@
 ---
-import ProyeccionDashboard from '@components/Model/ProyeccionDashboard.tsx';
 import type { Language } from '@custom-types/index';
 import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
@@ -13,7 +12,6 @@ const { lang } = Astro.props;
 const translations = { es, en, pt };
 const t = translations[lang];
 const content = t.model_page.management;
-const proyeccionTranslations = content.proyeccion;
 ---
 
 <section class="py-16 overflow-visible">
@@ -29,13 +27,6 @@ const proyeccionTranslations = content.proyeccion;
           {content.description}
         </p>
       </div>
-    </div>
-
-    <div class="mt-16">
-      <ProyeccionDashboard
-        translations={proyeccionTranslations}
-        client:visible
-      />
     </div>
   </div>
 </section>

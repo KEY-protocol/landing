@@ -16,14 +16,12 @@ const lang = Astro.params.lang as Language;
 const translations = { es, en, pt };
 const t = translations[lang];
 
-import SummarySection from './components/SummarySection.astro';
 import ManagementSection from './components/ManagementSection.astro';
 ---
 
 <BaseLayout lang={lang} title="Model - Key Protocol" footer={t.footer}>
   <div class="mt-20">
     <div id="hero" class="h-1"></div>
-    <SummarySection lang={lang} />
     <ManagementSection lang={lang} />
   </div>
 </BaseLayout>
