@@ -96,80 +96,23 @@
   },
   "model_page": {
     "management": {
-      "chart": {
-        "fee": "fee",
-        "fondos": "fondos",
-        "ongs": "ONGs"
-      },
-      "description": "En la fase actual (Pre-Seed), la estructura de costos fijos del protocolo representa un porcentaje mayor debido al desarrollo intensivo. Sin embargo, nuestro modelo B2I (Business to Institutions) es deflacionario para el cliente: al sumar más ONGs a la red, el fondo de gestión crece y el costo porcentual del servicio se reduce drásticamente.",
+      "description": "A diferencia de los modelos tradicionales donde mayor impacto implica mayor burocracia, nuestra infraestructura es deflacionaria por diseño. Al automatizar la verificación mediante Smart Contracts y Agentes de IA, eliminamos el costo marginal de auditoría. A medida que más nodos (ONGs) se suman a la red, el protocolo se vuelve más robusto y el costo por verificación desciende, trasladando esa eficiencia directamente al ROI del inversor.",
       "subtitle": "Un modelo financiero diseñado para maximizar el impacto: a mayor volumen de gestión, menor es el costo del servicio.",
-      "title": "Gestión",
-      "proyeccion": {
-        "title": "Tablero de Proyección",
-        "subtitle": "Modelo de Financiamiento I+D+i (DAO) y Eficiencia de Escala.",
-        "globalLabel": "% Global",
-        "globalDescription": "Costo Total del Ecosistema (KEY + DAO) sobre Capital Gestionado.",
-        "fundsManaged": "Fondos Gestionados",
-        "keyCost": "Costo KEY",
-        "base": "Base",
-        "dao": "DAO",
-        "rndFund": "fondo I+D+i",
-        "chartTitle": "Distribución del Presupuesto Operativo",
-        "chartSubtitle": "Comparativa de Fondos (AUM) vs. Costos (KEY + DAO).",
-        "legendAUM": "Capital Gestionado (AUM)",
-        "legendKeyCost": "Costo Operativo KEY",
-        "legendDAO": "Fondo I+D+i (DAO)",
-        "tableYear": "Año",
-        "tableFunds": "Fondos (AUM)",
-        "tableKeyCost": "Costo KEY",
-        "tableDaoFund": "Fondo DAO",
-        "tableDaoDefinition": "Definición DAO",
-        "tableGlobalPercent": "% GLOBAL (Total/Fondos)",
-        "daoOnKey": "sobre KEY",
-        "ngosLabel": "ONGs",
-        "phaseLabel": "Fase",
-        "phaseNames": {
-          "base": "Fase Inicial",
-          "scale": "Escalamiento",
-          "mature": "Madurez"
-        },
-        "phases": [
-          {
-            "description": "El 15% cubre la estructura técnica, legal y operativa inicial para validar el modelo."
-          },
-          {
-            "description": "Al duplicar la red, el costo del servicio baja casi a la mitad, transfiriendo ese ahorro directamente al presupuesto de impacto de los financiadores."
-          },
-          {
-            "description": "Con el ecosistema consolidado, la eficiencia operativa permite reducir el costo a menos del 5%, maximizando los recursos que llegan efectivamente a las comunidades."
-          }
-        ]
-      }
+      "title": "Gestión"
     },
     "summary": {
       "cards": {
         "step_a": {
-          "description": "El técnico utiliza la Field App en territorio para generar pruebas de vida y acción:",
-          "list": [
-            "Identidad: Registro biométrico y documental para crear Identidades Digitales (DID).",
-            "Evidencia: Captura de fotos geolocalizadas, huellas digitales y reportes de audio que se empaquetan y encriptan localmente en el dispositivo."
-          ],
-          "title": "Registro Offline-First"
+          "description": "Nuestra dApp móvil funciona como un oráculo (Edge Oracle). Recolecta datos biométricos geolocalizados en entornos sin conectividad, firmando criptográficamente cada paquete de información en el dispositivo para garantizar su origen y autenticidad antes de tocar la red.",
+          "title": "Captura de Datos \"Offline-First\""
         },
         "step_b": {
-          "description": "Al recuperar conectividad, la aplicación sincroniza los paquetes de datos:",
-          "list": [
-            "IPFS (Almacenamiento): Los archivos de evidencia se distribuyen en una red descentralizada, haciéndolos incensurables.",
-            "Polkadot (Consenso): Se registra el hash criptográfico de la operación, creando una marca de tiempo inalterable."
-          ],
-          "title": "Sincronización Inmutable"
+          "description": "Utilizamos entornos de ejecución confidenciales. Agentes de IA autónomos analizan la evidencia y validan las informaciones sin exponer datos sensibles, asegurando privacidad total (GDPR compliant) y auditoría 24/7 sin intervención humana.",
+          "title": "Verificación Descentralizada (AI)"
         },
         "step_c": {
-          "list": [
-            "Computación Confidencial (Phala Network): Procesamos los datos sensibles en un entorno seguro (TEE) para validar la consistencia entre la identidad y la evidencia sin exponer la privacidad del beneficiario.",
-            "Resultado: Emisión de un Certificado Digital que libera los fondos y actualiza el dashboard del financiador."
-          ],
-          "title": "Validación Privada"
+          "description": "Una vez validada la prueba de impacto (Proof of Impact), los Smart Contracts ejecutan la lógica de negocio: liberan fondos programados, emiten certificados verificables (VCs) o acuñan tokens de reputación automáticamente.",
+          "title": "Liquidación On-Chain"
         }
       },
       "description": "Nuestro protocolo opera mediante un ciclo de validación de tres pasos que garantiza la integridad de los datos desde su captura en zonas desconectadas hasta su certificación en la blockchain.",

@@ -5,6 +5,7 @@ import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
 import pt from '@i18n/locales/pt.json';
 import { STATIC_PATHS } from '@data/languageConfig';
+import ManagementSection from './components/ManagementSection.astro';
 
 export const prerender = true;
 
@@ -15,11 +16,13 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Language;
 const translations = { es, en, pt };
 const t = translations[lang];
-
-import ManagementSection from './components/ManagementSection.astro';
 ---
 
-<BaseLayout lang={lang} title="Model - Key Protocol" footer={t.footer}>
+<BaseLayout
+  lang={lang}
+  title={`${t.model_page.title} - Key Protocol`}
+  footer={t.footer}
+>
   <div class="mt-20">
     <div id="hero" class="h-1"></div>
     <ManagementSection lang={lang} />

@@ -3,6 +3,10 @@ import type { Language } from '@custom-types/index';
 import es from '@i18n/locales/es.json';
 import en from '@i18n/locales/en.json';
 import pt from '@i18n/locales/pt.json';
+import SeguridadIcon from '@components/icons/model/SeguridadIcon';
+import IdentidadIcon from '@components/icons/model/IdentidadIcon';
+import CertificacionIcon from '@components/icons/model/CertificacionIcon';
+import StepCard from './StepCard.astro';
 
 interface Props {
   lang: Language;
@@ -11,22 +15,83 @@ interface Props {
 const { lang } = Astro.props;
 const translations = { es, en, pt };
 const t = translations[lang];
-const content = t.model_page.management;
+const management = t.model_page.management;
+const summary = t.model_page.summary;
+const cards = summary.cards;
 ---
 
-<section class="py-16 overflow-visible">
-  <div class="container mx-auto px-4 overflow-visible">
-    <div class="mb-16">
-      <h2 class="text-5xl font-bold mb-6">{content.title}</h2>
-      <p class="text-xl md:text-2xl mb-8 font-semibold">
-        {content.subtitle}
+<section id="model-management" class="relative">
+  <!-- Top: Title + Texts -->
+  <div class="pt-16 pb-12">
+    <div class="max-w-[900px] mx-auto px-8">
+      <h2 class="mgmt-title text-white font-extrabold mb-8 leading-tight">
+        {management.title}
+      </h2>
+
+      <p
+        class="mgmt-text-md text-white font-bold leading-relaxed mb-6 text-center"
+      >
+        {summary.description}
       </p>
 
-      <div class="mb-12">
-        <p class="text-sm md:text-base mb-6">
-          {content.description}
-        </p>
-      </div>
+      <p class="mgmt-text-sm text-white/55 leading-relaxed">
+        {summary.subtitle}
+      </p>
+    </div>
+  </div>
+
+  <!-- Step Cards with Icons -->
+  <div class="py-10">
+    <div
+      class="max-w-[1100px] mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-5"
+    >
+      <StepCard
+        title={cards.step_a.title}
+        description={cards.step_a.description}
+      >
+        <SeguridadIcon slot="icon" />
+      </StepCard>
+
+      <StepCard
+        title={cards.step_b.title}
+        description={cards.step_b.description}
+      >
+        <IdentidadIcon slot="icon" />
+      </StepCard>
+
+      <StepCard
+        title={cards.step_c.title}
+        description={cards.step_c.description}
+      >
+        <CertificacionIcon slot="icon" />
+      </StepCard>
+    </div>
+  </div>
+
+  <!-- Bottom: Management Model Text -->
+  <div class="pt-16 pb-12">
+    <div class="max-w-[900px] mx-auto px-8">
+      <p class="mgmt-text-md text-white font-bold leading-relaxed mb-6">
+        {management.subtitle}
+      </p>
+      <p class="mgmt-text-sm text-white/60 leading-loose">
+        {management.description}
+      </p>
     </div>
   </div>
 </section>
+
+<style>
+  /* clamp() font sizes — not expressible in Tailwind */
+  .mgmt-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .mgmt-text-md {
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+  }
+
+  .mgmt-text-sm {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  }
+</style>

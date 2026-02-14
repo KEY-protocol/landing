@@ -8,80 +8,23 @@
       "description": "Our protocol operates through a three-step validation cycle that guarantees data integrity from capture in disconnected zones to certification on the blockchain.",
       "cards": {
         "step_a": {
-          "title": "Offline-First Registration",
-          "description": "The technician uses the Field App in the field to generate proof of life and action:",
-          "list": [
-            "Identity: Biometric and documentary registration to create Digital Identities (DID).",
-            "Evidence: Capture of geolocated photos, fingerprints, and audio reports that are packaged and encrypted locally on the device."
-          ]
+          "title": "\"Offline-First\" Data Capture",
+          "description": "Our mobile dApp works as an oracle (Edge Oracle). It collects geolocated biometric data in offline environments, cryptographically signing each data package on the device to guarantee its origin and authenticity before reaching the network."
         },
         "step_b": {
-          "title": "Immutable Synchronization",
-          "description": "Upon regaining connectivity, the application synchronizes data packages:",
-          "list": [
-            "IPFS (Storage): Evidence files are distributed across a decentralized network, making them uncensorable.",
-            "Polkadot (Consensus): The cryptographic hash of the operation is recorded, creating an unalterable timestamp."
-          ]
+          "title": "Decentralized Verification (AI)",
+          "description": "We use confidential execution environments. Autonomous AI agents analyze evidence and validate information without exposing sensitive data, ensuring total privacy (GDPR compliant) and 24/7 auditing without human intervention."
         },
         "step_c": {
-          "title": "Private Validation",
-          "list": [
-            "Confidential Computing (Phala Network): We process sensitive data in a secure environment (TEE) to validate consistency between identity and evidence without exposing the beneficiary's privacy.",
-            "Result: Issuance of a Digital Certificate that releases funds and updates the funder's dashboard."
-          ]
+          "title": "On-Chain Settlement",
+          "description": "Once the proof of impact (Proof of Impact) is validated, Smart Contracts execute the business logic: they release programmed funds, issue verifiable certificates (VCs), or mint reputation tokens automatically."
         }
       }
     },
     "management": {
       "title": "Management",
       "subtitle": "A financial model designed to maximize impact: the greater the management volume, the lower the service cost.",
-      "description": "In the current phase (Pre-Seed), the protocol's fixed cost structure represents a higher percentage due to intensive development. However, our B2I (Business to Institutions) model is deflationary for the client: by adding more NGOs to the network, the management fund grows and the percentage cost of the service is drastically reduced.",
-      "chart": {
-        "fondos": "funds",
-        "ongs": "NGOs",
-        "fee": "fee"
-      },
-      "proyeccion": {
-        "title": "Projection Dashboard",
-        "subtitle": "R&D+i (DAO) Financing Model and Scale Efficiency.",
-        "globalLabel": "% Global",
-        "globalDescription": "Total Ecosystem Cost (KEY + DAO) over Managed Capital.",
-        "fundsManaged": "Managed Funds",
-        "keyCost": "KEY Cost",
-        "base": "Base",
-        "dao": "DAO",
-        "rndFund": "R&D+i fund",
-        "chartTitle": "Operating Budget Distribution",
-        "chartSubtitle": "Funds (AUM) vs. Costs (KEY + DAO) Comparison.",
-        "legendAUM": "Managed Capital (AUM)",
-        "legendKeyCost": "KEY Operating Cost",
-        "legendDAO": "R&D+i Fund (DAO)",
-        "tableYear": "Year",
-        "tableFunds": "Funds (AUM)",
-        "tableKeyCost": "KEY Cost",
-        "tableDaoFund": "DAO Fund",
-        "tableDaoDefinition": "DAO Definition",
-        "tableGlobalPercent": "% GLOBAL (Total/Funds)",
-        "daoOnKey": "on KEY",
-        "ngosLabel": "NGOs",
-        "phaseLabel": "Phase",
-        "phaseNames": {
-          "base": "Initial Phase",
-          "scale": "Scaling",
-          "mature": "Maturity"
-        },
-        "phases": [
-          {
-            "description": "The 15% covers the initial technical, legal, and operational structure to validate the model."
-          },
-          {
-            "description": "By doubling the network, the service cost drops almost in half, transferring that savings directly to the funders' impact budget."
-          },
-          {
-            "description": "With the ecosystem consolidated, operational efficiency allows reducing the cost to less than 5%, maximizing the resources that effectively reach the communities."
-          }
-        ]
-      }
+      "description": "Unlike traditional models where greater impact means more bureaucracy, our infrastructure is deflationary by design. By automating verification through Smart Contracts and AI Agents, we eliminate the marginal cost of auditing. As more nodes (NGOs) join the network, the protocol becomes more robust and the cost per verification decreases, transferring that efficiency directly to the investor's ROI."
     }
   },
   "nav": {
