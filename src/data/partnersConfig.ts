@@ -1,28 +1,30 @@
+export type PartnerIconKey = 'fund' | 'utn' | 'nerdconf' | 'latinhack';
+
 export interface Partner {
   name: string;
-  logo: string;
+  iconKey: PartnerIconKey;
   href: string;
 }
 
 export const PARTNERS: Partner[] = [
   {
     name: 'Fundación Gran Chaco',
-    logo: '/icons/partners/svg/fund.svg',
+    iconKey: 'fund',
     href: 'https://gran-chaco.org/es/home/',
   },
   {
     name: 'UTN - Universidad Tecnológica Nacional',
-    logo: '/icons/partners/svg/utn.svg',
+    iconKey: 'utn',
     href: 'https://www.utn.edu.ar',
   },
   {
     name: 'NerdConf',
-    logo: '/icons/partners/svg/nerdconf.svg',
+    iconKey: 'nerdconf',
     href: 'https://nerdconf.com',
   },
   {
     name: 'LatinHack',
-    logo: '/icons/partners/svg/latinhack.svg',
+    iconKey: 'latinhack',
     href: 'https://latinhack.io/',
   },
 ];

@@ -2,6 +2,7 @@ import React from 'react';
 import { ServiceCard } from './ServiceCard';
 import { CarouselDots } from './CarouselDots';
 import { CarouselNavigationButtons } from './CarouselNavigationButtons';
+import { MobileServicesList } from './MobileServicesList';
 import { useCarousel } from './useCarousel';
 
 interface Service {
@@ -53,18 +54,27 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
   return (
     <section
       ref={sectionRef}
-      className="services-section py-20 bg-primary"
+      className="services-section py-10 sm:py-14 md:py-20 bg-primary"
       data-current-index={currentIndex}
     >
-      <div className="container mx-auto px-4">
-        <div className="text-left mb-16 max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">{title}</h2>
-          <p className="text-lg md:text-xl opacity-90 leading-relaxed">
+      <div className="container mx-auto px-4 sm:px-6">
+        {/* Header - shared across both layouts */}
+        <div className="text-left mb-6 sm:mb-12 md:mb-16 max-w-4xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6">
+            {title}
+          </h2>
+          <p className="text-sm sm:text-lg md:text-xl opacity-90 leading-relaxed">
             {description}
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        {/* ===== MOBILE LAYOUT: Accordion cards (visible < md) ===== */}
+        <div className="block md:hidden max-w-lg mx-auto">
+          <MobileServicesList services={services} labels={labels} />
+        </div>
+
+        {/* ===== TABLET + DESKTOP LAYOUT: Carousel (visible >= md) ===== */}
+        <div className="hidden md:block relative max-w-4xl mx-auto">
           <div
             ref={containerRef}
             className="carousel-container overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory hide-scrollbar"

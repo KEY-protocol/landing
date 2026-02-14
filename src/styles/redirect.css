@@ -1,0 +1,103 @@
+/* Specific styles for the redirect page that are easier to handle in CSS than pure Tailwind utility classes */
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes loading {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0) translateX(0);
+  }
+  to {
+    transform: translateY(-100vh) translateX(20px);
+  }
+}
+
+.bg-gradient-custom {
+  background:
+    radial-gradient(
+      circle at 40% 40%,
+      hsla(113, 49%, 12%, 1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      hsla(173, 80%, 10%, 1) 0%,
+      transparent 40%
+    );
+}
+
+.grid-lines-custom {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(
+    circle at 50% 50%,
+    black,
+    transparent 80%
+  );
+}
+
+.animate-rotate-slow {
+  animation: rotate 20s linear infinite;
+}
+
+.animate-card-appear {
+  animation: cardAppear 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-logo-pulse {
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+.animate-loading-bar {
+  animation: loading 2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.animate-float-dots {
+  animation: float 10s infinite linear;
+}
+
+.highlight-text-gradient {
+  background: linear-gradient(to bottom, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,5 +1,5 @@
 ---
-import Image from 'astro/components/Image.astro';
+import { LogoFullIcon } from '@components/icons';
 
 interface Props {
   lang?: string;
@@ -12,12 +12,5 @@ const { lang = 'es' } = Astro.props;
   href={`/${lang}`}
   class="flex items-center gap-2 hover:opacity-80 transition-opacity cursor-pointer"
 >
-  <Image
-    src="/icons/org/logo-2.svg"
-    alt="KEY Protocol Logo"
-    width={48}
-    height={48}
-    class="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-24 xl:w-24 object-contain"
-    loading="eager"
-  />
+  <LogoFullIcon className="h-7 w-auto sm:h-8 md:h-9 lg:h-10" />
 </a>

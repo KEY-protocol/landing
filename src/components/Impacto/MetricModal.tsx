@@ -1,11 +1,12 @@
 import { useState, useEffect, useLayoutEffect, useRef } from 'react';
+import OptimizedImage from '@components/ui/OptimizedImage';
 
 interface MetricModalProps {
   id: string;
-  value: string;
-  label: string;
+  title: string;
   description: string;
   imageSrc: string;
+  imageSrcWebp: string;
   imageAlt: string;
 }
 
@@ -13,10 +14,10 @@ type AnimationState = 'closed' | 'opening' | 'open' | 'closing';
 
 export default function MetricModal({
   id,
-  value,
-  label,
+  title,
   description,
   imageSrc,
+  imageSrcWebp,
   imageAlt,
 }: MetricModalProps) {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,8 +27,6 @@ export default function MetricModal({
   const animationTimeoutRef = useRef<number | null>(null);
 
   // Handle open/close transitions
-  // This pattern is intentional for enter/exit animations - we need to synchronously
-  // update animationState when isOpen changes to trigger the animation flow
   useLayoutEffect(() => {
     if (isOpen && animationState === 'closed') {
       setAnimationState('opening');
@@ -38,12 +37,10 @@ export default function MetricModal({
 
   useEffect(() => {
     if (animationState === 'opening') {
-      // Trigger animation after mount
       animationTimeoutRef.current = requestAnimationFrame(() => {
         setAnimationState('open');
       });
     } else if (animationState === 'closing') {
-      // Wait for animation to complete
       animationTimeoutRef.current = window.setTimeout(() => {
         setAnimationState('closed');
       }, 300);
@@ -117,7 +114,6 @@ export default function MetricModal({
     };
   }, [isOpen]);
 
-  // Derive render and visibility states from animationState
   const shouldRender = animationState !== 'closed';
   const isVisible = animationState === 'open';
 
@@ -138,13 +134,15 @@ export default function MetricModal({
         onClick={e => e.stopPropagation()}
       >
         {/* Background Image */}
-        <img
+        <OptimizedImage
           src={imageSrc}
+          srcWebp={imageSrcWebp}
           alt={imageAlt}
           className="absolute inset-0 w-full h-full object-cover z-0"
+          loading="eager"
         />
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/60 to-black/40 z-0"></div>
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/30 to-black/70 z-0"></div>
 
         {/* Close button */}
         <button
@@ -169,14 +167,11 @@ export default function MetricModal({
 
         {/* Content Container */}
         <div className="relative z-10 flex flex-col justify-between h-full p-6 sm:p-8 md:p-10 lg:p-12">
-          {/* Metric Block */}
+          {/* Title Block */}
           <div className="mt-8 mb-3 sm:mt-0">
-            <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-montserrat font-bold mb-1 sm:mb-2">
-              {value}
-            </p>
-            <p className="text-xs sm:text-sm md:text-base lg:text-lg font-montserrat font-semibold">
-              {label}
-            </p>
+            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-montserrat font-bold leading-tight max-w-[80%]">
+              {title}
+            </h3>
           </div>
 
           {/* Description Block */}

@@ -1,39 +1,121 @@
 ---
 export const prerender = true;
+import '../styles/index.css';
+import '../styles/redirect.css';
+import { LogoFullIcon } from '@components/icons';
+import es from '@i18n/locales/es.json';
+import en from '@i18n/locales/en.json';
+import pt from '@i18n/locales/pt.json';
+
+const allTranslations = { es, en, pt };
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charSet="utf-8" />
-    <title>Redirecting...</title>
-    <script>
-      // Detect browser language and redirect to the appropriate locale
-      function getBrowserLocale() {
-        const availableLocales = ['es', 'en', 'pt'];
-        const defaultLocale = 'en';
-
-        // Get browser language (e.g., 'es-ES', 'en-US', 'pt-BR')
-        const browserLang =
-          navigator.language || navigator.languages?.[0] || 'en';
-
-        // Extract the primary language code (e.g., 'es' from 'es-ES')
-        const primaryLang = browserLang.split('-')[0].toLowerCase();
-
-        // Check if the primary language is available
-        if (availableLocales.includes(primaryLang)) {
-          return primaryLang;
-        }
-
-        // Default to Spanish if browser language is not supported
-        return defaultLocale;
-      }
-
-      const locale = getBrowserLocale();
-      window.location.href = `/${locale}`;
-    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Key Protocol | Redirecting...</title>
+    <meta
+      name="description"
+      content="Secure identity protocol for the digital age. Redirecting to your language..."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <p>Redirecting...</p>
+  <body
+    class="m-0 p-0 bg-[#060805] text-white font-poppins h-screen flex items-center justify-center overflow-hidden"
+  >
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute inset-[-50%] bg-gradient-custom blur-[80px] animate-rotate-slow"
+      >
+      </div>
+      <div class="absolute inset-0 bg-[length:50px_50px] grid-lines-custom">
+      </div>
+      <!-- Decorative floating dots -->
+      <div class="dot animate-float-dots top-[80%] left-[20%] delay-0"></div>
+      <div class="dot animate-float-dots top-[90%] left-[70%] delay-[2s]"></div>
+      <div class="dot animate-float-dots top-[70%] left-[50%] delay-[5s]"></div>
+    </div>
+
+    <main
+      class="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[32px] px-12 py-16 text-center max-w-[440px] w-[90%] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.1)] animate-card-appear"
+    >
+      <div class="mb-12 inline-flex p-4 relative">
+        <div
+          class="absolute inset-[-10px] bg-[#93f5a1] blur-[30px] opacity-15 rounded-full animate-logo-pulse"
+        >
+        </div>
+        <LogoFullIcon className="h-12 w-auto relative z-10" fill="white" />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <span
+          class="text-[#93f5a1] text-[0.75rem] font-semibold tracking-widest uppercase"
+          id="redirect-title">System Initialize</span
+        >
+        <div
+          class="relative w-full h-1 bg-white/5 rounded-sm my-8 overflow-hidden"
+        >
+          <div
+            class="absolute h-full w-[40%] bg-gradient-to-r from-transparent via-[#93f5a1] to-transparent animate-loading-bar rounded-sm"
+          >
+          </div>
+        </div>
+        <p
+          class="text-white/40 text-[0.875rem] transition-opacity duration-300"
+          id="status-text"
+        >
+          Synchronizing your locale...
+        </p>
+      </div>
+    </main>
+
+    <script define:vars={{ allTranslations }}>
+      window.REDIRECT_TRANSLATIONS = allTranslations;
+    </script>
+
+    <script>
+      import {
+        getBrowserLocale,
+        applyLocalizedContent,
+        initStatusCycler,
+        performRedirect,
+      } from '@utils/redirect';
+
+      // 1. Detect locale
+      const locale = getBrowserLocale();
+
+      // 2. Apply localized content immediately using global translations
+      const phrases = applyLocalizedContent(
+        locale,
+        (window as any).REDIRECT_TRANSLATIONS
+      );
+
+      // 3. Initialize status cycler with localized phrases
+      const cleanup = initStatusCycler('status-text', phrases);
+
+      // 4. Perform redirect
+      performRedirect(4000); // 4 seconds to enjoy the UX and show a few phrases
+
+      // Cleanup
+      window.addEventListener('pagehide', cleanup);
+    </script>
+
+    <style>
+      .dot {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.3;
+      }
+    </style>
   </body>
 </html>

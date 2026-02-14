@@ -73,107 +73,46 @@
     "tag": "KEY PROTOCOL"
   },
   "impacto": {
-    "metrics": {
-      "identities": {
-        "description": "Las Identidades Digitales Descentralizadas (DIDs) empoderan a los beneficiarios con historiales inmutables de sus capacitaciones, producciones y logros. Esto les otorga soberanía sobre sus datos y facilita el acceso a microcréditos y nuevos mercados sin intermediarios, transformando su relación con el sistema financiero y productivo.",
-        "label": "Identidades Digitales (DIDs)",
-        "value": "2.500+"
+    "title": "Impacto",
+    "subtitle": "Infraestructura verificable para la economía regenerativa.",
+    "cards": {
+      "refi": {
+        "title": "Infraestructura para la Economía de Impacto (ReFi)",
+        "description": "Somos una red DePIN que conecta el capital global con datos offline verificables. Aportamos certeza criptográfica desde territorios sin conectividad, permitiendo escalar con confianza y transparencia."
       },
-      "investment": {
-        "description": "Nuestro sistema permite rastrear y certificar cada dólar invertido en proyectos de impacto social. A través de la tecnología blockchain y validación en territorio, garantizamos transparencia total en el uso de recursos, permitiendo a los inversores verificar en tiempo real cómo se utilizan sus fondos y el impacto generado.",
-        "label": "Volumen de Inversión Trazable",
-        "value": "1.4M+"
+      "digitalAsset": {
+        "title": "Convirtiendo el Impacto en un Activo Digital Verificable",
+        "description": "Establecer un protocolo para la verificación descentralizada offline, transformando actividades del mundo real en datos inmutables 'on-chain', creando una nueva clase de activo confiable para la economía global."
       },
-      "organizations": {
-        "description": "No construimos solos. Nuestra fase piloto se despliega junto nuestros socios locales e institucionales. Esta red nos permite validar la tecnología en diversos contextos culturales y geográficos, asegurando que el protocolo sea robusto, intuitivo y verdaderamente útil para quienes trabajan día a día en el territorio.",
-        "label": "Organizaciones Aliadas",
-        "value": "5"
+      "identity": {
+        "title": "Onboarding con Identidad Soberana",
+        "description": "Implementamos estándares para otorgar identidades digitales portables y privadas a usuarios en entornos offline. Transformamos participantes anónimos en actores económicos verificables sin depender de bases de datos centrales."
       },
-      "savings": {
-        "description": "El costo invisible de la ayuda humanitaria es el de gestionar los medios para verificar evidencias. Al digitalizar la validación en origen y acortar los tiempos de monitoreo liberamos un 30% del presupuesto operativo. Esto significa ~$420.000 en gastos operativos que pueden redirigirse directamente al impacto.",
-        "label": "Ahorro en Costos Operativos",
-        "value": "30%"
+      "poi": {
+        "title": "Generación de Pruebas de Impacto (PoI)",
+        "description": "Nuestro protocolo utiliza datos biométricos y geoespaciales capturados en campo para 'hashear' eventos del mundo real. Estos se anclan en la blockchain como pruebas criptográficas inmutables, listas para ser auditadas por contratos inteligentes."
       }
-    },
-    "subtitle": "Métricas de trazabilidad en tiempo real y eficiencia operativa de los recursos.",
-    "title": "Impacto"
+    }
   },
   "model_page": {
     "management": {
-      "chart": {
-        "fee": "fee",
-        "fondos": "fondos",
-        "ongs": "ONGs"
-      },
-      "description": "En la fase actual (Pre-Seed), la estructura de costos fijos del protocolo representa un porcentaje mayor debido al desarrollo intensivo. Sin embargo, nuestro modelo B2I (Business to Institutions) es deflacionario para el cliente: al sumar más ONGs a la red, el fondo de gestión crece y el costo porcentual del servicio se reduce drásticamente.",
+      "description": "A diferencia de los modelos tradicionales donde mayor impacto implica mayor burocracia, nuestra infraestructura es deflacionaria por diseño. Al automatizar la verificación mediante Smart Contracts y Agentes de IA, eliminamos el costo marginal de auditoría. A medida que más nodos (ONGs) se suman a la red, el protocolo se vuelve más robusto y el costo por verificación desciende, trasladando esa eficiencia directamente al ROI del inversor.",
       "subtitle": "Un modelo financiero diseñado para maximizar el impacto: a mayor volumen de gestión, menor es el costo del servicio.",
-      "title": "Gestión",
-      "proyeccion": {
-        "title": "Tablero de Proyección",
-        "subtitle": "Modelo de Financiamiento I+D+i (DAO) y Eficiencia de Escala.",
-        "globalLabel": "% Global",
-        "globalDescription": "Costo Total del Ecosistema (KEY + DAO) sobre Capital Gestionado.",
-        "fundsManaged": "Fondos Gestionados",
-        "keyCost": "Costo KEY",
-        "base": "Base",
-        "dao": "DAO",
-        "rndFund": "fondo I+D+i",
-        "chartTitle": "Distribución del Presupuesto Operativo",
-        "chartSubtitle": "Comparativa de Fondos (AUM) vs. Costos (KEY + DAO).",
-        "legendAUM": "Capital Gestionado (AUM)",
-        "legendKeyCost": "Costo Operativo KEY",
-        "legendDAO": "Fondo I+D+i (DAO)",
-        "tableYear": "Año",
-        "tableFunds": "Fondos (AUM)",
-        "tableKeyCost": "Costo KEY",
-        "tableDaoFund": "Fondo DAO",
-        "tableDaoDefinition": "Definición DAO",
-        "tableGlobalPercent": "% GLOBAL (Total/Fondos)",
-        "daoOnKey": "sobre KEY",
-        "ngosLabel": "ONGs",
-        "phaseLabel": "Fase",
-        "phaseNames": {
-          "base": "Fase Inicial",
-          "scale": "Escalamiento",
-          "mature": "Madurez"
-        },
-        "phases": [
-          {
-            "description": "El 15% cubre la estructura técnica, legal y operativa inicial para validar el modelo."
-          },
-          {
-            "description": "Al duplicar la red, el costo del servicio baja casi a la mitad, transfiriendo ese ahorro directamente al presupuesto de impacto de los financiadores."
-          },
-          {
-            "description": "Con el ecosistema consolidado, la eficiencia operativa permite reducir el costo a menos del 5%, maximizando los recursos que llegan efectivamente a las comunidades."
-          }
-        ]
-      }
+      "title": "Gestión"
     },
     "summary": {
       "cards": {
         "step_a": {
-          "description": "El técnico utiliza la Field App en territorio para generar pruebas de vida y acción:",
-          "list": [
-            "Identidad: Registro biométrico y documental para crear Identidades Digitales (DID).",
-            "Evidencia: Captura de fotos geolocalizadas, huellas digitales y reportes de audio que se empaquetan y encriptan localmente en el dispositivo."
-          ],
-          "title": "Registro Offline-First"
+          "description": "Nuestra dApp móvil funciona como un oráculo (Edge Oracle). Recolecta datos biométricos geolocalizados en entornos sin conectividad, firmando criptográficamente cada paquete de información en el dispositivo para garantizar su origen y autenticidad antes de tocar la red.",
+          "title": "Captura de Datos \"Offline-First\""
         },
         "step_b": {
-          "description": "Al recuperar conectividad, la aplicación sincroniza los paquetes de datos:",
-          "list": [
-            "IPFS (Almacenamiento): Los archivos de evidencia se distribuyen en una red descentralizada, haciéndolos incensurables.",
-            "Polkadot (Consenso): Se registra el hash criptográfico de la operación, creando una marca de tiempo inalterable."
-          ],
-          "title": "Sincronización Inmutable"
+          "description": "Utilizamos entornos de ejecución confidenciales. Agentes de IA autónomos analizan la evidencia y validan las informaciones sin exponer datos sensibles, asegurando privacidad total (GDPR compliant) y auditoría 24/7 sin intervención humana.",
+          "title": "Verificación Descentralizada (AI)"
         },
         "step_c": {
-          "list": [
-            "Computación Confidencial (Phala Network): Procesamos los datos sensibles en un entorno seguro (TEE) para validar la consistencia entre la identidad y la evidencia sin exponer la privacidad del beneficiario.",
-            "Resultado: Emisión de un Certificado Digital que libera los fondos y actualiza el dashboard del financiador."
-          ],
-          "title": "Validación Privada"
+          "description": "Una vez validada la prueba de impacto (Proof of Impact), los Smart Contracts ejecutan la lógica de negocio: liberan fondos programados, emiten certificados verificables (VCs) o acuñan tokens de reputación automáticamente.",
+          "title": "Liquidación On-Chain"
         }
       },
       "description": "Nuestro protocolo opera mediante un ciclo de validación de tres pasos que garantiza la integridad de los datos desde su captura en zonas desconectadas hasta su certificación en la blockchain.",
@@ -187,104 +126,6 @@
     "home": "INICIO",
     "model": "MODELO",
     "services": "SERVICIOS"
-  },
-  "roadmap": {
-    "keyFeaturesLabel": "Características clave:",
-    "phases": [
-      {
-        "description": "Implementación del protocolo base y sistema de validación offline",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Protocolo de validación implementado"
-          },
-          {
-            "completed": false,
-            "text": "Sistema offline-first operativo"
-          },
-          {
-            "completed": false,
-            "text": "Pruebas piloto exitosas"
-          }
-        ],
-        "title": "Desarrollo del Protocolo"
-      },
-      {
-        "description": "Implementación del protocolo base y sistema de validación offline",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Incorporación de 7 nuevas organizaciones"
-          },
-          {
-            "completed": false,
-            "text": "Beta funcionalidad de liberación automática de fondos (Smart Contracts)"
-          },
-          {
-            "completed": false,
-            "text": "Compatibilidad reporte estándar sobre los Objetivos de Desarrollo Sostenible"
-          }
-        ],
-        "title": "Consolidar el Protocolo"
-      },
-      {
-        "description": "Validación operativa en el Gran Chaco y UX",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Implementación activa en las 5 ONGs aliadas"
-          },
-          {
-            "completed": false,
-            "text": "Generación automática de informes certificados en blockchain"
-          },
-          {
-            "completed": false,
-            "text": "Optimización UX \"Gasless\" lanzamiento de la versión v2.0"
-          }
-        ],
-        "title": "Consolidación del Piloto"
-      },
-      {
-        "description": "Transición de proyecto a empresa y primeras ventas",
-        "milestones": [
-          {
-            "completed": false,
-            "text": "Formalización para facturar licencias SaaS"
-          },
-          {
-            "completed": false,
-            "text": "Validación de los Smart Contracts con altos estándares de seguridad"
-          },
-          {
-            "completed": false,
-            "text": "Validación del \"Business Case\" resultados financieros certificados"
-          }
-        ],
-        "title": "Estructuración y Negocio (B2I)"
-      }
-    ],
-    "timeline": {
-      "quarters": [
-        {
-          "completed": false,
-          "label": "Q4 2025"
-        },
-        {
-          "completed": false,
-          "label": "Q1 2026"
-        },
-        {
-          "completed": false,
-          "label": "Q2 2026"
-        },
-        {
-          "completed": false,
-          "label": "Q3 2026"
-        }
-      ]
-    },
-    "title": "Roadmap"
   },
   "services_page": {
     "hero": {
@@ -303,7 +144,7 @@
         "advantage": "La posibilidad de vincular capacidades adquiridas a las personas permite focalizar la implementación de proyectos de impacto basados en datos verificados y confidenciales.",
         "description": "Crea y gestiona identidades soberanas para beneficiarios en zonas sin conectividad.",
         "functionality": "Registro biométrico y documental offline que genera una credencial verificable confidencial en la blockchain.",
-        "icon": "biometric.png",
+        "icon": "biometric",
         "id": "identity",
         "idealFor": "ONGs, Gobiernos, Programas de Inclusión Financiera.",
         "subtitle": "El pasaporte digital para el desarrollo.",
@@ -313,7 +154,7 @@
         "advantage": "Audita el cumplimiento de tareas (ej. asistencia a un curso) protegiendo la identidad de los participantes.",
         "description": "Un motor de verificación que procesa pruebas de campo sin exponer datos sensibles.",
         "functionality": "Análisis automático de fotos, audios y coordenadas mediante Inteligencia Artificial en un entorno seguro (TEE).",
-        "icon": "keyBox.png",
+        "icon": "keyBox",
         "id": "documentation",
         "idealFor": "Auditoría de RSE, Bonos de Carbono, Certificación de Origen.",
         "subtitle": "Certificación de acciones con privacidad garantizada.",
@@ -323,7 +164,7 @@
         "advantage": "Elimina la visibilidad diferida de las inversiones, ofreciendo transparencia total sobre dónde y cómo se invierte.",
         "description": "El panel de control definitivo para visualizar el flujo de fondos y su impacto.",
         "functionality": "Visualización de métricas clave, liberación de fondos por hitos cumplidos y reportes de impacto certificados.",
-        "icon": "stats.png",
+        "icon": "stats",
         "id": "dashboard",
         "idealFor": "Bancos de Desarrollo, Fondos de Inversión de Impacto, Filantropía Corporativa.",
         "subtitle": "Trazabilidad financiera en tiempo real.",
@@ -333,7 +174,7 @@
         "advantage": "Reduce en un 90% el tiempo administrativo de los equipos técnicos, permitiéndoles enfocarse en el trabajo social.",
         "description": "Transforma datos de campo desordenados en informes estandarizados al instante.",
         "functionality": "Agentes de IA que estructuran la información recolectada por la Field App en formatos listos para presentar (PDF, Excel, API).",
-        "icon": "doc.png",
+        "icon": "doc",
         "id": "automation",
         "idealFor": "Coordinadores de Proyecto, Equipos de Monitoreo y Evaluación.",
         "subtitle": "Adiós a la gestión manual.",
@@ -347,17 +188,17 @@
   "title": "Key Protocol",
   "vision": {
     "cards": {
+      "auditability": {
+        "title": "Auditabilidad Nativa & Inmutable",
+        "description": "Cada punto de dato es trazable on-chain desde el origen hasta el dashboard, permitiendo auditorías programáticas en tiempo real sin intervención humana."
+      },
       "impact": {
-        "description": "Transparencia total para inversores y organizaciones sobre el uso de recursos",
-        "title": "Impacto Certificado"
+        "title": "Impacto Certificado",
+        "description": "Verificamos pruebas criptográficas del impacto ocurrido, utilizamos Entornos de Ejecución Confiable para computar datos sensibles sin exponer la información personal."
       },
-      "offline": {
-        "description": "Tecnología que funciona sin conectividad, diseñada para las comunidades más remotas",
-        "title": "Offline first"
-      },
-      "validation": {
-        "description": "Herramientas simples para documentar y validar el impacto de capacitaciones en tiempo real",
-        "title": "Validación en Territorio"
+      "investment": {
+        "title": "Inversión Programable",
+        "description": "Smart contracts que liberan fondos basados en hitos verificados (milestones). Reducimos los costos administrativos y de reporte maximizando el capital."
       }
     },
     "description": {
@@ -369,5 +210,15 @@
       "part6": "de sus recursos."
     },
     "title": "Visión"
+  },
+  "redirect_page": {
+    "title": "Inicializando Sistema",
+    "status": "Sincronizando tu idioma...",
+    "phrases": [
+      "Detectando idioma del navegador...",
+      "Comprobando ajustes regionales...",
+      "Preparando tu experiencia...",
+      "Redirigiendo a Key Protocol..."
+    ]
   }
 }

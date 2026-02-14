@@ -1,45 +1,33 @@
 ---
 import MetricCard from '@components/Impacto/MetricCard.tsx';
 import MetricModal from '@components/Impacto/MetricModal.tsx';
-import { METRICS_CONFIG } from '@data/metricsConfig';
+import { IMPACT_CARDS_CONFIG } from '@data/metricsConfig';
+
+interface CardContent {
+  title: string;
+  description: string;
+}
 
 interface Props {
   impacto: {
     title: string;
     subtitle: string;
-    metrics: {
-      investment: {
-        value: string;
-        label: string;
-        description: string;
-      };
-      savings: {
-        value: string;
-        label: string;
-        description: string;
-      };
-      organizations: {
-        value: string;
-        label: string;
-        description: string;
-      };
-      identities: {
-        value: string;
-        label: string;
-        description: string;
-      };
+    cards: {
+      refi: CardContent;
+      digitalAsset: CardContent;
+      identity: CardContent;
+      poi: CardContent;
     };
   };
 }
 
 const { impacto } = Astro.props;
 
-const metricsData = METRICS_CONFIG.map(config => ({
+const cardsData = IMPACT_CARDS_CONFIG.map(config => ({
   ...config,
-  value: impacto.metrics[config.id as keyof typeof impacto.metrics].value,
-  label: impacto.metrics[config.id as keyof typeof impacto.metrics].label,
+  title: impacto.cards[config.id as keyof typeof impacto.cards].title,
   description:
-    impacto.metrics[config.id as keyof typeof impacto.metrics].description,
+    impacto.cards[config.id as keyof typeof impacto.cards].description,
 }));
 ---
 
@@ -56,16 +44,16 @@ const metricsData = METRICS_CONFIG.map(config => ({
       </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
       {
-        metricsData.map((metric, index) => (
+        cardsData.map((card, index) => (
           <MetricCard
             client:visible
-            id={metric.id}
-            value={metric.value}
-            label={metric.label}
-            imageSrc={metric.imageSrc}
-            imageAlt={metric.imageAlt}
+            id={card.id}
+            title={card.title}
+            imageSrc={card.imageSrc}
+            imageSrcWebp={card.imageSrcWebp}
+            imageAlt={card.imageAlt}
             index={index}
           />
         ))
@@ -73,15 +61,15 @@ const metricsData = METRICS_CONFIG.map(config => ({
     </div>
 
     {
-      metricsData.map(metric => (
+      cardsData.map(card => (
         <MetricModal
           client:only="react"
-          id={metric.id}
-          value={metric.value}
-          label={metric.label}
-          description={metric.description}
-          imageSrc={metric.imageSrc}
-          imageAlt={metric.imageAlt}
+          id={card.id}
+          title={card.title}
+          description={card.description}
+          imageSrc={card.imageSrc}
+          imageSrcWebp={card.imageSrcWebp}
+          imageAlt={card.imageAlt}
         />
       ))
     }

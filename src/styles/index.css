@@ -206,3 +206,32 @@ h6 {
     user-select: none;
   }
 }
+
+/* Services section responsive improvements */
+@media (max-width: 640px) {
+  .services-section {
+    overflow-x: hidden;
+  }
+
+  .services-section .carousel-track {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: pan-x;
+  }
+
+  .services-section h3,
+  .services-section h4,
+  .services-section p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .services-section .carousel-track {
+    touch-action: pan-x;
+  }
+}

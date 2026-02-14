@@ -8,7 +8,6 @@ import { STATIC_PATHS } from '@data/languageConfig';
 import Hero from './components/Hero/Hero.astro';
 import Vision from './components/Vision/Vision.astro';
 import Impacto from './components/Impacto/Impacto.astro';
-import Roadmap from './components/Roadmap/Roadmap.astro';
 
 export const prerender = true;
 
@@ -25,5 +24,4 @@ const t = translations[lang];
   <Hero hero={t.hero} />
   <Vision vision={t.vision} />
   <Impacto impacto={t.impacto} />
-  <Roadmap roadmap={t.roadmap} />
 </BaseLayout>

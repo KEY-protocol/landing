@@ -1,25 +1,36 @@
 ---
-import Image from 'astro/components/Image.astro';
+import {
+  UtnIcon,
+  NerdConfIcon,
+  FundIcon,
+  LatinHackIcon,
+} from '@components/icons';
+import type { PartnerIconKey } from '@data/partnersConfig';
 
 interface Props {
-  src: string;
+  iconKey: PartnerIconKey;
   alt: string;
-  width?: number;
-  height?: number;
   class?: string;
   href?: string;
   target?: string;
 }
 
 const {
-  src,
+  iconKey,
   alt,
-  width = 80,
-  height = 80,
   class: className = '',
   href,
   target = '_blank',
 } = Astro.props;
+
+const ICON_MAP: Record<PartnerIconKey, typeof UtnIcon> = {
+  utn: UtnIcon,
+  nerdconf: NerdConfIcon,
+  fund: FundIcon,
+  latinhack: LatinHackIcon,
+};
+
+const IconComponent = ICON_MAP[iconKey];
 ---
 
 {
@@ -29,25 +40,13 @@ const {
       target={target}
       rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       class="flex items-center hover:opacity-80 transition-opacity"
+      aria-label={alt}
     >
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        class={`h-12 w-12 sm:h-16 sm:w-16 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-40 xl:w-40 2xl:h-44 2xl:w-44 object-contain ${className}`}
-        loading="eager"
-      />
+      <IconComponent className={`h-6 w-auto sm:h-8 md:h-10 ${className}`} />
     </a>
   ) : (
-    <div class="flex items-center">
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        class={`h-12 w-12 sm:h-16 sm:w-16 md:h-24 md:w-24 lg:h-32 lg:w-32 xl:h-40 xl:w-40 2xl:h-44 2xl:w-44 object-contain text-white ${className}`}
-      />
+    <div class="flex items-center" aria-label={alt}>
+      <IconComponent className={`h-6 w-auto sm:h-8 md:h-10 ${className}`} />
     </div>
   )
 }

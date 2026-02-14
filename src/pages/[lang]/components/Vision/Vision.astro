@@ -13,7 +13,7 @@ interface Props {
       part6: string;
     };
     cards: {
-      validation: {
+      auditability: {
         title: string;
         description: string;
       };
@@ -21,7 +21,7 @@ interface Props {
         title: string;
         description: string;
       };
-      offline: {
+      investment: {
         title: string;
         description: string;
       };
@@ -56,16 +56,16 @@ const { vision } = Astro.props;
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8"
     >
       <Card
-        title={vision.cards.validation.title}
-        description={vision.cards.validation.description}
+        title={vision.cards.auditability.title}
+        description={vision.cards.auditability.description}
       />
       <Card
         title={vision.cards.impact.title}
         description={vision.cards.impact.description}
       />
       <Card
-        title={vision.cards.offline.title}
-        description={vision.cards.offline.description}
+        title={vision.cards.investment.title}
+        description={vision.cards.investment.description}
       />
     </div>
   </div>
