@@ -2,6 +2,7 @@
 import Logo from './components/Logo.astro';
 import Navigation from './components/Navigation.astro';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import MobileMenu from './components/MobileMenu';
 import type { Language } from '@custom-types/index';
 
 interface Props {
@@ -27,6 +28,7 @@ const { lang, isHomePage = false } = Astro.props;
 
     <div class="shrink-0 flex items-center gap-2">
       <LanguageSwitcher client:only="react" />
+      <MobileMenu client:only="react" />
     </div>
   </div>
 </header>

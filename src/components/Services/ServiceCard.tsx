@@ -44,8 +44,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 
   return (
     <div className="relative">
-      <div className="mb-8 flex justify-center">
-        <div className="w-28 h-28 bg-[#2D5A47] backdrop-blur-sm rounded-3xl flex items-center justify-center p-6 shadow-lg border border-[#2D5A47]">
+      {/* Icon */}
+      <div className="mb-4 sm:mb-6 md:mb-8 flex justify-center">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 bg-[#2D5A47] backdrop-blur-sm rounded-2xl sm:rounded-3xl flex items-center justify-center p-4 sm:p-5 md:p-6 shadow-lg border border-[#2D5A47]">
           {IconComponent ? (
             <IconComponent className="w-full h-full" />
           ) : (
@@ -54,39 +55,48 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
         </div>
       </div>
 
-      <div className="text-center mb-6">
-        <h3 className="text-2xl md:text-3xl font-bold mb-2">{title}</h3>
-        <p className="text-sm md:text-base font-light italic opacity-80">
+      {/* Title & Subtitle */}
+      <div className="text-center mb-3 sm:mb-4 md:mb-6">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2">
+          {title}
+        </h3>
+        <p className="text-xs sm:text-sm md:text-base font-light italic opacity-80">
           {subtitle}
         </p>
       </div>
 
-      <p className="text-center mb-8 leading-relaxed opacity-90">
+      {/* Description */}
+      <p className="text-center text-sm sm:text-base mb-5 sm:mb-6 md:mb-8 leading-relaxed opacity-90 px-1 sm:px-0">
         {description}
       </p>
 
-      <div className="space-y-6 max-w-2xl mx-auto">
+      {/* Detail sections */}
+      <div className="space-y-4 sm:space-y-5 md:space-y-6 max-w-2xl mx-auto">
         <div>
-          <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-            <span className="text-xl">•</span> {labels.functionality}
+          <h4 className="font-bold text-base sm:text-lg mb-1 sm:mb-2 flex items-center gap-2">
+            <span className="text-lg sm:text-xl">•</span> {labels.functionality}
           </h4>
-          <p className="text-sm leading-relaxed opacity-85 pl-6">
+          <p className="text-xs sm:text-sm leading-relaxed opacity-85 pl-5 sm:pl-6">
             {functionality}
           </p>
         </div>
 
         <div>
-          <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-            <span className="text-xl">•</span> {labels.advantage}
+          <h4 className="font-bold text-base sm:text-lg mb-1 sm:mb-2 flex items-center gap-2">
+            <span className="text-lg sm:text-xl">•</span> {labels.advantage}
           </h4>
-          <p className="text-sm leading-relaxed opacity-85 pl-6">{advantage}</p>
+          <p className="text-xs sm:text-sm leading-relaxed opacity-85 pl-5 sm:pl-6">
+            {advantage}
+          </p>
         </div>
 
         <div>
-          <h4 className="font-bold text-lg mb-2 flex items-center gap-2">
-            <span className="text-xl">•</span> {labels.idealFor}
+          <h4 className="font-bold text-base sm:text-lg mb-1 sm:mb-2 flex items-center gap-2">
+            <span className="text-lg sm:text-xl">•</span> {labels.idealFor}
           </h4>
-          <p className="text-sm leading-relaxed opacity-85 pl-6">{idealFor}</p>
+          <p className="text-xs sm:text-sm leading-relaxed opacity-85 pl-5 sm:pl-6">
+            {idealFor}
+          </p>
         </div>
       </div>
     </div>

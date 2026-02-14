@@ -12,7 +12,7 @@ export const CarouselDots: React.FC<CarouselDotsProps> = ({
   onDotClick,
 }) => {
   return (
-    <div className="dot-indicators flex justify-center gap-3 mt-6">
+    <div className="dot-indicators flex justify-center gap-2 sm:gap-3 mt-4 sm:mt-5 md:mt-6">
       {Array.from({ length: totalDots }).map((_, index) => (
         <button
           key={index}

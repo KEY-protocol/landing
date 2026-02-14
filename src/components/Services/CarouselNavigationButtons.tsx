@@ -10,10 +10,10 @@ export const CarouselNavigationButtons: React.FC<
 > = ({ onPrevious, onNext }) => {
   return (
     <>
-      <div className="navigation-buttons flex justify-center gap-4 mt-8">
+      <div className="navigation-buttons flex justify-center gap-4 mt-5 sm:mt-6 md:mt-8">
         <button
           onClick={onPrevious}
-          className="nav-button nav-button-prev flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 border-2 border-white/20 text-white cursor-pointer transition-all duration-300 ease-in-out backdrop-blur-[10px] hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] active:scale-95"
+          className="nav-button nav-button-prev flex items-center justify-center w-11 h-11 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 border-2 border-white/20 text-white cursor-pointer transition-all duration-300 ease-in-out backdrop-blur-[10px] hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] active:scale-95"
           aria-label="Previous slide"
         >
           <svg
@@ -31,7 +31,7 @@ export const CarouselNavigationButtons: React.FC<
         </button>
         <button
           onClick={onNext}
-          className="nav-button nav-button-next flex items-center justify-center w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 border-2 border-white/20 text-white cursor-pointer transition-all duration-300 ease-in-out backdrop-blur-[10px] hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] active:scale-95"
+          className="nav-button nav-button-next flex items-center justify-center w-11 h-11 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/10 border-2 border-white/20 text-white cursor-pointer transition-all duration-300 ease-in-out backdrop-blur-[10px] hover:bg-white/20 hover:border-white/40 hover:scale-110 hover:shadow-[0_4px_12px_rgba(0,0,0,0.2)] active:scale-95"
           aria-label="Next slide"
         >
           <svg
